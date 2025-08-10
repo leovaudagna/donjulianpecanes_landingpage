@@ -256,6 +256,13 @@ a {
 .container-redes {
     height: 800px;
     background-color: var(--color-verde);
+    display: flex;
+    flex-direction: row;
+    color: var(--color-blanco);
+}
+
+.container-redes img {
+    width: 300px;
 }
 
 
@@ -356,4 +363,119 @@ form button:hover {
 
 .fa-whatsapp:hover {
     color: #21C063;
+}
+
+
+
+/* ====== RESPONSIVE ====== */
+
+/* Tablets y pantallas medianas */
+@media (max-width: 992px) {
+    .container-navbar .navbar {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    nav {
+        text-align: center;
+    }
+
+    nav ul li {
+        display: block;
+        margin: 10px 0;
+    }
+
+    .container-main {
+        flex-direction: column;
+        text-align: center;
+        height: auto;
+        margin-top: 40px;
+    }
+
+    .container-main .logo img,
+    .container-main .slogan img {
+        width: 80%;
+        max-width: 350px;
+    }
+
+    .tarjetas-productos {
+        gap: 40px;
+    }
+}
+
+/* Celulares y pantallas pequeñas */
+@media (max-width: 576px) {
+    h2 {
+        font-size: 2rem;
+    }
+
+    h3 {
+        font-size: 1.4rem;
+    }
+
+    .container-navbar .navbar {
+        padding: 10px;
+    }
+
+    .container-main {
+        margin-top: 20px;
+        padding: 0 15px;
+    }
+
+    .container-main .logo img,
+    .container-main .slogan img {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    .container-productos {
+        padding: 100px 15px 60px;
+    }
+
+    .tarjetas-productos {
+        flex-direction: column;
+        gap: 25px;
+    }
+
+    .tarjeta {
+        width: 100%;
+    }
+
+    .container-frase {
+        height: auto;
+        padding: 40px 15px;
+        font-size: 1rem;
+    }
+
+    .container-redes {
+        flex-direction: column;
+        align-items: center;
+        height: auto;
+        padding: 40px 15px;
+        text-align: center;
+    }
+
+    .container-redes img {
+        width: 200px;
+    }
+
+    .formulario {
+        padding: 40px 15px;
+    }
+
+    .container-footer {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        height: auto;
+        gap: 20px;
+        padding: 20px 15px;
+    }
+
+    .footer-redes {
+        flex-direction: row;
+        justify-content: center;
+        gap: 15px;
+        margin-left: 0;
+    }
 }
