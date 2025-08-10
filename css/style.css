@@ -13,11 +13,12 @@
 * {
     margin: 0;
     padding: 0;
-    /* box-sizing: border-box; */
+    box-sizing: border-box;
     font-family: 'Nunito sans', sans-serif;
 }
 
 body {
+    margin: 0;
     display: flex;
     flex-direction: column;
 }
@@ -374,6 +375,14 @@ form button:hover {
     .container-navbar .navbar {
         flex-direction: column;
         gap: 15px;
+    }
+
+    .navbar-logo {
+        align-self: center;
+    }
+
+    .navbar {
+        margin-right: 0;
     }
 
     nav {
