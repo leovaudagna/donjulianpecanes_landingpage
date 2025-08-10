@@ -1,0 +1,359 @@
+:root {
+    --color-marron: #925E43;
+    --color-marron-oscuro: #3D1B13;
+    --color-verde: #4A5831;
+    --color-blanco: #FFFFFF;
+    --color-gris: #f3f3f3;
+    --color-gris-oscuro: #585858;
+    --color-negro: #080808;
+    --color-negro-claro: #2b2b2b;
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    /* box-sizing: border-box; */
+    font-family: 'Nunito sans', sans-serif;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+h2 {
+    font-size: 2.5rem;
+    font-weight: 900;
+}
+
+h3 {
+    font-size: 1.8rem;
+}
+
+
+/* NAVBAR */
+
+.container-navbar {
+    max-width: 1300px;
+    margin: auto;
+    padding: 0 25px;
+    width: 100%;
+}
+
+
+.container-navbar .navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 20px;
+}
+
+.navbar-logo {
+    align-self: last baseline;
+}
+
+nav {
+    flex: 1;
+    text-align: right;
+}
+
+nav ul {
+    display: inline-block;
+    list-style-type: none;
+}
+
+nav ul li {
+    display: inline-block;
+    margin-right: 20px;
+}
+
+a {
+    text-decoration: none;
+    color: var(--color-marron);
+}
+
+
+/* TITULO */
+.container-main {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 70px;
+    margin-bottom: 30px;
+    height: 500px;
+
+    /* para agregar la curva */
+    position: relative;
+    z-index: 0;
+}
+
+
+
+
+
+
+.container-main .logo img {
+    width: 450px;
+
+}
+
+.container-main .slogan img {
+    padding-bottom: 60px;
+    width: 450px;
+}
+
+
+/* PRODUCTOS */
+.container-productos {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    align-items: center;
+    padding: 150px 20px 90px;
+    background-color: var(--color-marron);
+    overflow: visible;
+    z-index: 1;
+}
+
+.container-productos::before {
+    content: '';
+    position: absolute;
+    background: url(../assets/fondos/onda-2.svg) center bottom no-repeat;
+    top: 0;
+    left: 0;
+    width: 100%;
+    content: '';
+    height: 150px;
+    background-size: cover;
+    z-index: 2;
+    position: absolute;
+}
+
+
+
+.container-productos-titulo {
+    font-size: 2.8rem;
+    color: var(--color-blanco);
+    text-align: center;
+    margin-top: 35px;
+    margin-bottom: 60px;
+    position: relative;
+}
+
+
+/* Grid */
+.tarjetas-productos {
+    display: flex;
+    flex-wrap: wrap; /* Permite que las tarjetas bajen de línea */
+    justify-content: center;
+    gap: 90px; /* Espacio entre tarjetas */
+    width: 100%;
+    max-width: 1200px
+}
+
+/* Estilo de cada tarjeta */
+.tarjeta {
+    width: 300px;
+    background-color: var(--color-negro-claro);
+    background: linear-gradient(0deg,rgb(0, 0, 0) 29%, rgba(43, 43, 43, 1) 90%);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.2s ease;
+}
+
+.tarjeta-header {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-bottom: 15px;
+    min-height: 80px; /* Igual altura para todos */
+}
+
+.tarjeta-header h2 {
+    font-size: 2.0rem;
+}
+
+.tarjeta:hover {
+    transform: scale(1.04);
+}
+
+.tarjeta img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+}
+
+
+
+/* Contenido dentro de la tarjeta */
+.tarjeta-datos {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-grow: 1;
+}
+
+.tarjeta-datos-descripcion {
+    font-size: 0.9rem;
+    font-style: italic;
+    color: #ffe6c6;
+}
+
+.tarjeta-titulo {
+    color: white !important;
+    font-size: 1.5rem;
+}
+
+.tarjeta ul {
+    margin: 20px 0 5px 0;
+    padding-left: 20px;
+    min-height: 90px;
+}
+
+.tarjeta li {
+    color: wheat;
+    margin-bottom: 6px;
+}
+
+/* Botón */
+.tarjeta-boton {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 16px;
+    background-color: var(--color-acento);
+    color: #fff;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.tarjeta-boton:hover {
+    background-color: var(--color-marron);
+}
+
+/* FRASE DESTACADA */
+.container-frase {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--color-blanco);
+    color: var(--color-negro);
+    text-align: center;
+    padding: 60px 20px;
+    font-size: 1.2rem;
+    height: 400px;
+}
+
+/* REDES - ECOMMERCE */
+.container-redes {
+    height: 800px;
+    background-color: var(--color-verde);
+}
+
+
+/* CONTACTO */
+.formulario {
+    padding: 60px 20px;
+    background-color: var(--color-gris);
+}
+
+.formulario h2 {
+    margin-bottom: 30px;
+    color: var(--color-marron);
+    text-align: center;
+}
+
+.formulario form {
+    display: flex;
+    flex-direction: column;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+form label {
+    margin-top: 15px;
+    margin-bottom: 5px;
+}
+
+form input,
+form textarea {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-family: inherit;
+}
+
+form button {
+    margin-top: 20px;
+    padding: 12px;
+    background-color: var(--color-marron);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: #6e432a;
+}
+
+/* FOOTER */
+.container-footer {
+    /* background: url(../assets/original.jpg);     */
+    background-color: var(--color-negro);
+    /* background: linear-gradient(0deg,rgb(0, 0, 0) 29%, rgba(43, 43, 43, 1) 90%); */
+    color: var(--color-gris-oscuro);
+    display: flex;
+    flex-grow: 1;
+    align-items: center;
+    flex-direction: row;
+    height: 200px;
+    padding: 3.5rem;
+    gap: 100px;
+}
+
+
+.footer-logo {
+    max-height: fit-content;
+    width: 150px;
+}
+
+/* .footer-encabezado {
+    color: yellow;
+    font-weight: 900;
+    text-decoration: underline;
+    margin-bottom: 1rem;
+} */
+
+.footer-redes {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 25px;
+    margin-left: auto;
+}
+
+.fa-brands {
+    font-size: 27px;
+}
+
+.fa-facebook-f:hover {
+    color: #0866FF;
+}
+
+.fa-instagram:hover {
+    color: #D300C5;
+}
+
+.fa-whatsapp:hover {
+    color: #21C063;
+}
