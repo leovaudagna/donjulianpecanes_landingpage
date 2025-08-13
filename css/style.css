@@ -255,15 +255,46 @@ a {
 
 /* REDES - ECOMMERCE */
 .container-redes {
-    height: 800px;
-    background-color: var(--color-verde);
     display: flex;
     flex-direction: row;
-    color: var(--color-blanco);
+    align-items: center;          /* Centra verticalmente imagen y texto */
+    justify-content: space-around; /* Espacio equilibrado entre elementos */
+    padding: 40px 15px;
+    height: 550px;
+    gap: 40px;                     /* Espacio fijo entre imagen y texto */
+    flex-wrap: wrap;               /* Permite que en pantallas pequeñas se acomoden en columna */
+    text-align: left;              /* Texto alineado a la izquierda por defecto */
+    color: white;
+    background-color: #080808;
+    background: linear-gradient(rgba(255,255,255,0.1), rgba(0,0,0,0.2)), url(/assets/fondos/fondo-grain-verde.jpg);
+    background-size: cover;
+    
 }
 
-.container-redes img {
-    width: 300px;
+.redes-mockup img {
+    max-width: 450px;              /* Tamaño máximo de la imagen */
+    width: 100%;                   /* Escala con el contenedor */
+    height: auto;
+}
+
+.redes-texto {
+    max-width: 500px;              /* Evita que el texto sea demasiado ancho */
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.redes-links {
+    width: 200px;
+    display: flex;
+    align-self: flex-end;
+    justify-content: space-around;
+}
+
+.redes-texto h2 {
+    font-size: 2rem;
+    font-weight: 900;
 }
 
 
@@ -412,6 +443,10 @@ form button:hover {
     }
 }
 
+
+
+
+
 /* Celulares y pantallas pequeñas */
 @media (max-width: 576px) {
     h2 {
@@ -456,13 +491,7 @@ form button:hover {
         font-size: 1rem;
     }
 
-    .container-redes {
-        flex-direction: column;
-        align-items: center;
-        height: auto;
-        padding: 40px 15px;
-        text-align: center;
-    }
+    
 
     .container-redes img {
         width: 200px;
