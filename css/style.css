@@ -84,16 +84,24 @@ a {
     margin-top: 70px;
     margin-bottom: 30px;
     height: 500px;
-
     /* para agregar la curva */
     position: relative;
     z-index: 0;
 }
 
-
-
-
-
+.container-division {
+    content: '';
+    background: url(../assets/fondos/onda-2.svg) center bottom no-repeat;
+    bottom: 100;
+    left: 0;
+    width: 100%;
+    content: '';
+    height: 0px;
+    background-size: cover;
+    z-index: 2;
+    transform: scaleY(1);
+    transform-origin: bottom; /* punto de referencia para la inversión */
+}
 
 .container-main .logo img {
     width: 450px;
@@ -107,7 +115,7 @@ a {
 
 
 /* PRODUCTOS */
-.container-productos {
+/* .container-productos {
     display: flex;
     position: relative;
     flex-direction: column;
@@ -118,21 +126,6 @@ a {
     z-index: 1;
 }
 
-.container-productos::before {
-    content: '';
-    position: absolute;
-    background: url(../assets/fondos/onda-2.svg) center bottom no-repeat;
-    top: 0;
-    left: 0;
-    width: 100%;
-    content: '';
-    height: 150px;
-    background-size: cover;
-    z-index: 2;
-    position: absolute;
-}
-
-
 
 .container-productos-titulo {
     font-size: 2.8rem;
@@ -141,7 +134,66 @@ a {
     margin-top: 35px;
     margin-bottom: 60px;
     position: relative;
+} */
+
+
+/* OPCION 2 */
+.container-productos-2 {
+    display: grid;  
+    grid-template-columns: 1fr 1fr; /* dos columnas: nueces izq, texto der */
+    align-items: center;
+    background-color: var(--color-negro);
+    height: 800px;
+    padding: 80px;
+    position: relative; /* necesario para z-index relativos */
 }
+
+.container-productos-2-nueces {
+    position: relative;
+    z-index: 2; /* las nueces por encima del texto */
+}
+
+.container-productos-2-nueces img {
+    position: relative; /* necesario para usar top */
+    top: 100px; /* mueve solo la imagen hacia abajo */
+    width: 900px;
+}
+
+.container-productos-2-texto {
+    position: relative;
+    z-index: 1;
+    margin-left: -150px; /* superpone h2 debajo de las nueces */
+    color: var(--color-blanco);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-end; /* alinea todo el contenido a la derecha */
+}
+
+.container-productos-2-texto h2 {
+    font-size: 4.5rem;
+    line-height: 1.2;
+    margin-bottom: 30px;
+    text-align: right; /* para que el texto se vea alineado */
+}
+
+.container-productos-2-texto button {    
+    padding: 18px 32px;
+    font-size: 1.2rem;
+    background-color: var(--color-acento);
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.container-productos-2-texto button:hover {
+    background-color: #e65c00;
+    transform: scale(1.05);
+}
+
 
 
 /* Grid */
