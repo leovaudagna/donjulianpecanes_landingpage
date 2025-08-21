@@ -7,6 +7,11 @@
     --color-gris-oscuro: #585858;
     --color-negro: #080808;
     --color-negro-claro: #2b2b2b;
+
+    --color-azul: #090E73;
+
+    --color-accion: #F58E31;
+    --color-accion-oscuro: #fa7f13;
 }
 
 
@@ -174,6 +179,7 @@ a {
     max-width: 900px;
     grid-column: 2 / -1;
     grid-row: 1;
+    z-index: 1;
     justify-self: center;
     align-self: center;
 }
@@ -190,7 +196,7 @@ a {
 .container-productos-2-texto button {    
     padding: 18px 32px;
     font-size: 1.2rem;
-    background-color: var(--color-acento);
+    background-color: var(--color-negro);
     color: #fff;
     border: none;
     border-radius: 10px;
@@ -201,9 +207,25 @@ a {
 }
 
 .container-productos-2-texto button:hover {
-    background-color: var(--color-verde);
+    background-color: var(--color-accion);
     transform: scale(1.05);
 }
+
+
+.container-division-2 {
+    background-color: #080808;
+    position: relative;
+    width: 100%;
+    margin-top: -5px; /* para que quede “pegado” al container de arriba */
+    line-height: 0; /* elimina espacio blanco */
+}
+
+.container-division-2 img {
+    display: block;
+    width: 100%; /* se adapta al ancho */
+    height: auto;
+}
+
 
 
 
@@ -327,10 +349,8 @@ a {
     gap: 40px;                     /* Espacio fijo entre imagen y texto */
     flex-wrap: wrap;               /* Permite que en pantallas pequeñas se acomoden en columna */
     text-align: left;              /* Texto alineado a la izquierda por defecto */
-    color: white;
-    background-color: #080808;
-    background: linear-gradient(rgba(255,255,255,0.1), rgba(0,0,0,0.2)), url(/assets/fondos/fondo-grain-verde.jpg);
-    background-size: cover;
+    color: var(--color-marron);
+    background-color: var(--color-gris);
     
 }
 
@@ -359,6 +379,44 @@ a {
     font-size: 2rem;
     font-weight: 900;
 }
+
+
+/* INFO CALIDAD */
+.container-info {
+    background-color: var(--color-marron-oscuro);
+    display: flex;
+    flex-direction: row;
+    padding: 80px 120px;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+    color: var(--color-blanco);      
+}
+
+.container-info h3 {
+    font-weight: 300;
+    margin-top: 15px;
+}
+
+
+.container-info img {
+    filter: invert(100);
+    height: 60px;
+}
+
+/* INFO CLUSTER */
+.container-frase {
+    background-color: var(--color-gris);
+    height: 400px;
+}
+
+.container-frase img {
+    margin: 50px;
+    width: 400px;
+    filter: saturate(0);
+}
+
+
 
 
 /* CONTACTO */
@@ -396,16 +454,19 @@ form textarea {
 form button {
     margin-top: 20px;
     padding: 12px;
-    background-color: var(--color-marron);
-    color: white;
+    background-color: var(--color-accion);
+    color: var(--color-negro);
     border: none;
     border-radius: 8px;
     font-weight: bold;
     cursor: pointer;
+    cursor: pointer;
+    transition: all 0.3s ease;
 }
 
 form button:hover {
-    background-color: #6e432a;
+    transform: scale(1.05);
+    background-color: var(--color-accion-oscuro);
 }
 
 /* FOOTER */
@@ -473,11 +534,18 @@ form button:hover {
         white-space: nowrap;
         width: 1100px;
         max-width: 80vw;
-        padding-left: 150px;
+        padding-left: 90px;
         font-size: 3.5rem;
     }
 
+    .container-productos-2-texto button {
+        z-index: 0;
+        margin-left: 90px;
+    }
+
     .container-productos-2-nueces {
+        
+        padding-right: 20px;
         width: 70vw;
     }
 
