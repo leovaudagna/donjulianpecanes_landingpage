@@ -383,10 +383,10 @@ a {
 
 /* INFO CALIDAD */
 .container-info {
-    background-color: var(--color-marron-oscuro);
+    background-color: var(--color-negro);
     display: flex;
     flex-direction: row;
-    padding: 80px 120px;
+    padding: 0px 120px 180px;
     justify-content: space-around;
     align-items: center;
     text-align: center;
@@ -407,13 +407,19 @@ a {
 /* INFO CLUSTER */
 .container-frase {
     background-color: var(--color-gris);
+    color: var(--color-marron);
     height: 400px;
+}
+
+.container-frase div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 }
 
 .container-frase img {
     margin: 50px;
     width: 400px;
-    filter: saturate(0);
 }
 
 
@@ -423,6 +429,24 @@ a {
 .formulario {
     padding: 60px 20px;
     background-color: var(--color-gris);
+
+}
+
+.formulario img {
+    width: 400px;
+}
+
+.formulario div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.formulario div div {
+    width: 550px;
+    display: flex;
+    flex-direction: column;
 }
 
 .formulario h2 {
@@ -434,7 +458,8 @@ a {
 .formulario form {
     display: flex;
     flex-direction: column;
-    max-width: 600px;
+    width: 650px;
+    max-width: 700px;
     margin: 0 auto;
 }
 
@@ -454,7 +479,7 @@ form textarea {
 form button {
     margin-top: 20px;
     padding: 12px;
-    background-color: var(--color-accion);
+    background-color: #B4B4B4;
     color: var(--color-negro);
     border: none;
     border-radius: 8px;
@@ -465,23 +490,32 @@ form button {
 }
 
 form button:hover {
-    transform: scale(1.05);
+    transform: scale(1.01);
     background-color: var(--color-accion-oscuro);
 }
 
 /* FOOTER */
+.footer-fondo {
+    background-color: var(--color-negro);    
+    padding: 0 25px;
+    width: 100%;
+}
+
 .container-footer {
-    /* background: url(../assets/original.jpg);     */
+    max-width: 1300px;
     background-color: var(--color-negro);
-    /* background: linear-gradient(0deg,rgb(0, 0, 0) 29%, rgba(43, 43, 43, 1) 90%); */
     color: var(--color-gris-oscuro);
+    margin: auto;
     display: flex;
     flex-grow: 1;
     align-items: center;
     flex-direction: row;
-    height: 200px;
-    padding: 3.5rem;
+    height: 300px;
     gap: 100px;
+}
+
+.footer-datos {
+    font-size: 0.8rem;
 }
 
 
@@ -490,12 +524,6 @@ form button:hover {
     width: 150px;
 }
 
-/* .footer-encabezado {
-    color: yellow;
-    font-weight: 900;
-    text-decoration: underline;
-    margin-bottom: 1rem;
-} */
 
 .footer-redes {
     display: flex;
