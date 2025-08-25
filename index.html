@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,8 +10,13 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/e572b36209.js" crossorigin="anonymous"></script>
+
 </head>
 <body>
+
+    <div id="splash-logo">
+        <img src="assets/logos/logo-completo.svg" alt="">
+    </div>
 
     <!-- Navbar -->
     <div class="container-navbar">
@@ -21,9 +26,9 @@
             </div>
             <!-- Probablemente lo cambie por algun navbar de libreria -->
             <nav>
-                <ul>
-                    <li><a href="">Nosotros</a></li>
-                    <li><a href="">Nuestros Productos</a></li>
+                <ul class="navbar-elementos">
+                    <li><a href="nosotros.html">Nosotros</a></li>
+                    <li><a href="#productos">Nuestros Productos</a></li>
                     <li><a href="">Recetas</a></li>
                     <!-- <li><a href="">Contacto</a></li> -->
                     <li><a href="#formulario"><button>Contacto</button></a></li>
@@ -38,13 +43,13 @@
                 <!-- <img src="assets/logo-completo.svg" alt=""> -->
                 <img src="assets/nueces/nueces-01.png">
                 <div>
-                    <button id="empresa_btn">nuestra empresa</button>
-                    <button id="lugar_btn">nuestro lugar</button>            
+                    <button id="empresa_btn"><a href="nosotros.html#la-empresa">nuestra empresa</a></button>
+                    <button id="lugar_btn"><a href="nosotros.html#nuestro-lugar">nuestro lugar</a></button>            
                 </div>
                           
             </div>
             <div class="slogan">
-                <img src="assets/slogan-marron.svg" alt="">
+                <img src="assets/otros/slogan-marron.svg" alt="">
 
             </div>
     </div>
@@ -62,11 +67,11 @@
     <div class="container-productos-2">
         <div class="container-productos-2-inner">
             <div class="container-productos-2-texto">            
-                <img src="assets/texto-productos.svg" alt="">
+                <img src="assets/texto-productos.svg" alt="" id="productos">
                 <h2>CONOCÉ LAS VARIEDADES</h2>
                 <h2 style="color: #925E43;">QUE TENEMOS</h2>
                 <h2>PARA VOS</h2>
-                <button>+ info</button>
+                <a href="productos.html"><button>+ info</button></a>
             </div>
             <img src="assets/mockup/nueces.png" alt="" class="container-productos-2-nueces">
         </div>        
@@ -101,7 +106,7 @@
     <!-- Redes -->
     <div class="container-redes">
         <div class="redes-mockup">
-            <img src="assets/en-construccion-2.png" alt="">
+            <img src="assets/otros/en-construccion-2.png" alt="">
         </div>
         <div class="redes-texto">
             <h2>NUESTRO E-COMMERCE AÚN NO ESTA LISTO</h2>
@@ -119,7 +124,7 @@
         <div>
             <div>
                 <h3>o enviarnos un mensaje a nuestro correo</h3>
-                <img src="assets/mail.png" alt="">
+                <img src="assets/otros/mail.png" alt="">
             </div>
             
             <div>
@@ -129,9 +134,9 @@
                     <label for="apellido">Apellido</label>
                     <input type="text" name="apellido" id="apellido" placeholder="Ingrese su apellido.." required>
                     <label for="email">Email</label>
-                    <input type="email" name="email" id="email" placeholder="Ingerse su email" required>
+                    <input type="email" name="email" id="email" placeholder="Ingrese su email" required>
                     <label for="mensaje">Mensaje</label>
-                    <textarea type="text" name="mensaje" id="mensaje" placeholder="Dejenos su mensaje" rows="20" cols="60" required></textarea>
+                    <textarea type="text" name="mensaje" id="mensaje" placeholder="Dejenos su mensaje" rows="10" cols="50" required></textarea>
                     <button type="submit">Enviar</button>
                 </form>
             </div>
@@ -166,12 +171,12 @@
     </div>
     
 
+    
+
+
+
+
     <script src="js/script.js"></script>
-
-
-
-
-
     
 </body>
 </html>

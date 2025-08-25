@@ -7,16 +7,34 @@
     --color-negro: #080808;
     --color-gris-oscuro: #585858;
     --color-negro-claro: #2b2b2b;
-    --color-gris-claro: #838383;    
-    --color-azul: #090E73;
+    --color-gris-claro: #838383;
     --color-accion: #F58E31;
     --color-accion-oscuro: #fa7f13;
 }
 
 html {
     scroll-behavior: smooth;
+    scroll-margin: 65px;
 }
 
+#splash-logo {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #fff; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 3; 
+    transition: opacity 1.8s ease; 
+}
+
+#splash-logo img {
+    width: 200px;  
+    height: auto;
+}
 
 * {
     margin: 0;
@@ -125,7 +143,7 @@ a {
     background-size: cover;
     z-index: 2;
     transform: scaleY(1);
-    transform-origin: bottom; /* punto de referencia para la inversión */
+    transform-origin: bottom; 
 }
 
 .container-main .logo img {
@@ -153,6 +171,10 @@ a {
     width: 230px;
 }
 
+.container-main .logo button a {
+    color: var(--color-blanco);
+}
+
 .container-main .logo button:hover {
     background-color: var(--color-accion);
     transform: scale(1.03);
@@ -163,6 +185,19 @@ a {
     color: var(--color-verde);
     background-color: var(--color-blanco);
     width: 230px;
+}
+
+#lugar_btn a {
+    color: var(--color-verde);
+}
+
+#lugar_btn:hover {
+    color: var(--color-accion);
+    border: solid 1px var(--color-accion);
+}
+
+#lugar_btn a:hover {
+    color: var(--color-accion);
 }
 
 .logo div{
@@ -291,104 +326,6 @@ a {
 }
 
 
-
-
-/* Grid */
-.tarjetas-productos {
-    display: flex;
-    flex-wrap: wrap; /* Permite que las tarjetas bajen de línea */
-    justify-content: center;
-    gap: 90px; /* Espacio entre tarjetas */
-    width: 100%;
-    max-width: 1200px
-}
-
-/* Estilo de cada tarjeta */
-.tarjeta {
-    width: 300px;
-    background-color: var(--color-negro-claro);
-    background: linear-gradient(0deg,rgb(0, 0, 0) 29%, rgba(43, 43, 43, 1) 90%);
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    transition: transform 0.2s ease;
-}
-
-.tarjeta-header {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-    margin-bottom: 15px;
-    min-height: 80px; /* Igual altura para todos */
-}
-
-.tarjeta-header h2 {
-    font-size: 2.0rem;
-}
-
-.tarjeta:hover {
-    transform: scale(1.04);
-}
-
-.tarjeta img {
-    width: 100%;
-    height: 220px;
-    object-fit: cover;
-}
-
-
-
-/* Contenido dentro de la tarjeta */
-.tarjeta-datos {
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    flex-grow: 1;
-}
-
-.tarjeta-datos-descripcion {
-    font-size: 0.9rem;
-    font-style: italic;
-    color: #ffe6c6;
-}
-
-.tarjeta-titulo {
-    color: white !important;
-    font-size: 1.5rem;
-}
-
-.tarjeta ul {
-    margin: 20px 0 5px 0;
-    padding-left: 20px;
-    min-height: 90px;
-}
-
-.tarjeta li {
-    color: wheat;
-    margin-bottom: 6px;
-}
-
-/* Botón */
-.tarjeta-boton {
-    display: inline-block;
-    margin-top: 10px;
-    padding: 10px 16px;
-    background-color: var(--color-acento);
-    color: #fff;
-    text-decoration: none;
-    border-radius: 8px;
-    font-weight: bold;
-    transition: background-color 0.3s ease;
-}
-
-.tarjeta-boton:hover {
-    background-color: var(--color-marron);
-}
-
 /* FRASE DESTACADA */
 .container-frase {
     display: flex;
@@ -458,25 +395,25 @@ a {
 .container-redes {
     display: flex;
     flex-direction: row;
-    align-items: center;          /* Centra verticalmente imagen y texto */
-    justify-content: space-around; /* Espacio equilibrado entre elementos */
+    align-items: center;          
+    justify-content: space-around; 
     padding: 100px 15px 40px;
     height: 550px;
-    gap: 40px;                     /* Espacio fijo entre imagen y texto */
-    flex-wrap: wrap;               /* Permite que en pantallas pequeñas se acomoden en columna */
-    text-align: left;              /* Texto alineado a la izquierda por defecto */
+    gap: 40px;                     
+    flex-wrap: wrap;             
+    text-align: left;             
     color: var(--color-marron);
     background-color: var(--color-gris);    
 }
 
 .redes-mockup img {
-    max-width: 450px;              /* Tamaño máximo de la imagen */
-    width: 100%;                   /* Escala con el contenedor */
+    max-width: 450px;              
+    width: 100%;                   
     height: auto;
 }
 
 .redes-texto {
-    max-width: 500px;              /* Evita que el texto sea demasiado ancho */
+    max-width: 500px;              
     text-align: right;
     display: flex;
     flex-direction: column;
@@ -542,11 +479,11 @@ a {
 }
 
 .formulario input::placeholder {
-  color: var(--color-marron); /* Desired color on hover */
+  color: var(--color-marron); 
 }
 
 .formulario textarea::placeholder {
-  color: var(--color-marron); /* Desired color on hover */
+  color: var(--color-marron); 
 }
 
 form label {
@@ -637,97 +574,10 @@ form button:hover {
 
 
 
-/* ====== RESPONSIVE ====== */
-@media (max-width: 1368px) {
-
-    .container-productos-2{
-        padding-top: 400px;
-    }
-
-    .container-productos-2-texto h2 {
-        white-space: nowrap;
-        width: 1100px;
-        max-width: 80vw;
-        padding-left: 90px;
-        font-size: 3.5rem;
-    }
-
-    .container-productos-2-texto button {
-        z-index: 0;
-        margin-left: 90px;
-    }
-
-    .container-productos-2-nueces {
-        
-        padding-right: 20px;
-        width: 70vw;
-    }
-
-}
-
-
-/* Tablets y pantallas medianas */
+/* RESPONSIVE ------- ACOMODAR!!!!!!!!!!!!! */
+/* pantallas medianas */
 @media (max-width: 992px) {
-    .container-navbar .navbar {
-        flex-direction: column;
-        gap: 15px;
-    }
 
-    .navbar-logo {
-        align-self: center;
-    }
-
-    .navbar {
-        display: flex;
-        margin-right: 0;
-    }
-
-    nav {
-        text-align: center;
-    }
-
-    nav ul {
-        display: flex;
-        flex-direction: row;
-        gap: 50px;
-    }
-
-    nav ul li {
-        display: block;
-        margin: 10px 0;
-    }
-
-    .container-main {
-        flex-direction: column;
-        text-align: center;
-        height: auto;
-        margin-top: 40px;
-    }
-
-    .container-main .logo img,
-    .container-main .slogan img {
-        width: 80%;
-        max-width: 350px;
-    }
-
-    .tarjetas-productos {
-        gap: 40px;
-    }
-
-    .container-productos-2-texto h2 {
-        white-space: nowrap;
-        width: 1100px;
-        padding-left: 100px;
-        font-size: 2.8rem;
-    }
-}
-
-
-
-
-
-/* Celulares y pantallas pequeñas */
-@media (max-width: 576px) {
     h2 {
         font-size: 2rem;
     }
@@ -736,63 +586,194 @@ form button:hover {
         font-size: 1.4rem;
     }
 
+    /* NAVBAR */
     .container-navbar .navbar {
-        padding: 10px;
-    }
-
-    .container-main {
-        margin-top: 20px;
-        padding: 0 15px;
-    }
-
-    .container-main .logo img,
-    .container-main .slogan img {
-        width: 100%;
-        max-width: 300px;
-    }
-
-    .container-productos {
-        padding: 100px 15px 60px;
-    }
-
-    .tarjetas-productos {
         flex-direction: column;
         gap: 25px;
     }
 
-    .tarjeta {
+    .navbar-logo {
+    text-align: center;
+    width: 100%; 
+    }
+
+    .navbar-logo img {
+    padding-top: 40px;
+    margin: 0 auto;
+    display: block;
+    }
+
+    .navbar-elementos {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    nav ul li {
+        margin: 10px;
+        display: block;
+    }
+
+    /* TITULO / HERO */
+    .container-main {
+        flex-direction: column;
+        height: auto;
+        text-align: center;
+    }
+
+    .container-main .logo img {
+        width: 300px;
+    }
+
+    .container-main .slogan img {
+        width: 350px;
+    }
+
+    /* PRODUCTOS */
+    .container-productos-2 {
+        padding: 200px 40px 60px;
+        height: auto;
+    }
+
+    .container-productos-2-inner {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .container-productos-2-texto {
+        margin-top: 0;
+        min-width: auto;
+        max-width: 100%;
+    }
+
+    .container-productos-2-nueces {
+        width: 100%;
+        max-width: 500px;
+    }
+
+    .container-productos-2-texto h2 {
+        font-size: 2.5rem;
+        white-space: normal; /* permite que el texto se parta en varias líneas */
+        text-align: center;
+    }
+
+    .container-productos-2-texto button {
         width: 100%;
     }
 
+    /* INFO */
+    .container-info {
+        flex-direction: column;
+        padding: 60px 40px;
+        gap: 30px;
+    }
+
+    /* FRASE / CLUSTER */
     .container-frase {
         height: auto;
-        padding: 40px 15px;
-        font-size: 1rem;
+        padding: 40px 20px;
     }
 
-    
-
-    .container-redes img {
-        width: 200px;
-    }
-
-    .formulario {
-        padding: 40px 15px;
-    }
-
-    .container-footer {
+    .container-frase div {
         flex-direction: column;
-        align-items: center;
+    }
+
+    .container-frase img {
+        width: 250px;
+        margin: 20px 0;
+    }
+
+    /* REDES */
+    .container-redes {
+        flex-direction: column;
         text-align: center;
         height: auto;
-        gap: 20px;
-        padding: 20px 15px;
+    }
+
+    .redes-texto {
+        text-align: center;
+        align-items: center;
+    }
+
+    .redes-links {
+        align-self: center;
+    }
+
+    /* CONTACTO */
+    .formulario div {
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    .formulario div div {
+        width: 100%;
+    }
+
+    .formulario form {
+        max-width: 90%;
+    }
+
+    /* FOOTER */
+    .container-footer {
+        flex-direction: column;
+        height: auto;
+        gap: 30px;
+        padding: 40px 20px;
+        text-align: center;
     }
 
     .footer-redes {
-        flex-direction: row;
-        justify-content: center;
-        gap: 15px;
         margin-left: 0;
+    }
+}
+
+
+/* 📱 Responsive - Celulares */
+@media (max-width: 576px) {
+
+    h2 {
+        font-size: 1.6rem;
+    }
+
+    h3 {
+        font-size: 1.2rem;
+    }
+
+    .container-main .logo img {
+        width: 220px;
+    }
+
+    .container-main .slogan img {
+        width: 250px;
+    }
+
+    .container-productos-2-texto h2 {
+        font-size: 2rem;
+    }
+
+    .container-productos-2-texto button {
+        font-size: 1rem;
+        padding: 12px 20px;
+    }
+
+    .redes-mockup img {
+        max-width: 100%;
+    }
+
+    .container-frase img {
+        width: 180px;
+    }
+
+    form input,
+    form textarea {
+        font-size: 0.9rem;
+    }
+
+    form button {
+        font-size: 0.9rem;
+    }
+
+    .footer-logo {
+        width: 100px;
     }
 }

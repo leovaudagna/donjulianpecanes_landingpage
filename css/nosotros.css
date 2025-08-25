@@ -1,0 +1,40 @@
+body {
+    display: flex;
+    flex-direction: column;
+    background-image: url(/pruebas/branches-with-leaves-svgrepo-com\ \(3\).svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+
+h1 {
+    font-size: 5rem;
+    padding: 60px;
+    align-self: center;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 1350px;
+    padding: 40px;
+    height: 600px;
+}
+
+#container-marca {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
+
+#container-marca img {
+    width: 400px;
+}
+
+#container-marca div {
+    padding: 50px;
+    text-align: right;
+}

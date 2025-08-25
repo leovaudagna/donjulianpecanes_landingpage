@@ -1,4 +1,7 @@
-console.log("hola")
-console.log('%c Hola en grandote', 'font-size:50px');
-
-console.warn('O no!');
+window.addEventListener("load", () => {
+    setTimeout(() => {
+      const splash = document.getElementById("splash-logo");
+      splash.style.opacity = 0;      
+      setTimeout(() => splash.style.display = "none", 800);
+    }, 500);
+  });
