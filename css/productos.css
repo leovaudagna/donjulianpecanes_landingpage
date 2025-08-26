@@ -2,8 +2,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-
-    height: 900px;
+    margin: 120px;
 }
 
 .tarjetas-productos {
@@ -15,7 +14,6 @@
     max-width: 1200px
 }
 
-/* Estilo de cada tarjeta */
 .tarjeta {
     width: 300px;
     background-color: var(--color-negro-claro);
@@ -34,7 +32,7 @@
     flex-direction: column;
     gap: 5px;
     margin-bottom: 15px;
-    min-height: 80px; /* Igual altura para todos */
+    min-height: 80px;
 }
 
 .tarjeta-header h2 {

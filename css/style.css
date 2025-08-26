@@ -412,7 +412,7 @@ a {
 }
 
 .redes-texto {
-    max-width: 500px;              
+    max-width: 750px;              
     text-align: right;
     display: flex;
     flex-direction: column;
@@ -435,7 +435,7 @@ a {
 .redes-texto h3 {
     color: var(--color-marron);
     padding-top: 30px;
-    margin-top: 90px;
+    margin-top: 50px;
 }
 
 

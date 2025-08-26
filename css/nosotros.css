@@ -1,7 +1,9 @@
+@import url(style.css);
+
 body {
     display: flex;
     flex-direction: column;
-    background-image: url(/pruebas/branches-with-leaves-svgrepo-com\ \(3\).svg);
+    background-image: url(/pruebas/branches-with-leaves-svgrepo-com\ \(5\).svg);
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -14,13 +16,38 @@ h1 {
     align-self: center;
 }
 
+h2 {
+    font-size: 4rem;
+    color: var(--color-marron);
+}
+
 .container {
     display: flex;
     flex-direction: column;
     justify-content: center;
     max-width: 1350px;
-    padding: 40px;
+    padding: 90px;
     height: 600px;
+}
+
+.la-empresa-contenido {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    gap: 30px;
+}
+
+.la-empresa-contenido div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 280px;
+}
+
+.la-empresa-contenido div i{
+    margin: 50px 0;
+    font-size: 80px;
+    color: var(--color-verde);
 }
 
 #container-marca {
