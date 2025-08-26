@@ -127,7 +127,6 @@ a {
     margin-top: 70px;
     margin-bottom: 30px;
     height: 500px;
-    /* para agregar la curva */
     position: relative;
     z-index: 0;
 }
@@ -288,7 +287,7 @@ a {
     font-size: 4.5rem;
     line-height: 1.2;
     margin-bottom: 30px;
-    text-align: left; /* para que el texto se vea alineado */
+    text-align: left; 
     white-space: nowrap;
 }
 
@@ -315,13 +314,13 @@ a {
     background-color: #080808;
     position: relative;
     width: 100%;
-    margin-top: -5px; /* para que quede “pegado” al container de arriba */
-    line-height: 0; /* elimina espacio blanco */
+    margin-top: -5px;
+    line-height: 0; 
 }
 
 .container-division-2 img {
     display: block;
-    width: 100%; /* se adapta al ancho */
+    width: 100%; 
     height: auto;
 }
 
@@ -538,7 +537,7 @@ form button:hover {
 }
 
 .footer-datos {
-    font-size: 0.8rem;
+    font-size: 0.9rem;
 }
 
 
@@ -653,7 +652,7 @@ form button:hover {
 
     .container-productos-2-texto h2 {
         font-size: 2.5rem;
-        white-space: normal; /* permite que el texto se parta en varias líneas */
+        white-space: normal; 
         text-align: center;
     }
 
