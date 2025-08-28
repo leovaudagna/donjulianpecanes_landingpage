@@ -1,7 +1,11 @@
 @import url(style.css);
 
 body {
+    margin: 0;
+    padding: 0;
     display: flex;
+    align-items: center;
+    justify-content: center;
     flex-direction: column;
     background-image: url(/pruebas/branches-with-leaves-svgrepo-com\ \(5\).svg);
     background-repeat: no-repeat;
@@ -19,12 +23,14 @@ h1 {
 h2 {
     font-size: 4rem;
     color: var(--color-marron);
+    margin-bottom: 30px;
 }
 
 .container {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
     max-width: 1350px;
     padding: 90px;
     height: 600px;
@@ -58,10 +64,53 @@ h2 {
 }
 
 #container-marca img {
-    width: 400px;
+    width: 350px;
 }
 
 #container-marca div {
     padding: 50px;
     text-align: right;
+}
+
+.galeria {
+    width: 1350px;
+    display: flex;
+    overflow-x: scroll;
+}
+
+.galeria div {
+    width: 100%;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    gap: 30px;
+    padding: 10px;
+    flex: none;
+}
+
+.galeria div img {
+    width: 100%;
+    filter: grayscale(100%);
+    transition: 0.5s;
+}
+
+.galeria::-webkit-scrollbar {
+    display: none;
+}
+
+.galeria-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10% auto;
+}
+
+#btn_atras, #btn_adelante {
+    width: 50px;
+    margin: 40px;
+}
+
+.galeria div img:hover {
+    filter: grayscale(0);
+    cursor: pointer;
+    transform: scale(1.05);
 }
