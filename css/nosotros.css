@@ -5,7 +5,7 @@ body {
     padding: 0;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     flex-direction: column;
     background-image: url(/pruebas/branches-with-leaves-svgrepo-com\ \(5\).svg);
     background-repeat: no-repeat;
@@ -29,11 +29,15 @@ h2 {
 .container {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     max-width: 1350px;
     padding: 90px;
     height: 600px;
+}
+
+#la-empresa {
+    width: 1350px;
 }
 
 .la-empresa-contenido {
@@ -72,10 +76,23 @@ h2 {
     text-align: right;
 }
 
-.galeria {
+.galeria-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px auto;
     width: 1350px;
+}
+
+#nuestro-lugar {
+    width: 35%;
+}
+
+.galeria {
+    width: 100%;
     display: flex;
     overflow-x: scroll;
+    flex-grow: 2;
 }
 
 .galeria div {
@@ -97,13 +114,6 @@ h2 {
     display: none;
 }
 
-.galeria-wrap {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 10% auto;
-}
-
 #btn_atras, #btn_adelante {
     width: 50px;
     margin: 40px;
@@ -113,4 +123,13 @@ h2 {
     filter: grayscale(0);
     cursor: pointer;
     transform: scale(1.05);
+}
+
+#container-marca {
+    padding: 0;
+    margin-bottom: 80px;
+}
+
+#container-marca img {
+    padding: 50px;
 }

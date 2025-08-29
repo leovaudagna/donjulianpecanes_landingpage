@@ -396,8 +396,8 @@ a {
     flex-direction: row;
     align-items: center;          
     justify-content: space-around; 
-    padding: 100px 15px 40px;
-    height: 550px;
+    padding: 15px;
+    height: 450px;
     gap: 40px;                     
     flex-wrap: wrap;             
     text-align: left;             
@@ -415,6 +415,7 @@ a {
     max-width: 750px;              
     text-align: right;
     display: flex;
+    justify-content: center;
     flex-direction: column;
     gap: 20px;
 }
@@ -434,8 +435,6 @@ a {
 
 .redes-texto h3 {
     color: var(--color-marron);
-    padding-top: 30px;
-    margin-top: 50px;
 }
 
 
@@ -574,49 +573,13 @@ form button:hover {
 
 
 /* RESPONSIVE ------- ACOMODAR!!!!!!!!!!!!! */
-/* pantallas medianas */
-@media (max-width: 992px) {
-
-    h2 {
-        font-size: 2rem;
-    }
-
-    h3 {
-        font-size: 1.4rem;
-    }
-
-    /* NAVBAR */
-    .container-navbar .navbar {
-        flex-direction: column;
-        gap: 25px;
-    }
-
-    .navbar-logo {
-    text-align: center;
-    width: 100%; 
-    }
-
-    .navbar-logo img {
-    padding-top: 40px;
-    margin: 0 auto;
-    display: block;
-    }
-
-    .navbar-elementos {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-    }
-
-    nav ul li {
-        margin: 10px;
-        display: block;
-    }
-
-    /* TITULO / HERO */
+/* --- TABLETS (pantallas medianas) --- */
+@media (max-width: 1024px) {
     .container-main {
         flex-direction: column;
         height: auto;
+        margin-top: 40px;
+        padding: 20px;
         text-align: center;
     }
 
@@ -628,12 +591,6 @@ form button:hover {
         width: 350px;
     }
 
-    /* PRODUCTOS */
-    .container-productos-2 {
-        padding: 200px 40px 60px;
-        height: auto;
-    }
-
     .container-productos-2-inner {
         grid-template-columns: 1fr;
         text-align: center;
@@ -641,48 +598,22 @@ form button:hover {
 
     .container-productos-2-texto {
         margin-top: 0;
-        min-width: auto;
-        max-width: 100%;
+        align-items: center;
     }
 
     .container-productos-2-nueces {
         width: 100%;
         max-width: 500px;
+        grid-column: 1;
+        margin-top: 20px;
     }
 
-    .container-productos-2-texto h2 {
-        font-size: 2.5rem;
-        white-space: normal; 
-        text-align: center;
-    }
-
-    .container-productos-2-texto button {
-        width: 100%;
-    }
-
-    /* INFO */
     .container-info {
         flex-direction: column;
+        gap: 40px;
         padding: 60px 40px;
-        gap: 30px;
     }
 
-    /* FRASE / CLUSTER */
-    .container-frase {
-        height: auto;
-        padding: 40px 20px;
-    }
-
-    .container-frase div {
-        flex-direction: column;
-    }
-
-    .container-frase img {
-        width: 250px;
-        margin: 20px 0;
-    }
-
-    /* REDES */
     .container-redes {
         flex-direction: column;
         text-align: center;
@@ -694,11 +625,6 @@ form button:hover {
         align-items: center;
     }
 
-    .redes-links {
-        align-self: center;
-    }
-
-    /* CONTACTO */
     .formulario div {
         flex-direction: column;
         gap: 40px;
@@ -706,36 +632,37 @@ form button:hover {
 
     .formulario div div {
         width: 100%;
-    }
-
-    .formulario form {
         max-width: 90%;
     }
 
-    /* FOOTER */
     .container-footer {
         flex-direction: column;
-        height: auto;
+        justify-content: center;
         gap: 30px;
+        height: auto;
         padding: 40px 20px;
         text-align: center;
     }
 
     .footer-redes {
         margin-left: 0;
+        flex-direction: row;
+        gap: 40px;
     }
 }
 
-
-/* 📱 Responsive - Celulares */
-@media (max-width: 576px) {
-
+/* --- MÓVILES (pantallas chicas) --- */
+@media (max-width: 768px) {
     h2 {
-        font-size: 1.6rem;
+        font-size: 1.8rem;
     }
 
     h3 {
-        font-size: 1.2rem;
+        font-size: 1.3rem;
+    }
+
+    nav ul li {
+        margin: 0 10px;
     }
 
     .container-main .logo img {
@@ -743,36 +670,83 @@ form button:hover {
     }
 
     .container-main .slogan img {
-        width: 250px;
+        width: 280px;
     }
 
     .container-productos-2-texto h2 {
         font-size: 2rem;
+        text-align: center;
+        white-space: normal; /* evita que se corte en 1 línea */
     }
 
     .container-productos-2-texto button {
+        width: 90%;
+        max-width: 250px;
         font-size: 1rem;
-        padding: 12px 20px;
     }
 
-    .redes-mockup img {
-        max-width: 100%;
+    .container-frase {
+        height: auto;
+        padding: 40px 20px;
+        font-size: 1rem;
     }
 
     .container-frase img {
-        width: 180px;
+        width: 250px;
+        margin: 20px auto;
     }
 
-    form input,
-    form textarea {
-        font-size: 0.9rem;
+    .redes-mockup img {
+        max-width: 300px;
     }
 
-    form button {
-        font-size: 0.9rem;
+    .formulario form {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .formulario img {
+        width: 250px;
     }
 
     .footer-logo {
-        width: 100px;
+        width: 120px;
+    }
+
+    .fa-brands {
+        font-size: 22px;
+    }
+}
+
+/* --- EXTRA PEQUEÑOS (menos de 480px) --- */
+@media (max-width: 480px) {
+    .container-navbar .navbar {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    nav {
+        text-align: center;
+    }
+
+    nav ul li {
+        display: block;
+        margin: 10px 0;
+    }
+
+    .container-main .logo button,
+    #lugar_btn {
+        width: 90%;
+        font-size: 1rem;
+    }
+
+    .container-productos-2-texto h2 {
+        font-size: 1.5rem;
+    }
+
+    .redes-links {
+        width: 100%;
+        justify-content: center;
+        gap: 20px;
     }
 }
