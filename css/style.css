@@ -294,7 +294,7 @@ a {
 .container-productos-2-texto button {    
     padding: 18px 32px;
     font-size: 1.2rem;
-    background-color: var(--color-negro);
+    background-color: var(--color-negro-claro);
     color: #fff;
     border: none;
     border-radius: 10px;
@@ -352,6 +352,7 @@ a {
     text-align: center;
     color: var(--color-blanco);      
 }
+
 
 .container-info h3 {
     font-weight: 300;
