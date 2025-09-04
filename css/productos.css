@@ -1,5 +1,6 @@
 @import url(/css/style.css);
 
+
 article img {
     width: 300px;
 }
@@ -15,7 +16,6 @@ article img {
 }
 
 .grilla {
-    background-color: aqua; 
     display: flex;
     justify-self: center;
     align-self: center;
@@ -108,6 +108,7 @@ h3 {
     font-size: 90px;
 }
 
+
 #natural {    
     background-image: url(/assets/pruebas/1.jpg);
     background-repeat: no-repeat;
@@ -118,15 +119,19 @@ h3 {
     width: 100%;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-evenly;
 }
 
 
 #gourmet {
-    color: var(--color-blanco);
+    
     background-image: url(/assets/pruebas/2.jpg);
     background-repeat: no-repeat;
     background-size: cover;
+}
+
+#gourmet h3 {
+    color: var(--color-blanco);
 }
 
 
@@ -138,12 +143,15 @@ h3 {
 
 /* CARD */
 .card-producto {
-    max-width: 355px;
-    width: 100%;
+    max-width: 360px;
+    width: 360px;
     border-radius: 25px;
     padding: 20px 30px 30px 30px;
     background-color: var(--color-blanco);
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    position: relative;
+    z-index: 3;
+    transition: width 0.5s ease-in-out;
 }
 
 .card-producto .card-encabezado {
@@ -158,6 +166,12 @@ h3 {
     object-fit: cover;
 }
 
+.card-encabezado p {
+    font-size: 18px;
+    font-weight: 800;
+    color: var(--color-gris);
+}
+
 .card-encabezado i {
     font-size: 27px;
     color: black;
@@ -166,19 +180,27 @@ h3 {
 }
 
 .card-encabezado i:hover {
-    color: brown;
+    color: var(--color-accion);
+}
+
+.card-imagen-producto {
+    display: flex;
+    justify-content: center;
 }
 
 .card-producto .card-imagen-producto img {
-    margin-top: 40px;
-    height: 300px;
-    width: 300px;
-    object-fit: cover;
+    margin-top: 20px;
+    margin-bottom: -10px;
+    height: 250px;
+    width: 250px;
+    justify-self: center;
+    object-fit: contain;
 }
 
+/* nombre del producto */
 .card-producto .card-detalles span {
-    font-size: 24px;
-    font-weight: 500;
+    font-size: 25px;
+    font-weight: 800;
 }
 
 .card-producto .card-detalles p {
@@ -205,6 +227,7 @@ h3 {
 .peso-opcion .opciones {
     display: flex;
     flex-direction: row;
+    align-items: center;
     justify-content: flex-start;
     gap: 12px;
 }
@@ -213,8 +236,8 @@ h3 {
     background-color: var(--color-gris);
     border: none;
     padding: 10px;
-    border-radius: 50%;
-    font-size: 18px;
+    border-radius: 40%;
+    font-size: 13px;
 }
 
 
@@ -224,6 +247,31 @@ h3 {
 }
 
 .precios span {
+    color: var(--color-gris-oscuro);
     font-weight: 800;
-    font-size: 25px;
+    font-size: 28px;
+}
+
+.card-producto .card-boton {
+    height: 50px;
+    width: 100%;    
+    margin-top: 30px;
+}
+
+.card-producto .card-boton button {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    outline: none;
+    border: none;
+    font-size: 16px;
+    font-weight: 600;    
+    border-radius: 25px;
+    color: var(--color-blanco);
+    background-color: var(--color-negro);
+    transition: background-color 0.4s ease;    
+}
+
+.card-boton button:hover {
+    background-color: var(--color-accion);
 }
