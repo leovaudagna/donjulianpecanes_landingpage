@@ -249,7 +249,9 @@ article img {
 }
 
 .boton-seleccionado {
-    color: var(--color-negro);
+    color: var(--color-accion);
+    font-weight: 800;
+    text-decoration: underline;
 }
 
 
