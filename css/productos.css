@@ -145,7 +145,7 @@ article img {
 
 
 #natural {    
-    background-image: url(assets/pruebas/1.jpg);
+    background-image: url(../assets/pruebas/1.jpg);
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -160,7 +160,7 @@ article img {
 
 
 #gourmet {    
-    background-image: url(assets/pruebas/2.jpg);
+    background-image: url(../assets/pruebas/2.jpg);
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -171,7 +171,7 @@ article img {
 
 
 #derivados {
-    background-image: url(assets/pruebas/3.png);
+    background-image: url(../assets/pruebas/3.png);
     background-repeat: no-repeat;
     background-size: cover;
 }
