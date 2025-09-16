@@ -37,6 +37,18 @@
     box-shadow: inset 5px 5px 10px rgba(0, 0, 0, 0.2);
 }
 
+.collapsed {
+  display: none !important;
+  /* height: 0px; */
+}
+
+.todos {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px; /* espacio entre cards */
+    padding: 20px;
+}
+
 .logo div {
     display: flex;
     flex-direction: column;
