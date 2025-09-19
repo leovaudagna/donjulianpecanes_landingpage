@@ -78,17 +78,24 @@
     color: var(--color-accion);
 }
 
+
+
 .collapsed {
   display: none !important;
 }
 
-.todos {
+#todos {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 60px; /* espacio entre cards */
-    /* padding: 20px; */
-    row-gap: 60px;
-    height: 1200px;
+    gap: 40px;
+}
+
+.collapsed {
+  visibility: collapse !important;
+}
+
+#todos article {
+    margin-top: 10px;
 }
 
 .logo div {
@@ -410,7 +417,7 @@
     white-space: nowrap;
 }
 
-#derivados button {
+.card-producto .no-disponible button {
     background-color: var(--color-gris-claro);
     color: var(--color-gris-oscuro);
 }
@@ -439,9 +446,76 @@
     font-size: 20px;
 }
 
-.lista-productos {
+
+/* LISTA PRODUCTOS */
+.seccion-lista-productos {
     background-color: white;
-    height: 1000px;
+    display: flex;
+    justify-content: center;
+    color: white;    
+}
+
+.item .imagen img {
+    width: 100%;    
+}
+
+.item {
+    display: grid;
+    grid-template-columns: 70px 150px 50px 1fr;
+    gap: 10px;
+    text-align: center;
+    align-items: center;
+}
+
+.item:nth-child(even) {
+    background-color: aqua;
+}
+
+.item .cantidad span {
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    background-color: wheat;
+    color: black;
+    border-radius: 50px;
+}
+
+.item .cantidad span:nth-child(2) {
+    background-color: transparent;
+    color: white;
+}
+
+.lista {
+    overflow: auto;
+}
+
+
+
+.lista-productos {
+    width: 800px;
+    background-color: black;
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.botones-checkout {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 50px;
+    gap: 30px;
+}
+
+.botones-checkout button {
+    background-color: var(--color-accion);
+    font-weight: 800;
+    color: black;
+    border: none;
+    width: 250px;
+    padding: 12px;
+    border-radius: 25px;
 }
 
 

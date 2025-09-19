@@ -291,6 +291,10 @@ a {
     white-space: nowrap;
 }
 
+.container-productos-2-texto img {
+    margin-bottom: 40px;
+}
+
 .container-productos-2-texto button {    
     padding: 18px 32px;
     font-size: 1.2rem;
