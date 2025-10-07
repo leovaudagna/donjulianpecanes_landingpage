@@ -78,7 +78,8 @@
         "pesoPrecio": {
             "2kg": " (Consultar)"
         },
-        "imagen": "assets/pruebas/pecan_vacio.png"
+        "imagen": "assets/pruebas/pecan_vacio.png",
+        "disponible": true
     },
     {
         "id": 9,
@@ -89,6 +90,7 @@
             "500g": 12000,
             "1kg": 23000
         },
-        "imagen": "assets/pruebas/pecan_partidas.png"
+        "imagen": "assets/pruebas/pecan_partidas.png",
+        "disponible": true
     }
 ]
