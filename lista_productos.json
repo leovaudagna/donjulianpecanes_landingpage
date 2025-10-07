@@ -12,7 +12,7 @@
     },
     {
         "id": 2,
-        "nombreProducto": "Pelada",
+        "nombreProducto": "Peladas",
         "categoria": "natural",
         "descripcion": "Nueces premium seleccionadas",
         "pesoPrecio": {
@@ -76,9 +76,9 @@
         "categoria": "otros",
         "descripcion": "",
         "pesoPrecio": {
-            "2kg": "Consultar"
+            "2kg": " (Consultar)"
         },
-        "imagen": "assets/pruebas/pecan_cascara.png"
+        "imagen": "assets/pruebas/pecan_vacio.png"
     },
     {
         "id": 9,
@@ -89,6 +89,6 @@
             "500g": 12000,
             "1kg": 23000
         },
-        "imagen": "assets/pruebas/pecan_cascara.png"
+        "imagen": "assets/pruebas/pecan_partidas.png"
     }
 ]

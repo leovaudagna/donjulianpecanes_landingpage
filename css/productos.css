@@ -3,6 +3,41 @@
     min-height: 90vh;
 }
 
+
+.icono-carrito {
+    position: sticky;
+    z-index: 12;
+    width: auto;
+    height: auto;
+    display: flex;
+    position: fixed;
+    justify-content: flex-end;
+    padding-right: 250px;
+    top: 30px;
+    right: 20px;
+}
+
+
+
+.icono-carrito i {
+    font-size: 24px;
+}
+
+.icono-carrito span {
+    display: flex;
+    width: 30px;
+    height: 30px;
+    background-color: red;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    border-radius: 50%;
+    position: absolute;
+    top:50%;
+    right: 230px; 
+}
+
+
 .fondo {
     display: flex;
     flex-direction: column;
@@ -12,6 +47,8 @@
     /* background-color: var(--color-blanco); */
     background: linear-gradient(0deg,rgba(255, 255, 255, 1) 0%, rgba(242, 242, 242, 1) 100%);
 }
+
+
 
 .card-encabezado {
     display: flex;
@@ -84,6 +121,10 @@
   display: none !important;
 }
 
+.selected {
+  display: visible !important;
+}
+
 #todos {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -122,6 +163,7 @@
 }
 
 #logo-prueba {
+    z-index: 20 !important;
     width: 400px;
 }
 
@@ -134,7 +176,7 @@
     justify-content: center;
     align-items: center;
     max-width: 1350px;
-    min-height: 100vh;
+    min-height: 80vh;
     width: 100%;
     
 }
@@ -174,7 +216,6 @@
     transition: transform 0.4s ease, opacity 0.3s ease, font-size 0.4s ease;
     transform: translateY(33vh) scale(1);
     opacity: 1;
-    font-size: 55px;    
 }
 
 .tipo-producto:hover .titulo {
@@ -187,7 +228,7 @@
     left: 50%;
     transform: translate(-50%, -0%) rotate(0deg); 
     transform-origin: center center;
-    font-size: 55px;
+    font-size: 45px;
     opacity: 1;
     transition: none; 
 }
@@ -255,6 +296,16 @@
     background-image: url(../assets/pruebas/3.png);
     background-repeat: no-repeat;
     background-size: cover;
+}
+
+#otros {
+    background-image: url(../assets/pruebas/4.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#otros h3 {
+    color: white;
 }
 
 /* CARD */
@@ -413,6 +464,8 @@
     background-color: var(--color-accion);
 }
 
+
+
 #gourmet .card-producto .card-detalles {
     white-space: nowrap;
 }
@@ -447,28 +500,30 @@
 }
 
 
-/* LISTA PRODUCTOS */
+/* LISTA PRODUCTOS CARRITO*/
 .seccion-lista-productos {
+    padding: 40px 0;
     background-color: white;
     display: flex;
     justify-content: center;
-    color: white;    
+    color: black;    
 }
 
 .item .imagen img {
-    width: 100%;    
+    width: 100%;
+    padding: 10px;    
 }
 
 .item {
     display: grid;
-    grid-template-columns: 70px 150px 50px 1fr;
-    gap: 10px;
+    grid-template-columns: 70px 150px 50px 50px 1fr;
+    gap: 60px;
     text-align: center;
     align-items: center;
 }
 
 .item:nth-child(even) {
-    background-color: aqua;
+    background-color: var(--color-gris-claro)
 }
 
 .item .cantidad span {
@@ -482,19 +537,22 @@
 
 .item .cantidad span:nth-child(2) {
     background-color: transparent;
-    color: white;
+    color: black;
 }
 
 .lista {
     overflow: auto;
 }
 
+.menos .mas:hover {
+    cursor: pointer;
+}
 
 
 .lista-productos {
+    padding: 50px;
     width: 800px;
-    background-color: black;
-    border-radius: 30px;
+    background-color: white;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -561,7 +619,7 @@
   }
 
   .titulo {
-    font-size: 45px; /* reduce el tamaño del título para que entre */
+    font-size: 40px; /* reduce el tamaño del título para que entre */
   }
 }
 
