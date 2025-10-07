@@ -1,32 +1,25 @@
+//Inicio
+
+
 //Modificaciones:
 
-//Elementos de la pagina
-let body = document.querySelector('body');
-
-let listaProductosCategoriaHTML = document.getElementById("grilla");
-let listaProductosHTML = document.getElementById("todos")
-
-
-let listaCarritoHTML = document.querySelector(".lista");
-let iconoCarritoSpan = document.querySelector(".carrito-cantidad");
-
+//Variables globales
 let listaProductos = [];
 let carrito = [];
 
+//Elementos de la pagina
+let body = document.querySelector('body');
+let listaProductosCategoriaHTML = document.getElementById("grilla");
+let listaProductosHTML = document.getElementById("todos")
+let listaCarritoHTML = document.querySelector(".lista");
+let iconoCarritoSpan = document.querySelector(".carrito-cantidad");
 
 //Elegir filtro
 let botonCategoria = document.getElementById("btn_porCategoria");
 let botonTodos = document.getElementById("btn_todos");
 
-botonCategoria.addEventListener("click", ()=> {
-    listaProductosHTML.classList.remove("selected");
-    listaProductosCategoriaHTML.classList.add("selected");
-})
 
-botonTodos.addEventListener("click", ()=> {
-    listaProductosHTML.classList.add("selected");
-    listaProductosCategoriaHTML.classList.remove("selected");
-})
+//Prueba
 
 
 const renderizarProductosHTML = () => {
@@ -202,6 +195,12 @@ const cargarListaProductos = () => {
         listaProductos = data;
         console.log(listaProductos);
         renderizarProductosHTML();
+
+        botonCategoria.classList.add("selected");
+        botonTodos.classList.remove("selected");
+        document.getElementById("todos").style.display = "none";
+
+        renderizarPorCategoria();
         
         // cargar acarrito de mmemoraua
         if(localStorage.getItem('carritoMemoria')){
@@ -215,7 +214,102 @@ const agregarCarritoMemoria = () => {
     localStorage.setItem('carritoMemoria', JSON.stringify(carrito));
 }
 
+// --- FILTRO: Todos / Por categoría ---
+
+botonTodos.addEventListener("click", () => {
+    botonTodos.classList.add("selected");
+    botonCategoria.classList.remove("selected");
+
+    // Mostrar contenedor de todos
+    listaProductosHTML.style.display = "grid";
+    document.getElementById("todos").classList.remove("collapsed");
+
+    // Ocultar las categorías
+
+
+    document.querySelector(".grilla").classList.add("collapsed");
+
+    renderizarProductosHTML(); // vuelve a renderizar todos juntos
+});
+
+
+
+botonCategoria.addEventListener("click", () => {
+    renderizarPorCategoria();
+});
+
+let renderizarPorCategoria = () => {
+    botonCategoria.classList.add("selected");
+    botonTodos.classList.remove("selected");
+
+    // Ocultar el contenedor de todos
+    document.getElementById("todos").style.display = "none";
+
+    document.querySelector(".grilla").classList.remove("collapsed");
+
+    // Mostrar cada categoría y vaciar sus contenedores
+    document.querySelectorAll(".tipo-producto").forEach(div => {
+        div.style.display = "flex";
+        let contenedor = div.querySelector(".container-tipo-producto");
+        contenedor.innerHTML = ""; // limpiar para no duplicar
+    });
+
+    // Renderizar productos en sus categorías
+    listaProductos.forEach(producto => {
+        const botonesPeso = Object.keys(producto.pesoPrecio).map((peso, id) =>
+            `<button class="${id === 0 ? 'boton-seleccionado' : ''}">${peso}</button>`
+        ).join("");
+
+        let primerPrecio = Object.values(producto.pesoPrecio)[0];
+        let precioMostrar = primerPrecio === 0 ? "--" : `$${primerPrecio.toLocaleString("es-AR")}`;
+
+        let nuevoProducto = document.createElement("article");
+        nuevoProducto.classList.add("card-producto");
+        nuevoProducto.dataset.id = producto.id;
+
+        let proximamenteHTML = "";
+        if (producto.categoria.toLowerCase() === "derivados") {
+            proximamenteHTML = `
+                <div class="proximamente">
+                    <p>próximamente</p>
+                </div>`;
+        }
+
+        nuevoProducto.innerHTML = `
+            ${proximamenteHTML}
+            <div class="card-encabezado">
+                <p>#${producto.categoria}</p>
+                <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+            </div>
+            <div class="card-imagen-producto">
+                <img src="${producto.imagen}" alt="${producto.nombreProducto}">
+            </div>
+            <div class="card-detalles">
+                <span class="card-nombre-producto">${producto.nombreProducto.toUpperCase()}</span>
+                <p>${producto.descripcion ?? ""}</p>
+            </div>
+            <div class="card-peso-precios">
+                <div class="peso-opcion">
+                    <div class="opciones">${botonesPeso}</div>
+                </div>
+                <div class="precios">
+                    <span>${precioMostrar}</span>
+                </div>
+            </div>
+            <div class="card-boton ${producto.disponible ? "" : "no-disponible"}">
+                <button class="agregarCarrito" ${primerPrecio === 0 ? "disabled" : ""}>Agregar al carrito</button>
+            </div> 
+        `;
+
+        // Insertar en su categoría correspondiente
+        const categoriaDiv = document.querySelector(`#${producto.categoria.toLowerCase()} .container-tipo-producto`);
+        if (categoriaDiv) {
+            categoriaDiv.appendChild(nuevoProducto);
+        }
+    });
+}
 cargarListaProductos();
+
 
 
 

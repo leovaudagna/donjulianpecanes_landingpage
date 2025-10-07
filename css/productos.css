@@ -5,8 +5,8 @@
 
 
 .icono-carrito {
-    position: sticky;
-    z-index: 12;
+    position: fixed !important;
+    z-index: 2000 !important;
     width: auto;
     height: auto;
     display: flex;
@@ -37,6 +37,12 @@
     right: 230px; 
 }
 
+
+
+.fondo {
+    position: relative;
+    z-index: 1; /* El carrito queda encima de esta sección */
+}
 
 .fondo {
     display: flex;
@@ -121,15 +127,16 @@
   display: none !important;
 }
 
-.selected {
-  display: visible !important;
-}
+
 
 #todos {
+    margin-top: 50px;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 40px;
+    transition: all 0.3s ease;
 }
+
 
 .collapsed {
   visibility: collapse !important;
@@ -499,6 +506,14 @@
     font-size: 20px;
 }
 
+.collapsed {
+    display: none !important;
+    opacity: 0;
+    pointer-events: none; /* evita que se pueda clickear */
+    height: 0 !important;
+    overflow: hidden;
+}
+
 
 /* LISTA PRODUCTOS CARRITO*/
 .seccion-lista-productos {
@@ -574,6 +589,10 @@
     width: 250px;
     padding: 12px;
     border-radius: 25px;
+}
+
+.menos:hover, .mas:hover {
+    cursor: pointer;
 }
 
 
