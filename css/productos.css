@@ -535,6 +535,7 @@
     gap: 60px;
     text-align: center;
     align-items: center;
+    height: 100px;
 }
 
 .item:nth-child(even) {
@@ -595,6 +596,10 @@
     cursor: pointer;
 }
 
+#item-cantidad {
+    cursor:default;
+}
+
 
 
 /* Animaciones PRUEBA */
@@ -640,6 +645,8 @@
   .titulo {
     font-size: 40px; /* reduce el tamaño del título para que entre */
   }
+
+ 
 }
 
 @media screen and (max-height: 900px) {
@@ -683,5 +690,13 @@
         padding: 0px;
     }
 
+    
 
+
+}
+
+@media screen and (max-width: 1750px){
+    .icono-carrito {
+        display: none;
+    }    
 }

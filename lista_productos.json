@@ -72,11 +72,11 @@
     },
     {
         "id": 8,
-        "nombreProducto": "Pelada (Vacio)",
+        "nombreProducto": "Peladas (al vacío)",
         "categoria": "otros",
         "descripcion": "",
         "pesoPrecio": {
-            "2kg": " (Consultar)"
+            "2kg": " --"
         },
         "imagen": "assets/pruebas/pecan_vacio.png",
         "disponible": true

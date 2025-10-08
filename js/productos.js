@@ -146,7 +146,7 @@ const agregarCarritoHTML = () => {
             </div>
             <div class="cantidad">
                 <span class="menos"><</span>
-                <span>${item.cantidad}</span>
+                <span id="item-cantidad">${item.cantidad}</span>
                 <span class="mas">></span>
             </div>            
             `;
@@ -310,10 +310,21 @@ let renderizarPorCategoria = () => {
 }
 cargarListaProductos();
 
+//LIMPIAR CARRITO
 
+//CHECKOUT
+let limpiarBoton = document.getElementById("limpiar");
+let realizarPedidoBoton = document.getElementById("realizar_pedido");
 
+limpiarBoton.addEventListener("click", () => {
+    carrito = [];
+    agregarCarritoMemoria();
+    agregarCarritoHTML();
+} )
 
-
+realizarPedidoBoton.addEventListener("click", () => {
+    console.log(carrito);
+})
 
 
 
