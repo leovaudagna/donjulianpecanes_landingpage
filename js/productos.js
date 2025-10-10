@@ -14,11 +14,16 @@ let listaProductosHTML = document.getElementById("todos")
 let listaCarritoHTML = document.querySelector(".lista");
 let iconoCarritoSpan = document.querySelector(".carrito-cantidad");
 
+let precioFinalTotalCarrito = document.getElementById("carritoTotalFinal");
+let encabezadoLista = document.querySelector(".encabezado-lista");
+let carritoTotal = document.querySelector(".carritoTotal");
+
+
 //Elegir filtro
 let botonCategoria = document.getElementById("btn_porCategoria");
 let botonTodos = document.getElementById("btn_todos");
 
-
+let precioFinalGlobal = 0;
 //Prueba
 
 
@@ -82,41 +87,89 @@ const renderizarProductosHTML = () => {
             listaProductosHTML.appendChild(nuevoProducto);
         })
     }
+    
 }
 
-listaProductosHTML.addEventListener('click', (event) => {
-    let posicionClick = event.target;
-    if(posicionClick.classList.contains('agregarCarrito')){
-        let producto_id = posicionClick.parentElement.parentElement.dataset.id;
-        console.log(producto_id);
-        agregarProductoCarrito(producto_id);
-    }
-    }
-)
+//CONFIRMAR QUE NO SIRVE y BORRAR
+// listaProductosHTML.addEventListener('click', (event) => {
+//     let posicionClick = event.target;
+//     if(posicionClick.classList.contains('agregarCarrito')){
+//         let producto_id = posicionClick.parentElement.parentElement.dataset.id;
+//         console.log(producto_id);
+//         agregarProductoCarrito(producto_id);
+//     }
+//     }
+// )
 
-const agregarProductoCarrito = (producto_id) => {
-    let posicionProductoEnCarrito = carrito.findIndex((valor) => valor.producto_id == producto_id);
-    if(carrito.length <= 0){
-        carrito = [{
-            producto_id: producto_id,
-            cantidad: 1
-        }]
-    } else if(posicionProductoEnCarrito < 0){
+document.body.addEventListener("click", (event) => {
+    const btn = event.target;
+
+    // --- CAMBIAR PESO ---
+    if (btn.closest(".peso-opcion button")) {
+        const card = btn.closest(".card-producto");
+        const producto_id = card.dataset.id;
+        const producto = listaProductos.find(p => p.id == producto_id);
+        if (!producto) return;
+
+        // Quitar selección previa y marcar nuevo peso
+        const botones = card.querySelectorAll(".peso-opcion button");
+        botones.forEach(b => b.classList.remove("boton-seleccionado"));
+        btn.classList.add("boton-seleccionado");
+
+        // Actualizar precio mostrado
+        const pesoSeleccionado = btn.textContent.trim();
+        const precio = producto.pesoPrecio[pesoSeleccionado];
+        const spanPrecio = card.querySelector(".precios span");
+        spanPrecio.textContent = precio === 0 ? "--" : `$${precio.toLocaleString("es-AR")}`;
+    }
+
+    // --- AGREGAR AL CARRITO ---
+    if (btn.classList.contains("agregarCarrito")) {
+        const card = btn.closest(".card-producto");
+        const producto_id = card.dataset.id;
+        const producto = listaProductos.find(p => p.id == producto_id);
+        if (!producto) return;
+
+        // Obtener el peso actualmente seleccionado
+        const pesoSeleccionado = card.querySelector(".boton-seleccionado")?.textContent.trim();
+
+        if (!pesoSeleccionado) {
+            pesoSeleccionado = Object.keys(producto.pesoPrecio)[0];
+         // y opcionalmente marcarlo visualmente
+            const primerBoton = card.querySelector(".peso-opcion button");
+            if (primerBoton) primerBoton.classList.add("boton-seleccionado");
+        }
+
+
+
+        const precio = producto.pesoPrecio[pesoSeleccionado];
+
+        agregarProductoCarrito(producto_id, pesoSeleccionado, precio);
+    }
+});
+
+const agregarProductoCarrito = (producto_id, peso, precio) => {
+    let posicion = carrito.findIndex(item => item.producto_id == producto_id && item.peso == peso);
+
+    if (posicion >= 0) {
+        carrito[posicion].cantidad += 1;
+    } else {
         carrito.push({
             producto_id: producto_id,
-            cantidad: 1
+            cantidad: 1,
+            peso: peso,
+            precio: precio
         });
-    } else {
-        carrito[posicionProductoEnCarrito].cantidad = carrito[posicionProductoEnCarrito].cantidad + 1;
     }
-    console.log(carrito);
+
     agregarCarritoHTML();
     agregarCarritoMemoria();
-} 
+};
 
 const agregarCarritoHTML = () => {
     listaCarritoHTML.innerHTML = '';
     let cantidadTotal = 0;
+    let precioFinalTotal = 0;
     if(carrito.length > 0){
         carrito.forEach(item => {
             cantidadTotal = cantidadTotal + item.cantidad;
@@ -126,8 +179,10 @@ const agregarCarritoHTML = () => {
             let posicionProducto = listaProductos.findIndex(valor => valor.id == item.producto_id);
             let info = listaProductos[posicionProducto];
 
-            let precio = Object.values(info.pesoPrecio)[0];
-            let peso = Object.keys(info.pesoPrecio)[0];
+            let peso = item.peso;
+            let precio = item.precio;
+            let precioTotalPorProducto = precio * item.cantidad;
+            
 
             productoEnCarrito.dataset.id = item.producto_id;
 
@@ -142,7 +197,7 @@ const agregarCarritoHTML = () => {
                 ${peso}
             </div>
             <div class="precio">
-                $${precio * item.cantidad}
+                $${precioTotalPorProducto}
             </div>
             <div class="cantidad">
                 <span class="menos"><</span>
@@ -150,10 +205,27 @@ const agregarCarritoHTML = () => {
                 <span class="mas">></span>
             </div>            
             `;
+
+            precioFinalTotal += precioTotalPorProducto;
+            
+
         listaCarritoHTML.appendChild(productoEnCarrito);
         })
     }
+    
+
+    if(carrito == 0){
+        carritoTotal.style.display = "none";        
+        encabezadoLista.style.display = "none";
+    } else {
+        carritoTotal.style.display = "flex";
+        encabezadoLista.style.display = "grid";
+    }
+
+    console.log(precioFinalTotal);
     iconoCarritoSpan.innerText = cantidadTotal;
+    precioFinalTotalCarrito.innerText = precioFinalTotal;
+    precioFinalGlobal = precioFinalTotal;
 }
 
 listaCarritoHTML.addEventListener('click', (event) => {
@@ -188,34 +260,13 @@ const cambiarCantidad = (producto_id, tipo) => {
     agregarCarritoHTML();
 }
 
-const cargarListaProductos = () => {
-    fetch("lista_productos.json")
-    .then(response => response.json())
-    .then(data => {
-        listaProductos = data;
-        console.log(listaProductos);
-        renderizarProductosHTML();
 
-        botonCategoria.classList.add("selected");
-        botonTodos.classList.remove("selected");
-        document.getElementById("todos").style.display = "none";
-
-        renderizarPorCategoria();
-        
-        // cargar acarrito de mmemoraua
-        if(localStorage.getItem('carritoMemoria')){
-            carrito = JSON.parse(localStorage.getItem('carritoMemoria'));
-            agregarCarritoHTML();
-        }
-    })
-}
 
 const agregarCarritoMemoria = () => {
     localStorage.setItem('carritoMemoria', JSON.stringify(carrito));
 }
 
-// --- FILTRO: Todos / Por categoría ---
-
+// FUNCION FILTROS
 botonTodos.addEventListener("click", () => {
     botonTodos.classList.add("selected");
     botonCategoria.classList.remove("selected");
@@ -231,8 +282,6 @@ botonTodos.addEventListener("click", () => {
 
     renderizarProductosHTML(); // vuelve a renderizar todos juntos
 });
-
-
 
 botonCategoria.addEventListener("click", () => {
     renderizarPorCategoria();
@@ -308,26 +357,80 @@ let renderizarPorCategoria = () => {
         }
     });
 }
-cargarListaProductos();
 
-//LIMPIAR CARRITO
 
-//CHECKOUT
+//SECCION FINAL
 let limpiarBoton = document.getElementById("limpiar");
 let realizarPedidoBoton = document.getElementById("realizar_pedido");
+let pedidoFinalizado = [];
 
+//LIMPIAR CARRITO
 limpiarBoton.addEventListener("click", () => {
     carrito = [];
     agregarCarritoMemoria();
     agregarCarritoHTML();
 } )
 
+//CHECKOUT
 realizarPedidoBoton.addEventListener("click", () => {
-    console.log(carrito);
+    if (carrito.length === 0) {
+        alert("El carrito está vacío.");
+        return;
+    }
+    let textoCarritoFinal = "🛒 *Pedido - Don Julián Pecanes*:%0A%0A"; 
+    carrito.forEach(item => {
+        // Buscar el producto en la lista por su id
+        const producto = listaProductos.find(p => p.id == item.producto_id);
+        if (producto) {
+            // Tomar el primer peso y precio del producto
+            const peso = Object.keys(producto.pesoPrecio)[0];
+            const precio = Object.values(producto.pesoPrecio)[0];
+            
+            textoCarritoFinal += `• ${item.cantidad} x ${producto.nombreProducto} (${peso}) - $${(precio * item.cantidad).toLocaleString("es-AR")}%0A`;
+        }
+
+        
+    });
+
+    textoCarritoFinal += `*TOTAL: $${precioFinalGlobal}*%0A`
+
+    textoCarritoFinal += "%0A 👉 En breve nos comunicaremos para coordinar la entrega.";
+
+    textoCarritoFinal.replace(/\n/g,'%0A');
+    console.log(textoCarritoFinal);
+
+    // Abrir WhatsApp con el mensaje
+    const telefono = "+5493404505444"; // número sin el +, con código país
+    const urlWhatsApp = `https://api.whatsapp.com/send?phone=${telefono}&text=${textoCarritoFinal}`;
+    window.open(urlWhatsApp, "_blank");
+
+
 })
 
+//AL CARGAR
+const cargarListaProductos = () => {
+    fetch("lista_productos.json")
+    .then(response => response.json())
+    .then(data => {
+        listaProductos = data;
+        console.log(listaProductos);
+        renderizarProductosHTML();
 
+        botonCategoria.classList.add("selected");
+        botonTodos.classList.remove("selected");
+        document.getElementById("todos").style.display = "none";
 
+        renderizarPorCategoria();
+        
+        // cargar acarrito de mmemoraua
+        if(localStorage.getItem('carritoMemoria')){
+            carrito = JSON.parse(localStorage.getItem('carritoMemoria'));
+            agregarCarritoHTML();
+        }
+    })
+}
+
+cargarListaProductos();
 
 
 

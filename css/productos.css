@@ -49,7 +49,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 200px 0 100px;
+    padding: 200px 0 30px;
     /* background-color: var(--color-blanco); */
     background: linear-gradient(0deg,rgba(255, 255, 255, 1) 0%, rgba(242, 242, 242, 1) 100%);
 }
@@ -182,7 +182,7 @@
     align-self: center;
     justify-content: center;
     align-items: center;
-    max-width: 1350px;
+    max-width: 1600px;
     min-height: 80vh;
     width: 100%;
     
@@ -192,9 +192,9 @@
 /* VERSION 2 . PRODUCTOS */
 .tipo-producto {
     flex: 1; 
-    min-width: 100px; 
-    max-width: 1500px; 
-    height: 90vh;
+    min-width: 70px; 
+    max-width: 1600px; 
+    height: 85vh;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly; 
@@ -317,7 +317,7 @@
 
 /* CARD */
 .card-producto {
-    max-width: 375px;
+    max-width: 30px;
     width: 375px;
     border-radius: 25px;
     margin-top: 150px;
@@ -368,10 +368,14 @@
 .card-producto .card-imagen-producto img {
     margin-top: 20px;
     margin-bottom: -10px;
-    height: 250px;
-    width: 250px;
+    height: 235px;
+    width: 235px;
     justify-self: center;
     object-fit: contain;
+}
+
+.card-nombre-producto {
+    color: black;
 }
 
 
@@ -517,7 +521,7 @@
 
 /* LISTA PRODUCTOS CARRITO*/
 .seccion-lista-productos {
-    padding: 40px 0;
+    padding: 10px 0 40px;
     background-color: white;
     display: flex;
     justify-content: center;
@@ -583,13 +587,12 @@
 }
 
 .botones-checkout button {
-    background-color: var(--color-accion);
     font-weight: 800;
     color: black;
     border: none;
-    width: 250px;
+    width: 350px;
     padding: 12px;
-    border-radius: 25px;
+    border-radius: 30px;
 }
 
 .menos:hover, .mas:hover {
@@ -599,6 +602,69 @@
 #item-cantidad {
     cursor:default;
 }
+
+.encabezado-lista {
+    background-color: black;
+    color: white;
+    display: grid;
+    grid-template-columns: 70px 150px 50px 50px 1fr;
+    gap: 60px;
+    text-align: center;
+    align-items: center;
+    height: 60px;
+    border-radius: 30px 30px 0 0;
+}
+
+.carritoTotal {
+    display: flex;
+    height: 60px;
+    background-color: black;
+    justify-content: flex-end;
+    align-items: center;
+    padding-right: 30px;
+    border-radius: 0px 0px 30px 30px;
+}
+
+.carritoTotal p {
+    align-self: center;
+    color: white;
+}
+
+.carritoTotal span {
+    font-weight: 800;
+}
+
+#limpiar, #realizar_pedido {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--color-negro);
+    transition: 0.3s;
+}
+
+#limpiar:hover, #realizar_pedido:hover {
+    background-color: var(--color-accion);
+    color: black;
+    cursor: pointer;
+}
+
+#realizar_pedido:hover i {
+    color: black;
+}
+
+#limpiar i, #realizar_pedido i {
+    padding-right: 30px;
+}
+
+#limpiar {
+    color: rgb(255, 69, 69);
+    
+}
+
+#realizar_pedido, #realizar_pedido i {
+    color: #25D366;    
+}
+
 
 
 
@@ -699,4 +765,99 @@
     .icono-carrito {
         display: none;
     }    
+}
+
+@media (max-width: 1366px) {
+
+    article {
+        width: 25;
+    }
+
+    .card-producto {
+        width: 270px;
+        max-width: 350px;
+        padding: 15px 15px 15px 15px;
+    }
+
+    .card-producto .card-imagen-producto img {
+        height: 180px;
+        width: 180px;
+    }
+
+    .card-producto .card-detalles span {
+        font-size: 18px;
+    }
+
+    .precios span {
+        font-size: 24px;
+    }
+
+    .card-producto .card-boton button {
+        font-size: 15px;
+    }
+
+    .peso-opcion .opciones {
+        gap: 10px
+    }
+
+    .opciones button {
+        padding: 0;
+        font-size: 13px;
+    }
+}
+
+
+/* 📱 VERSIÓN CELULAR */
+@media (max-width: 768px) {
+
+    /* La grilla ocupa todo el ancho y una sola columna */
+    .grilla {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        padding: 0;
+        gap: 40px;
+    }
+
+    /* Cada tarjeta ocupa todo el ancho disponible */
+    .card-producto {
+        width: 90%;
+        max-width: 100%;
+        margin-top: 60px;
+        padding: 20px;
+        border-radius: 20px;
+    }
+
+    /* Imagen más chica para mejor proporción en móvil */
+    .card-imagen-producto img {
+        width: 180px;
+        height: 180px;
+    }
+
+    /* Texto más legible */
+    .card-producto .card-detalles span {
+        font-size: 22px;
+    }
+
+    .card-producto .card-detalles p {
+        font-size: 13px;
+    }
+
+    /* Espaciado más compacto */
+    .card-peso-precios {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .precios span {
+        font-size: 24px;
+    }
+
+    /* Botón grande, fácil de tocar */
+    .card-producto .card-boton button {
+        font-size: 18px;
+        height: 55px;
+    }
 }

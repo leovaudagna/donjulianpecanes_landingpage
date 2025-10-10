@@ -37,6 +37,18 @@
         "disponible": true
     },
     {
+        "id": 31,
+        "nombreProducto": "Choconuez (Blanca)",
+        "categoria": "gourmet",
+        "descripcion": "Un mimo dulce con corazón saludable",
+        "pesoPrecio": {
+            "100g": 5200,
+            "200g": 8300
+        },
+        "imagen": "assets/pruebas/pecan_chocolate_blanco.png",
+        "disponible": true
+    },
+    {
         "id": 5,
         "nombreProducto": "Caramelizadas",
         "categoria": "gourmet",
@@ -50,22 +62,22 @@
     },
     {
         "id": 6,
-        "nombreProducto": "Aceite de nuez pecan",
+        "nombreProducto": "Aceite de pecan",
         "categoria": "derivados",
         "descripcion": "Un toque gourmet lleno de beneficios",
         "pesoPrecio": {
-            "": ""
+            "--": "--"
         },
         "imagen": "assets/pruebas/pecan_aceite.png",
         "disponible": false
     },
     {
         "id": 7,
-        "nombreProducto": "Harina de nuez pecan",
+        "nombreProducto": "Harina de pecan",
         "categoria": "derivados",
         "descripcion": "Tu aliado secreto para cocinar con nutrición",
         "pesoPrecio": {
-            "": ""
+            "--": "--"
         },
         "imagen": "assets/pruebas/pecan_harina.png",
         "disponible": false
@@ -74,9 +86,9 @@
         "id": 8,
         "nombreProducto": "Peladas (al vacío)",
         "categoria": "otros",
-        "descripcion": "",
+        "descripcion": "Más frescas por más tiempo.",
         "pesoPrecio": {
-            "2kg": " --"
+            "2kg": "0"
         },
         "imagen": "assets/pruebas/pecan_vacio.png",
         "disponible": true
@@ -85,7 +97,7 @@
         "id": 9,
         "nombreProducto": "Partidas",
         "categoria": "otros",
-        "descripcion": "",
+        "descripcion": "Listas para usar en tus recetas",
         "pesoPrecio": {
             "500g": 12000,
             "1kg": 23000

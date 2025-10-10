@@ -549,6 +549,7 @@ form button:hover {
 .footer-logo {
     max-height: fit-content;
     width: 150px;
+    
 }
 
 
@@ -558,10 +559,17 @@ form button:hover {
     justify-content: center;
     gap: 25px;
     margin-left: auto;
+    
 }
 
 .fa-brands {
     font-size: 27px;
+    transition: 1.0s;
+    color: var(--color-gris-oscuro);    
+}
+
+.fa-brands:hover {
+    cursor: pointer;
 }
 
 .fa-facebook-f:hover {
