@@ -6,7 +6,7 @@
 
 .icono-carrito {
     position: fixed !important;
-    z-index: 2000 !important;
+    z-index: 2500;
     width: auto;
     height: auto;
     display: flex;
@@ -14,7 +14,7 @@
     justify-content: flex-end;
     padding-right: 250px;
     top: 30px;
-    right: 20px;
+    right:-210px;
 }
 
 
@@ -132,7 +132,7 @@
 #todos {
     margin-top: 50px;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     gap: 40px;
     transition: all 0.3s ease;
 }
@@ -346,8 +346,12 @@
 .card-encabezado p {
     font-size: 18px;
     font-weight: 800;
-    color: var(--color-gris);
 }
+
+.categoria-natural { color: #915E43; }
+.categoria-gourmet { color: #080808; }
+.categoria-derivados { color: #E4E4E4; }
+.categoria-otros { color: #6A7D49; }
 
 .card-encabezado i {
     font-size: 27px;
@@ -484,6 +488,26 @@
 .card-producto .no-disponible button {
     background-color: var(--color-gris-claro);
     color: var(--color-gris-oscuro);
+}
+
+.card-producto .card-encabezado {
+    position: relative;
+}
+
+.card-producto .contador-card, .contador-card {
+    position: absolute;
+    top: -6px;
+    right: -6px;
+    background: #ff5555;
+    color: white;
+    border-radius: 50%;
+    font-size: 12px;
+    font-weight: bold;
+    width: 18px;
+    height: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 #derivados img {
@@ -634,7 +658,7 @@
     font-weight: 800;
 }
 
-#limpiar, #realizar_pedido {
+#limpiar, #realizar_pedido, #cerrar_carrito {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -642,7 +666,7 @@
     transition: 0.3s;
 }
 
-#limpiar:hover, #realizar_pedido:hover {
+#limpiar:hover, #realizar_pedido:hover,  #cerrar_carrito:hover {
     background-color: var(--color-accion);
     color: black;
     cursor: pointer;
@@ -652,7 +676,11 @@
     color: black;
 }
 
-#limpiar i, #realizar_pedido i {
+#cerrar_carrito {
+    color: #6A7D49;
+}
+
+#limpiar i, #realizar_pedido i, #cerrar_carrito i {
     padding-right: 30px;
 }
 
@@ -665,6 +693,97 @@
     color: #25D366;    
 }
 
+
+.pestaña-carrito {
+    padding: 100px;
+    
+}
+
+/* PESTAÑA */
+
+
+
+.seccion-lista-productos-pestaña {
+    z-index: 3000;
+    width: 800px;
+    color: rgb(0, 0, 0);
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    inset: 0 -900px 0 auto;
+    grid-template-rows: 70;
+    transition: .5s;
+    display: flex; /* 🟢 agregar */
+    flex-direction: column; /* 🟢 agregar */
+}
+
+
+body.mostrarCarrito .seccion-lista-productos-pestaña {
+    inset: 0 0 0 auto;
+}
+
+
+.seccion-lista-productos-pestaña .lista-productos {
+    padding: 50px;
+    width: 800px;
+    background-color: #0c0c0c;
+    display: flex;
+    flex: 1; /* 🟢 que ocupe todo el alto disponible */
+    overflow-y: auto; /* 🟢 permite scroll solo dentro del contenido */
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.seccion-lista-productos-pestaña .item {
+    display: grid;
+    grid-template-columns: 70px 150px 50px 50px 1fr;
+    gap: 60px;
+    text-align: center;
+    align-items: center;
+    height: 65px;
+    overflow: hidden;
+    background-color: #fff;
+}
+
+.seccion-lista-productos-pestaña .item .imagen img {
+    width: 100%;
+    padding: 10px;    
+}
+
+.seccion-lista-productos-pestaña .item:nth-child(even) {
+    background-color: var(--color-gris-claro)
+}
+
+.seccion-lista-productos-pestaña .item .cantidad span {
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    background-color: wheat;
+    color: black;
+    border-radius: 50px;
+}
+
+.seccion-lista-productos-pestaña .item .cantidad span:nth-child(2) {
+    background-color: transparent;
+    color: black;
+}
+
+.seccion-lista-productos-pestaña::-webkit-scrollbar {
+    width: 0;
+}
+
+.lista-productos h3 {
+    color: white;
+    justify-content: center;
+}
+
+.seccion-lista-productos-pestaña .botones-checkout {
+    margin-top: auto;
+    display: flex;
+    justify-content: space-around;
+    padding: 10px;
+}
 
 
 
@@ -732,6 +851,8 @@
         padding: 0px;
     }
 
+    
+
 
 }
 
@@ -761,11 +882,7 @@
 
 }
 
-@media screen and (max-width: 1750px){
-    .icono-carrito {
-        display: none;
-    }    
-}
+
 
 @media (max-width: 1366px) {
 
@@ -804,60 +921,53 @@
         padding: 0;
         font-size: 13px;
     }
+
+    #todos {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    
 }
 
 
 /* 📱 VERSIÓN CELULAR */
 @media (max-width: 768px) {
 
-    /* La grilla ocupa todo el ancho y una sola columna */
-    .grilla {
+    .logo img {
+        display: none;
+    }
+
+    #logo-prueba {
+        display: none;
+    }
+
+    .categorias {
         display: flex;
-        flex-direction: column;
+        justify-content: center;
         align-items: center;
-        width: 100%;
-        padding: 0;
-        gap: 40px;
+        width: 100vw;
     }
+}
 
-    /* Cada tarjeta ocupa todo el ancho disponible */
-    .card-producto {
-        width: 90%;
-        max-width: 100%;
-        margin-top: 60px;
-        padding: 20px;
-        border-radius: 20px;
-    }
 
-    /* Imagen más chica para mejor proporción en móvil */
-    .card-imagen-producto img {
-        width: 180px;
-        height: 180px;
-    }
+/* BORRAR LINEA */
+.seccion-lista-productos {
+    display: none;
+}
 
-    /* Texto más legible */
-    .card-producto .card-detalles span {
-        font-size: 22px;
-    }
 
-    .card-producto .card-detalles p {
-        font-size: 13px;
-    }
+.overlay-carrito {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease;
+    z-index: 2500; /* un poco menos que el panel (3000) */
+}
 
-    /* Espaciado más compacto */
-    .card-peso-precios {
-        flex-direction: column;
-        align-items: center;
-        gap: 10px;
-    }
-
-    .precios span {
-        font-size: 24px;
-    }
-
-    /* Botón grande, fácil de tocar */
-    .card-producto .card-boton button {
-        font-size: 18px;
-        height: 55px;
-    }
+/* Cuando el carrito está abierto */
+body.mostrarCarrito .overlay-carrito {
+    opacity: 1;
+    pointer-events: auto;
 }

@@ -11,97 +11,125 @@ let carrito = [];
 let body = document.querySelector('body');
 let listaProductosCategoriaHTML = document.getElementById("grilla");
 let listaProductosHTML = document.getElementById("todos")
-let listaCarritoHTML = document.querySelector(".lista");
+let listaCarritoHTML = document.querySelector(".lista-pestaña");
 let iconoCarritoSpan = document.querySelector(".carrito-cantidad");
+let iconoCarrito = document.querySelector(".icono-carrito");
 
 let precioFinalTotalCarrito = document.getElementById("carritoTotalFinal");
 let encabezadoLista = document.querySelector(".encabezado-lista");
 let carritoTotal = document.querySelector(".carritoTotal");
 
+let listaCarritoPestaña = document.querySelector(".lista-pestaña");
 
 //Elegir filtro
 let botonCategoria = document.getElementById("btn_porCategoria");
 let botonTodos = document.getElementById("btn_todos");
 
 let precioFinalGlobal = 0;
+
+//SECCION FINAL
+let limpiarBoton = document.getElementById("limpiar");
+let realizarPedidoBoton = document.getElementById("realizar_pedido");
+let cerrarCarrito = document.getElementById("cerrar_carrito");
+let pedidoFinalizado = [];
+
 //Prueba
 
 
-const renderizarProductosHTML = () => {
+// Card HTML a partir de un producto
+const crearCardProducto = (producto) => {
+    const botonesPeso = Object.keys(producto.pesoPrecio)
+        .map((peso, id) => `<button class="${id === 0 ? 'boton-seleccionado' : ''}">${peso}</button>`)
+        .join("");
 
-    listaProductosHTML.innerHTML = '';
-    if(listaProductos.length > 0){
-        listaProductos.forEach(producto => {
+    const primerPrecio = Object.values(producto.pesoPrecio)[0];
+    const precioMostrar = primerPrecio === 0 ? "--" : `$${primerPrecio.toLocaleString("es-AR")}`;
 
-            const botonesPeso = Object.keys(producto.pesoPrecio).map((peso, id) =>
-                `<button class="${id === 0 ? 'boton-seleccionado' : ''}">${peso}</button>`
-            ).join("");
-
-            // Precio inicial
-            let primerPrecio = Object.values(producto.pesoPrecio)[0];
-            let precioMostrar = primerPrecio === 0 ? "--" : `$${primerPrecio.toLocaleString("es-AR")}`;
-
-            //Creacion de productos
-            let nuevoProducto = document.createElement('article');
-            nuevoProducto.classList.add("card-producto");
-            nuevoProducto.dataset.id = producto.id;
-
-            let proximamenteHTML = "";
-            
-            if (producto.categoria.toLowerCase() === "derivados") {
-            proximamenteHTML = `
-                <div class="proximamente">
-                    <p>próximamente</p>
-                </div>
-            `;
-            }
-
-            nuevoProducto.innerHTML = `
-            ${proximamenteHTML}
-            <div class="card-encabezado">
-                    <p>#${producto.categoria}</p>
-                    <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-                    <span class="contador-card"></span>
-                </div>
-                <div class="card-imagen-producto">
-                    <img src="${producto.imagen}" alt="${producto.nombreProducto}">
-                </div>
-                <div class="card-detalles">
-                    <span class="card-nombre-producto">${producto.nombreProducto.toUpperCase()}</span>
-                    <p>${producto.descripcion ?? ""}</p>
-                </div>
-                <div class="card-peso-precios">
-                    <div class="peso-opcion">
-                        <div class="opciones">
-                            ${botonesPeso}
-                        </div>
-                    </div>
-                    <div class="precios">
-                        <span>${precioMostrar}</span>
-                    </div>
-                </div>
-                <div class="card-boton ${producto.disponible ? "" : "no-disponible"}">
-                    <button class="agregarCarrito" ${primerPrecio === 0 ? "disabled" : ""}>Agregar al carrito</button>
-                </div> 
-            `;
-            
-            listaProductosHTML.appendChild(nuevoProducto);
-        })
+    let proximamenteHTML = "";
+    if (producto.categoria.toLowerCase() === "derivados") {
+        proximamenteHTML = `
+            <div class="proximamente">
+                <p>próximamente</p>
+            </div>`;
     }
-    actualizarContadoresCards();
-}
 
-//CONFIRMAR QUE NO SIRVE y BORRAR
-// listaProductosHTML.addEventListener('click', (event) => {
-//     let posicionClick = event.target;
-//     if(posicionClick.classList.contains('agregarCarrito')){
-//         let producto_id = posicionClick.parentElement.parentElement.dataset.id;
-//         console.log(producto_id);
-//         agregarProductoCarrito(producto_id);
-//     }
-//     }
-// )
+    
 
+    const nuevoProducto = document.createElement("article");
+    nuevoProducto.classList.add("card-producto");
+    nuevoProducto.dataset.id = producto.id;
+
+    nuevoProducto.innerHTML = `
+        ${proximamenteHTML}
+        <div class="card-encabezado">
+            <p class="categoria-hashtag">#${producto.categoria}</p>            
+        </div>
+        <div class="card-imagen-producto">
+            <img src="${producto.imagen}" alt="${producto.nombreProducto}">
+        </div>
+        <div class="card-detalles">
+            <span class="card-nombre-producto">${producto.nombreProducto.toUpperCase()}</span>
+            <p>${producto.descripcion ?? ""}</p>
+        </div>
+        <div class="card-peso-precios">
+            <div class="peso-opcion">
+                <div class="opciones">${botonesPeso}</div>
+            </div>
+            <div class="precios"><span>${precioMostrar}</span></div>
+        </div>
+        <div class="card-boton ${producto.disponible ? "" : "no-disponible"}">
+            <button class="agregarCarrito" ${primerPrecio === 0 ? "disabled" : ""}>
+                Agregar al carrito
+            </button>
+        </div>
+    `;
+
+    const categoriaHashtag = nuevoProducto.querySelector(".categoria-hashtag");
+    if (producto.categoria && categoriaHashtag) {
+        categoriaHashtag.classList.add(`categoria-${producto.categoria.toLowerCase()}`);
+        console.log("HOLA" + categoriaHashtag);
+    }
+
+    
+    return nuevoProducto;
+};
+
+// Renderizar TODOS
+const renderizarProductosHTML = () => {
+    listaProductosHTML.innerHTML = '';
+    listaProductos.forEach(producto => {
+        const card = crearCardProducto(producto);
+        listaProductosHTML.appendChild(card);
+    });
+
+    
+
+};
+
+// Renderizar en CATEGORIAS
+const renderizarPorCategoria = () => {
+    botonCategoria.classList.add("selected");
+    botonTodos.classList.remove("selected");
+
+    document.getElementById("todos").style.display = "none";
+    document.querySelector(".grilla").classList.remove("collapsed");
+
+    document.querySelectorAll(".tipo-producto").forEach(div => {
+        div.style.display = "flex";
+        const contenedor = div.querySelector(".container-tipo-producto");
+        contenedor.innerHTML = "";
+    });
+
+    listaProductos.forEach(producto => {
+        const card = crearCardProducto(producto);
+        const categoriaDiv = document.querySelector(`#${producto.categoria.toLowerCase()} .container-tipo-producto`);
+        if (categoriaDiv) categoriaDiv.appendChild(card);
+    });
+
+
+};
+
+//FUNCION ELECCION PESO
 document.body.addEventListener("click", (event) => {
     const btn = event.target;
 
@@ -149,6 +177,7 @@ document.body.addEventListener("click", (event) => {
     }
 });
 
+//Agregar productos al carrito
 const agregarProductoCarrito = (producto_id, peso, precio) => {
     let posicion = carrito.findIndex(item => item.producto_id == producto_id && item.peso == peso);
 
@@ -169,6 +198,7 @@ const agregarProductoCarrito = (producto_id, peso, precio) => {
 
 const agregarCarritoHTML = () => {
     listaCarritoHTML.innerHTML = '';
+    listaCarritoPestaña.innerHTML = '';
     let cantidadTotal = 0;
     let precioFinalTotal = 0;
     if(carrito.length > 0){
@@ -210,8 +240,11 @@ const agregarCarritoHTML = () => {
             precioFinalTotal += precioTotalPorProducto;
             
 
-        listaCarritoHTML.appendChild(productoEnCarrito);
+        // listaCarritoHTML.appendChild(productoEnCarrito);
+        listaCarritoPestaña.appendChild(productoEnCarrito);
+        
         })
+        
     }
     
 
@@ -229,30 +262,39 @@ const agregarCarritoHTML = () => {
     precioFinalGlobal = precioFinalTotal;
     
 
-    actualizarContadoresCards();
+
 }
 
-const actualizarContadoresCards = () => {
-    // Reiniciar todos los contadores a vacío
-    document.querySelectorAll(".contador-card").forEach(span => {
-        span.textContent = "";
-        span.style.display = "none";
-    });
+const overlay = document.querySelector(".overlay-carrito");
 
-    // Recorrer el carrito y actualizar el contador de cada producto
-    carrito.forEach(item => {
-        const card = document.querySelector(`.card-producto[data-id='${item.producto_id}']`);
-        if (card) {
-            const contador = card.querySelector(".contador-card");
-            if (contador) {
-                contador.textContent = item.cantidad;
-                contador.style.display = "flex";
-            }
-        }
-    });
-};
+//Abrir pestaña carrito
+iconoCarrito.addEventListener("click", () => {
+    body.classList.toggle("mostrarCarrito");
+} )
+
+cerrarCarrito.addEventListener("click", () => {
+    body.classList.toggle("mostrarCarrito");
+})
+
+overlay.addEventListener("click", () => {
+    document.body.classList.remove("mostrarCarrito");
+});
+
+
+
 
 listaCarritoHTML.addEventListener('click', (event) => {
+    let posicionClick = event.target;
+    if(posicionClick.classList.contains('menos') || posicionClick.classList.contains('mas')){
+        let producto_id = posicionClick.closest('[data-id]').dataset.id;
+        let tipo = 'menos';
+        if(posicionClick.classList.contains('mas')){
+            tipo = 'mas';
+        } cambiarCantidad(producto_id, tipo);
+    }
+})
+
+listaCarritoPestaña.addEventListener('click', (event) => {
     let posicionClick = event.target;
     if(posicionClick.classList.contains('menos') || posicionClick.classList.contains('mas')){
         let producto_id = posicionClick.closest('[data-id]').dataset.id;
@@ -283,7 +325,6 @@ const cambiarCantidad = (producto_id, tipo) => {
     agregarCarritoMemoria();
     agregarCarritoHTML();
 
-    actualizarContadoresCards();
 }
 
 
@@ -313,90 +354,16 @@ botonCategoria.addEventListener("click", () => {
     renderizarPorCategoria();
 });
 
-let renderizarPorCategoria = () => {
-    botonCategoria.classList.add("selected");
-    botonTodos.classList.remove("selected");
-
-    // Ocultar el contenedor de todos
-    document.getElementById("todos").style.display = "none";
-
-    document.querySelector(".grilla").classList.remove("collapsed");
-
-    // Mostrar cada categoría y vaciar sus contenedores
-    document.querySelectorAll(".tipo-producto").forEach(div => {
-        div.style.display = "flex";
-        let contenedor = div.querySelector(".container-tipo-producto");
-        contenedor.innerHTML = ""; // limpiar para no duplicar
-    });
-
-    // Renderizar productos en sus categorías
-    listaProductos.forEach(producto => {
-        const botonesPeso = Object.keys(producto.pesoPrecio).map((peso, id) =>
-            `<button class="${id === 0 ? 'boton-seleccionado' : ''}">${peso}</button>`
-        ).join("");
-
-        let primerPrecio = Object.values(producto.pesoPrecio)[0];
-        let precioMostrar = primerPrecio === 0 ? "--" : `$${primerPrecio.toLocaleString("es-AR")}`;
-
-        let nuevoProducto = document.createElement("article");
-        nuevoProducto.classList.add("card-producto");
-        nuevoProducto.dataset.id = producto.id;
-
-        let proximamenteHTML = "";
-        if (producto.categoria.toLowerCase() === "derivados") {
-            proximamenteHTML = `
-                <div class="proximamente">
-                    <p>próximamente</p>
-                </div>`;
-        }
-
-        nuevoProducto.innerHTML = `
-            ${proximamenteHTML}
-            <div class="card-encabezado">
-                <p>#${producto.categoria}</p>
-                <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-                <span class="contador-card"></span>
-            </div>
-            <div class="card-imagen-producto">
-                <img src="${producto.imagen}" alt="${producto.nombreProducto}">
-            </div>
-            <div class="card-detalles">
-                <span class="card-nombre-producto">${producto.nombreProducto.toUpperCase()}</span>
-                <p>${producto.descripcion ?? ""}</p>
-            </div>
-            <div class="card-peso-precios">
-                <div class="peso-opcion">
-                    <div class="opciones">${botonesPeso}</div>
-                </div>
-                <div class="precios">
-                    <span>${precioMostrar}</span>
-                </div>
-            </div>
-            <div class="card-boton ${producto.disponible ? "" : "no-disponible"}">
-                <button class="agregarCarrito" ${primerPrecio === 0 ? "disabled" : ""}>Agregar al carrito</button>
-            </div> 
-        `;
-
-        // Insertar en su categoría correspondiente
-        const categoriaDiv = document.querySelector(`#${producto.categoria.toLowerCase()} .container-tipo-producto`);
-        if (categoriaDiv) {
-            categoriaDiv.appendChild(nuevoProducto);
-        }
-    });
-}
 
 
-//SECCION FINAL
-let limpiarBoton = document.getElementById("limpiar");
-let realizarPedidoBoton = document.getElementById("realizar_pedido");
-let pedidoFinalizado = [];
+
+
 
 //LIMPIAR CARRITO
 limpiarBoton.addEventListener("click", () => {
     carrito = [];
     agregarCarritoMemoria();
     agregarCarritoHTML();
-    actualizarContadoresCards();
 } )
 
 //CHECKOUT
@@ -454,7 +421,6 @@ const cargarListaProductos = () => {
         if(localStorage.getItem('carritoMemoria')){
             carrito = JSON.parse(localStorage.getItem('carritoMemoria'));
             agregarCarritoHTML();
-            actualizarContadoresCards();
         }
     })
 }
