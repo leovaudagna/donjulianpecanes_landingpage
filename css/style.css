@@ -443,6 +443,33 @@ a {
     color: var(--color-marron);
 }
 
+/* POSTEOS REDES */
+.container-post-redes {
+    height: 700px;
+    background-color: #080808;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    padding: 30px;
+    gap: 80px
+}
+
+.container-post-redes .instagram-media {
+    width: 300px;
+    background:#FFF; 
+    border:0; 
+    border-radius:3px; 
+    box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); 
+    margin: 1px; 
+    max-width:540px; 
+    min-width:326px; 
+    padding:0;
+    width:-webkit-calc(100% - 2px);
+    width:calc(100% - 2px);
+}
+
+.container-post-redes > div {
+    background-color: white;
+}
 
 /* CONTACTO */
 .formulario {

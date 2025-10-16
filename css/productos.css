@@ -543,6 +543,12 @@
 }
 
 
+
+
+
+
+/* PESTAÑA CARRITO */
+
 /* LISTA PRODUCTOS CARRITO*/
 .seccion-lista-productos {
     padding: 10px 0 40px;
@@ -559,7 +565,7 @@
 
 .item {
     display: grid;
-    grid-template-columns: 70px 150px 50px 50px 1fr;
+    grid-template-columns: 70px 50px 580px 10px 1fr;
     gap: 60px;
     text-align: center;
     align-items: center;
@@ -624,14 +630,14 @@
 }
 
 #item-cantidad {
-    cursor:default;
+    cursor: default;
 }
 
 .encabezado-lista {
-    background-color: black;
-    color: white;
+    color: rgb(0, 0, 0);
+    font-weight: 800;
     display: grid;
-    grid-template-columns: 70px 150px 50px 50px 1fr;
+    grid-template-columns: 70px 150px 30px 110px 1fr;
     gap: 60px;
     text-align: center;
     align-items: center;
@@ -642,16 +648,16 @@
 .carritoTotal {
     display: flex;
     height: 60px;
-    background-color: black;
-    justify-content: flex-end;
+    justify-content: space-between;
     align-items: center;
-    padding-right: 30px;
-    border-radius: 0px 0px 30px 30px;
+    padding: 23px;
+    border-top: 1px solid black;
 }
 
 .carritoTotal p {
+    font-size: 1.1rem;
     align-self: center;
-    color: white;
+    color: rgb(0, 0, 0);
 }
 
 .carritoTotal span {
@@ -699,10 +705,6 @@
     
 }
 
-/* PESTAÑA */
-
-
-
 .seccion-lista-productos-pestaña {
     z-index: 3000;
     width: 800px;
@@ -727,7 +729,7 @@ body.mostrarCarrito .seccion-lista-productos-pestaña {
 .seccion-lista-productos-pestaña .lista-productos {
     padding: 50px;
     width: 800px;
-    background-color: #0c0c0c;
+    background-color: #ffffff;
     display: flex;
     flex: 1; /* 🟢 que ocupe todo el alto disponible */
     overflow-y: auto; /* 🟢 permite scroll solo dentro del contenido */
@@ -737,7 +739,7 @@ body.mostrarCarrito .seccion-lista-productos-pestaña {
 
 .seccion-lista-productos-pestaña .item {
     display: grid;
-    grid-template-columns: 70px 150px 50px 50px 1fr;
+    grid-template-columns: 70px 150px 30px 110px 1fr;
     gap: 60px;
     text-align: center;
     align-items: center;
@@ -755,12 +757,23 @@ body.mostrarCarrito .seccion-lista-productos-pestaña {
     background-color: var(--color-gris-claro)
 }
 
+.seccion-lista-productos-pestaña .item .cantidad {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.cantidad i {
+    font-size: 9px;
+}
+
 .seccion-lista-productos-pestaña .item .cantidad span {
     display: inline-block;
     width: 25px;
     height: 25px;
-    background-color: wheat;
-    color: black;
+    background-color: #4A5831;
+    color: rgb(255, 255, 255);
     border-radius: 50px;
 }
 

@@ -227,15 +227,18 @@ const agregarCarritoHTML = () => {
             <div class="peso">
                 ${peso}
             </div>
-            <div class="precio">
-                $${precioTotalPorProducto}
-            </div>
             <div class="cantidad">
                 <span class="menos"><</span>
                 <span id="item-cantidad">${item.cantidad}</span>
                 <span class="mas">></span>
-            </div>            
+            </div>  
+            <div class="precio">
+                $ ${precioTotalPorProducto}
+            </div>
+                      
             `;
+
+            
 
             precioFinalTotal += precioTotalPorProducto;
             
@@ -245,6 +248,12 @@ const agregarCarritoHTML = () => {
         
         })
         
+    } else {
+        productoEnCarrito.innerHTML = `
+            <div>
+                <p>El carrito esta vacio</p>
+            </div>
+        `
     }
     
 
@@ -258,7 +267,7 @@ const agregarCarritoHTML = () => {
 
     console.log(precioFinalTotal);
     iconoCarritoSpan.innerText = cantidadTotal;
-    precioFinalTotalCarrito.innerText = precioFinalTotal;
+    precioFinalTotalCarrito.innerText = `$ ${precioFinalTotal}`;
     precioFinalGlobal = precioFinalTotal;
     
 
@@ -283,16 +292,16 @@ overlay.addEventListener("click", () => {
 
 
 
-listaCarritoHTML.addEventListener('click', (event) => {
-    let posicionClick = event.target;
-    if(posicionClick.classList.contains('menos') || posicionClick.classList.contains('mas')){
-        let producto_id = posicionClick.closest('[data-id]').dataset.id;
-        let tipo = 'menos';
-        if(posicionClick.classList.contains('mas')){
-            tipo = 'mas';
-        } cambiarCantidad(producto_id, tipo);
-    }
-})
+// listaCarritoHTML.addEventListener('click', (event) => {
+//     let posicionClick = event.target;
+//     if(posicionClick.classList.contains('menos') || posicionClick.classList.contains('mas')){
+//         let producto_id = posicionClick.closest('[data-id]').dataset.id;
+//         let tipo = 'menos';
+//         if(posicionClick.classList.contains('mas')){
+//             tipo = 'mas';
+//         } cambiarCantidad(producto_id, tipo);
+//     }
+// })
 
 listaCarritoPestaña.addEventListener('click', (event) => {
     let posicionClick = event.target;
@@ -388,8 +397,6 @@ realizarPedidoBoton.addEventListener("click", () => {
     });
 
     textoCarritoFinal += `*TOTAL: $${precioFinalGlobal}*%0A`
-
-    textoCarritoFinal += "%0A 👉 En breve nos comunicaremos para coordinar la entrega.";
 
     textoCarritoFinal.replace(/\n/g,'%0A');
     console.log(textoCarritoFinal);
