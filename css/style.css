@@ -446,11 +446,11 @@ a {
 /* POSTEOS REDES */
 .container-post-redes {
     height: 700px;
-    background-color: #080808;
+    background-color: #EBEBEB;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    padding: 30px;
-    gap: 80px
+    padding: 130px;
+    gap: 120px;
 }
 
 .container-post-redes .instagram-media {
@@ -473,7 +473,7 @@ a {
 
 /* CONTACTO */
 .formulario {
-    padding: 60px 20px 140px;
+    padding: 130px 20px 140px;
     background-color: var(--color-gris);
 
 }
