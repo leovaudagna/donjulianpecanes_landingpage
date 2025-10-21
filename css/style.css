@@ -1,13 +1,13 @@
 :root {
+    --color-negro: #080808;
+    --color-negro-claro: #1a1a1a;
+    --color-gris-oscuro: #585858;    
+    --color-gris-claro: #ebebeb;
+    --color-gris: #ebebeb;
+    --color-blanco: #FFFFFF; 
     --color-marron: #925E43;
     --color-marron-oscuro: #3D1B13;
     --color-verde: #4A5831;
-    --color-blanco: #FFFFFF;
-    --color-gris: #ebebeb;
-    --color-negro: #080808;
-    --color-gris-oscuro: #585858;
-    --color-negro-claro: #;
-    --color-gris-claro: #ebebeb;
     --color-accion: #F58E31;
     --color-accion-oscuro: #fa7f13;
 }
@@ -347,19 +347,17 @@ a {
     background-color: var(--color-negro);
     display: flex;
     flex-direction: row;
-    padding: 0px 120px 180px;
+    padding: 0px 120px 280px;
     justify-content: space-around;
     align-items: center;
     text-align: center;
     color: var(--color-blanco);      
 }
 
-
 .container-info h3 {
     font-weight: 300;
     margin-top: 15px;
 }
-
 
 .container-info img {
     filter: invert(100);
@@ -367,22 +365,18 @@ a {
 }
 
 /* INFO CLUSTER */
-
-/* FRASE DESTACADA */
 .container-frase {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;    
-    background-color: var(--color-gris);
+    background-color: var(--color-blanco);
     color: var(--color-marron);
     text-align: center;
     padding: 60px 20px;
     font-size: 1.2rem;
     height: 400px;
 }
-
-
 
 .container-frase p {
     font-size: 1rem;
@@ -405,17 +399,18 @@ a {
 .container-redes {
     display: flex;
     flex-direction: row;
-    align-items: center;          
-    justify-content: space-around; 
+    align-items: center;
     padding: 15px;
+    max-width: 1366px;
     height: 450px;
-    gap: 40px;                     
-    flex-wrap: wrap;             
-    text-align: left;             
+    margin: auto;
+    gap: 40px;            
     color: var(--color-marron);
-    background-color: var(--color-gris);    
+    background-color: var(--color-blanco);    
 }
 
+
+/*  */
 .redes-mockup img {
     max-width: 450px;              
     width: 100%;                   
@@ -439,7 +434,7 @@ a {
 }
 
 .redes-texto h2 {
-    color: var(--color-negro-claro);
+    color: var(--color-gris-oscuro);
     font-size: 2rem;
     font-weight: 900;
 }
@@ -450,68 +445,66 @@ a {
 
 /* POSTEOS REDES */
 .container-post-redes {
-    margin: auto;
-    width: 100vh;
-    height: 700px;
-    background-color: #EBEBEB;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    padding: 130px;
-    gap: 120px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+  max-height: 800px;
+  padding: 60px 8%;
+  background: linear-gradient(0deg,rgba(235, 235, 235, 1) 0%, rgba(255, 255, 255, 1) 100%);
+  justify-items: center;
+  position: relative;       /* importante para superposición */
+  z-index: 1;
 }
 
-.container-post-redes div .instagram-media {
-    width: 300px;
-    background:#FFF; 
-    border:0; 
-    border-radius:3px; 
-    box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); 
-    margin: 1px; 
-    max-width:540px; 
-    min-width:326px; 
-    padding:0;
-    width:-webkit-calc(100% - 2px);
-    width:calc(100% - 2px);
-}
-
-.container-post-redes > div > div {
-    background-color: white;
-}
-
-/* CSS de INSTAGRAM */
-.SocialProof {
-    display: none;
-}
-
-.post-embed-wrapper {
-  width: 300px;
-  height: 300px; /* o el tamaño que quieras mostrar */
-  overflow: hidden; /* recorta el resto */
+.container-post-redes > div {
+  width: 100%;
+  max-width: 800px; 
+  background: white;
   border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-
+/* GRADIENTE */
+.gradiente {
+  position: relative;
+  width: 100%;
+  height: 200px; 
+  margin-top: -150px; 
+  z-index: 2;
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0) 0%,   /* transparente arriba */
+    rgba(255, 255, 255, 0.9) 80%, /* se empieza a cubrir */
+    rgba(255, 255, 255, 1) 100%   /* blanco sólido abajo */
+  );
+}
 
 /* CONTACTO */
 .formulario {
+    z-index: 6;
     padding: 130px 20px 140px;
-    background-color: var(--color-gris);
-
+    background: linear-gradient(0deg,rgba(235, 235, 235, 1) 0%, rgba(255, 255, 255, 1) 100%);
+    align-items: center;
+    display: flex;
+    flex-direction: column;
 }
 
 .formulario img {
-    width: 400px;
+    width: 100%
 }
 
 .formulario div {
-    display: flex;
-    flex-direction: row;
+    display: grid;
+    max-width: 1366px;
+    width: 100%;
+    grid-template-columns: 1fr 2fr;
+    justify-content: center;
     align-items: center;
-    justify-content: space-around;
+    margin: 0 auto;
 }
 
 .formulario div div {
-    width: 50vw;
     display: flex;
     flex-direction: column;
 }
@@ -634,9 +627,7 @@ form button:hover {
 
 
 /* RESPONSIVE */
-/* =============================== */
 /* 📺 PANTALLAS GRANDES - ≤900px */
-/* =============================== */
 @media (max-width: 900px) {
 
     html, body {
@@ -784,11 +775,37 @@ form button:hover {
         max-width: 90vw;
         max-width: 1000px;
     }
+}
 
+@media (max-width: 900px) {
+  .container-post-redes {
+    display: flex;
+    overflow-x: auto;        /* permite desplazamiento horizontal */
+    scroll-snap-type: x mandatory; /* activa “snap” al deslizar */
+    -webkit-overflow-scrolling: touch; /* suaviza el scroll en iOS */
+    gap: 20px;
+    padding: 40px 20px;
+    width: 100%;
+    height: auto;
+  }
 
+  .container-post-redes > div {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+  }
 
-    
+  .container-post-redes > div > div {
+    flex: 0 0 80%;           /* cada post ocupa el 80% del ancho */
+    scroll-snap-align: center; /* se alinea al centro al detenerse */
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    padding: 10px;
+  }
 
-
-    
+  /* opcional: ocultar scrollbar */
+  .container-post-redes::-webkit-scrollbar {
+    display: none;
+  }
 }
