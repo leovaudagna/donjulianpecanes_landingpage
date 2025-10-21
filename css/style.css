@@ -527,7 +527,7 @@ a {
     flex-direction: column;
     width: 650px;
     max-width: 45vw;
-    margin: 0 auto;
+    margin: 0;
 }
 
 .formulario input::placeholder {
@@ -753,13 +753,6 @@ form button:hover {
         color: var(--color-gris-oscuro);
     }
 
-    .formulario div {
-        display: flex;
-        justify-content: center;
-        margin: auto;
-        padding: 0;
-    }
-
    
     .formulario > div {
         flex-direction: column;
@@ -767,7 +760,7 @@ form button:hover {
         justify-content: center;
         gap: 20px;
     }
-
+    
  
     .formulario h3 {
         order: -1; /* fuerza que vaya primero */
