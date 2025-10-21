@@ -415,6 +415,7 @@ a {
     max-width: 450px;              
     width: 100%;                   
     height: auto;
+    filter: grayscale(90%) !important;   
 }
 
 .redes-texto {
@@ -483,7 +484,7 @@ a {
 /* CONTACTO */
 .formulario {
     z-index: 6;
-    padding: 130px 20px 140px;
+    padding: 40px 20px 140px;
     background: linear-gradient(0deg,rgba(235, 235, 235, 1) 0%, rgba(255, 255, 255, 1) 100%);
     align-items: center;
     display: flex;
@@ -715,7 +716,7 @@ form button:hover {
     .redes-mockup img {
         max-width: 450px;              
         width: 100%;                   
-        height: auto;
+        height: auto;  
     }
 
     .redes-texto {
