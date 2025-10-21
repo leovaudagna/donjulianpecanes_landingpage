@@ -1,15 +1,19 @@
-window.addEventListener("load", () => {
-  setTimeout(() => {
-    const splash = document.getElementById("splash-logo");
-    splash.style.opacity = 0;
-    cargarPostInstagram();
-    setTimeout(() => (splash.style.display = "none"), 1900);
-  }, 600);
-});
+// window.addEventListener("load", () => {
+//   setTimeout(() => {
+//     const splash = document.getElementById("splash-logo");
+//     splash.style.opacity = 0;
+//     cargarPostInstagram();
+//     setTimeout(() => (splash.style.display = "none"), 1900);
+//   }, 600);
+// });
+
+
 
 let post1 = document.getElementById("post-1");
 let post2 = document.getElementById("post-2");
 let post3 = document.getElementById("post-3");
+
+cargarPostInstagram();
 
 const cargarPostInstagram = () => {
   post1.innerHTML = `
