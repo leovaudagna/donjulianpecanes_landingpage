@@ -930,29 +930,217 @@ form button:hover {
     line-height: 1.2;
   }
 
-  /* si querés que se achique más en pantallas chicas */
-  @media (max-width: 500px) {
-    .container-productos-2-texto h2 {
-      font-size: 1.6rem;
+
+  @media only screen and (max-width: 428px) {
+
+
+    h2 {
+        font-size: 2rem;
     }
-  }
 
-  /* ajustá también el botón */
-  #nuestros-productos-boton {
-    font-size: 1rem;
-    padding: 12px 20px;
-    width: 100%;
-    max-width: 300px;
-  }
+    h3 {
+        font-size: 1.5rem;
+    }
 
-  /* si querés mover la imagen de las nueces */
-  .container-productos-2-nueces {
-    width: 100%;
-  }
+    .container-navbar {
+        padding: 0 15px;
+    }
 
-  /* corregir separación con la siguiente sección */
-  .container-info {
-    margin-top: -120px;
-  }
-}
+    .container-navbar .navbar {
+        padding: 15px 0; 
+    }
 
+    .overlay {
+        top: 60px;
+        height: calc(100vh - 60px);
+    }
+    
+    /* --- INICIO (Main) --- */
+    .container-main {
+        flex-direction: column; /* Apila los elementos verticalmente */
+        height: auto; /* Permite que el contenido determine la altura */
+        margin-top: 80px; /* Más espacio para el navbar fijo */
+        padding: 20px 0;
+    }
+    
+    .container-main .slogan img {
+        width: 100%; /* El slogan ocupa todo el ancho */
+        max-width: 350px; /* Limita el tamaño máximo */
+        padding: 0 20px 20px;
+    }
+
+    .container-main .logo img {
+        width: 90%; /* La imagen de las nueces es más pequeña */
+        max-width: 300px; 
+    }
+
+    .logo div {
+        flex-direction: column; /* Apila los botones verticalmente */
+        gap: 15px;
+    }
+
+    .container-main .logo button,
+    #lugar_btn {
+        width: 90vw; /* Ancho completo para los botones */
+        max-width: 250px;
+    }
+    
+    /* --- PRODUCTOS (Sección 2) --- */
+    .container-productos-2 {
+        padding: 50px 20px 0; /* Reduce el padding para pantallas pequeñas */
+        height: auto; /* Ya no necesita tanta altura fija */
+    }
+
+    .container-productos-2-inner {
+        grid-template-columns: 1fr; /* Una sola columna para todos los elementos */
+        margin: 0;
+        gap: 50px; /* Aumenta la separación entre elementos apilados */
+    }
+    
+    .container-productos-2-texto {
+        /* Pasa a ser el primer elemento en la columna única */
+        grid-column: 1;
+        grid-row: 1;
+        margin-top: 0;
+        min-width: 100%;
+        max-width: 100%;
+        width: 100%;
+        text-align: center;
+        align-items: center;
+        order: 2; /* Lo colocamos debajo de la imagen */
+    }
+    
+    .container-productos-2-nueces {
+        /* Pasa a ser el primer elemento en la columna única */
+        grid-column: 1;
+        grid-row: 1;
+        width: 100%;
+        max-width: 300px;
+        order: 3; /* Lo colocamos arriba del texto */
+    }
+
+    .container-productos-2-texto h2 {
+        font-size: 2.1rem; /* Reduce el tamaño del título grande */
+        white-space: normal; /* Permite el salto de línea en el título */
+        text-align: center;
+        margin-bottom: 5px;
+    }
+
+    #nuestros-productos-boton {
+        width: 100%; /* Ancho completo para el botón */
+        max-width: 300px;
+        font-size: 1rem;
+        padding: 15px 20px;
+    }
+
+    .container-productos-2-texto img {
+        width: 90%;
+        max-width: 350px;
+    }
+
+    /* --- INFO CALIDAD --- */
+    .container-info {
+        flex-direction: column; /* Apila los iconos verticalmente */
+        padding: 40px 20px 80px; /* Reduce el padding */
+        gap: 40px;
+        margin-top: -50px;
+    }
+
+    .container-info div {
+        width: 100%; /* Ocupa el ancho completo */
+    }
+
+
+    /* --- INFO CLUSTER --- */
+    .container-frase {
+        height: auto; /* Altura flexible */
+        padding: 40px 20px;
+    }
+
+    .container-frase div {
+        flex-direction: column; /* Apila el texto y el logo del cluster */
+        gap: 20px;
+    }
+
+    .container-frase img {
+        margin: 20px 0;
+        width: 90%;
+        max-width: 300px;
+    }
+
+
+    /* --- REDES - ECOMMERCE --- */
+    .container-redes {
+        flex-direction: column; /* Apila la imagen y el texto */
+        height: auto;
+        padding: 40px 20px;
+        text-align: center; /* Centra el texto */
+        gap: 30px;
+    }
+
+    .redes-mockup img {
+        max-width: 80%;
+    }
+
+    .redes-texto {
+        text-align: center; /* Centra el texto */
+        align-items: center;
+        max-width: 100%;
+    }
+
+    .redes-links {
+        align-self: center; /* Centra los iconos de redes sociales */
+    }
+
+    /* --- POSTEOS REDES --- */
+    .container-post-redes {
+        /* Permite que el contenedor de flexbox se ajuste */
+        padding: 40px 15px; /* Reducimos el padding horizontal del contenedor */
+    }
+
+    .container-post-redes > div {
+        /* Hacemos que cada post ocupe el 100% del ancho del viewport */
+        width: 100vw; 
+        min-width: calc(100vw - 30px); /* 100% del viewport menos el padding total (15px a cada lado) */
+        
+        /* Ajustamos el margen para compensar el padding del contenedor */
+        margin-left: -15px; /* Mueve el post hacia la izquierda para alinearlo con el borde de la pantalla */
+        margin-right: -15px; /* Necesario para que el ancho de la caja sea 100vw */
+    }
+    
+    /* El último post debe tener un margen derecho extra para mostrar que se puede seguir deslizando. */
+    .container-post-redes > div:last-child {
+        margin-right: -5px; /* Muestra un poco del fondo o del siguiente post */
+    }
+
+    /* --- CONTACTO / FORMULARIO --- */
+    .formulario div {
+        grid-template-columns: 1fr; /* Una sola columna (imagen y formulario apilados) */
+    }
+
+    .formulario img {
+        display: none; /* Oculta la imagen para ahorrar espacio en móvil */
+    }
+
+    .formulario form {
+        max-width: 100%; /* Ocupa todo el ancho disponible */
+        width: 100%;
+        padding: 0 15px;
+    }
+
+
+    /* --- FOOTER --- */
+    .container-footer {
+        flex-direction: column; /* Apila logo, datos y redes */
+        height: auto;
+        padding: 40px 0;
+        gap: 30px;
+        text-align: center;
+    }
+
+    .footer-redes {
+        margin-left: 0; /* Centra las redes */
+        align-items: center;
+    }
+
+  }}
