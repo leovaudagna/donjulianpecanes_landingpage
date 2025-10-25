@@ -931,7 +931,7 @@ form button:hover {
   }
 
 
-  @media only screen and (max-width: 428px) {
+  @media only screen and (min-width: 390px) {
 
 
     h2 {
