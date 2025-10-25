@@ -723,7 +723,6 @@ form button:hover {
 
 
 /* RESPONSIVE */
-/* 📺 PANTALLAS GRANDES - ≤900px */
 @media (max-width: 900px) {
 
     html, body {
@@ -916,14 +915,44 @@ form button:hover {
     }
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 800px) {
 
-    .container-productos-2-texto {
-        padding-left: 10px;
-    }
+  .container-productos-2-texto {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;     /* centra el texto */
+    gap: 10px;
+  }
 
-    .container-productos-2-nueces {
-        width: 60vw;
+  .container-productos-2-texto h2 {
+    font-size: 2rem;        /* achica el tamaño del texto */
+    line-height: 1.2;
+  }
+
+  /* si querés que se achique más en pantallas chicas */
+  @media (max-width: 500px) {
+    .container-productos-2-texto h2 {
+      font-size: 1.6rem;
     }
+  }
+
+  /* ajustá también el botón */
+  #nuestros-productos-boton {
+    font-size: 1rem;
+    padding: 12px 20px;
+    width: 100%;
+    max-width: 300px;
+  }
+
+  /* si querés mover la imagen de las nueces */
+  .container-productos-2-nueces {
+    width: 100%;
+  }
+
+  /* corregir separación con la siguiente sección */
+  .container-info {
+    margin-top: -120px;
+  }
 }
 
