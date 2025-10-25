@@ -85,6 +85,15 @@ h3 {
 nav {
     flex: 1;
     text-align: right;
+
+}
+
+.navbar {
+    z-index: 20
+}
+
+.navbar-elementos {
+    z-index: 15;
 }
 
 nav ul {
@@ -100,6 +109,10 @@ nav ul li {
 a {
     text-decoration: none;
     color: var(--color-marron);
+}
+
+.overlay {
+    z-index: 10;
 }
 
 .container-navbar button {
@@ -123,6 +136,112 @@ a {
     color: var(--color-gris-claro);
 }
 
+.hamburger {
+    display: none;
+    cursor: pointer;
+}
+
+.bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    background-color: var(--color-marron);
+}
+
+.overlay-carrito {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease;
+    z-index: 2500; /* un poco menos que el panel (3000) */
+}
+
+.overlay {
+        position: fixed;
+        top: 70px; /* empieza debajo del navbar */
+        left: 0;
+        width: 100vw;
+        height: calc(100vh - 70px); /* ocupa el resto */
+        background: rgba(0, 0, 0, 0.5);
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s ease;
+        z-index: 4; /* debajo del menú, pero sobre el contenido */
+    }
+
+    /* Cuando está activo */
+    .overlay.active {
+        opacity: 1;
+        pointer-events: all;
+    }
+
+@media(max-width: 769px){
+
+    nav {
+        width: 100vw;
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    .hamburger {
+        display: block;
+    }
+
+    .hamburger.active .bar:nth-child(2){
+        opacity: 0;
+    }
+
+    .hamburger.active .bar:nth-child(1){
+        transform: translateY(8px) rotate(45deg);
+    }
+
+    .hamburger.active .bar:nth-child(3){
+        transform: translateY(-8px) rotate(-45deg);
+    }
+
+    .navbar-elementos {
+        position:fixed;
+        left: -100%;
+        top: 70px;
+        gap: 0;
+        display: flex;
+        flex-direction: column;
+        background-color: #ffffff;
+        width: 100%;
+        text-align: center;
+        transition: 0.3s;
+        z-index: 5;
+    }
+
+    .nav-link {        
+        margin: 16px 0;
+    }
+
+    .navbar-elementos.active {
+        left: 0;
+    }
+
+    
+
+    .container-navbar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background-color: var(--color-blanco); /* fondo sólido para que no se vea el contenido debajo */
+        z-index: 50; /* más alto que el resto del contenido */
+    }
+
+    
+
+
+}
+
 
 /* TITULO */
 .container-main {
@@ -134,7 +253,7 @@ a {
     margin-bottom: 30px;
     height: 500px;
     position: relative;
-    z-index: 10;
+    /* z-index: 10; */
 }
 
 .container-division {
@@ -222,30 +341,6 @@ a {
 
 
 
-/* PRODUCTOS */
-/* .container-productos {
-    display: flex;
-    position: relative;
-    flex-direction: column;
-    align-items: center;
-    padding: 150px 20px 90px;
-    background-color: var(--color-marron);
-    overflow: visible;
-    z-index: 1;
-}
-
-
-.container-productos-titulo {
-    font-size: 2.8rem;
-    color: var(--color-blanco);
-    text-align: center;
-    margin-top: 35px;
-    margin-bottom: 60px;
-    position: relative;
-} */
-
-
-/* OPCION 2 */
 .container-productos-2 {
     background-color: var(--color-negro);
     /* width: 100vw; */
@@ -654,12 +749,23 @@ form button:hover {
         display: none;
     }
 
-    .container-productos-2-inner {
+    .container-productos-2 {
+        margin-top: 0;
+        padding-top: 160px;
+        height: auto;
+    }
+
+    .container-productos-2-inner {        
         display: flex;
         flex-direction: column;
+    }    
+
+    .container-productos-2-inner img {        
+        width: 95vw;        
     }
 
     .container-productos-2-texto {
+        margin-top: 0;
         align-items: center;
     }
 
@@ -670,9 +776,11 @@ form button:hover {
 
     .container-productos-2-texto img {
         display: none;
+        
     }
 
     .container-info {
+        margin-top: -120px;
         display: flex;
         flex-direction: row;
         padding: 0px 20px 180px;
@@ -710,7 +818,6 @@ form button:hover {
         height: auto;         
         gap: 40px;                    
         color: var(--color-marron);
-        background-color: var(--color-gris);    
     }
 
     .redes-mockup img {
@@ -745,6 +852,37 @@ form button:hover {
         color: var(--color-gris-oscuro);
     }
 
+    .container-post-redes {
+    display: flex;
+    overflow-x: auto;        /* permite desplazamiento horizontal */
+    scroll-snap-type: x mandatory; /* activa “snap” al deslizar */
+    -webkit-overflow-scrolling: touch; /* suaviza el scroll en iOS */
+    gap: 20px;
+    padding: 40px 20px;
+    width: 100%;
+    height: auto;
+  }
+
+  .container-post-redes > div {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+  }
+
+  .container-post-redes > div > div {
+    flex: 0 0 80%;           /* cada post ocupa el 80% del ancho */
+    scroll-snap-align: center; /* se alinea al centro al detenerse */
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    padding: 10px;
+  }
+
+  /* opcional: ocultar scrollbar */
+  .container-post-redes::-webkit-scrollbar {
+    display: none;
+  }
+
    
     .formulario > div {
         flex-direction: column;
@@ -778,35 +916,14 @@ form button:hover {
     }
 }
 
-@media (max-width: 900px) {
-  .container-post-redes {
-    display: flex;
-    overflow-x: auto;        /* permite desplazamiento horizontal */
-    scroll-snap-type: x mandatory; /* activa “snap” al deslizar */
-    -webkit-overflow-scrolling: touch; /* suaviza el scroll en iOS */
-    gap: 20px;
-    padding: 40px 20px;
-    width: 100%;
-    height: auto;
-  }
+@media (max-width: 1200px) {
 
-  .container-post-redes > div {
-    display: flex;
-    flex-direction: row;
-    gap: 20px;
-  }
+    .container-productos-2-texto {
+        padding-left: 10px;
+    }
 
-  .container-post-redes > div > div {
-    flex: 0 0 80%;           /* cada post ocupa el 80% del ancho */
-    scroll-snap-align: center; /* se alinea al centro al detenerse */
-    background-color: white;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.2);
-    padding: 10px;
-  }
-
-  /* opcional: ocultar scrollbar */
-  .container-post-redes::-webkit-scrollbar {
-    display: none;
-  }
+    .container-productos-2-nueces {
+        width: 60vw;
+    }
 }
+
