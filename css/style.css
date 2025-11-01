@@ -363,6 +363,10 @@ a {
     text-align: center;
 }
 
+#nuestros-productos-mockup {
+    max-width: 80vw !important;
+}
+
 #nuestros-productos-boton:hover {
     background-color: var(--color-accion);
     transform: scale(1.05);
