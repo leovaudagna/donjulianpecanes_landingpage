@@ -18,6 +18,7 @@
 
 <body>
 
+    <!-- Navbar -->
     <div class="container-navbar">
         <div class="navbar">
             <div class="navbar-logo">
@@ -26,17 +27,19 @@
             <!-- Probablemente lo cambie por algun navbar de libreria -->
             <nav>
                 <ul class="navbar-elementos">
-                    <li><a href="nosotros.html">Nosotros</a></li>
-                    <li><a href="#productos">Nuestros Productos</a></li>
-                    <li><a href="">Recetas</a></li>
+                    <li class="nav-link"><a href="nosotros.html">Nosotros</a></li>
+                    <li class="nav-link"><a href="productosJSON.html">Nuestros Productos</a></li>
+                    <li class="nav-link"><a href="">Recetas</a></li>
                     <!-- <li><a href="">Contacto</a></li> -->
-                    <li><a href="#formulario"><button>Contacto</button></a></li>
-                   
+                    <li class="nav-link"><a href="#formulario"><button>Contacto</button></a></li>
                 </ul>
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
             </nav>
-            
         </div>
-        
     </div>
 
     <div class="overlay-carrito"></div>
@@ -78,10 +81,14 @@
         <div class="container-filtro">
             <div class="categorias">
                 <div>
-                    <i class="fa-solid fa-sliders"></i>
-                    <h3>Filtro</h3>
-                    <button id="btn_porCategoria"><span>Por categorias</span></button>
-                    <button id="btn_todos"><span>Todos</span></button>
+                    <div>
+                        <i class="fa-solid fa-sliders"></i>
+                        <h3>Filtro</h3>
+                    </div>
+                    <div>
+                        <button id="btn_porCategoria"><span>Por categorias</span></button>
+                        <button id="btn_todos"><span>Todos</span></button>
+                    </div>        
                 </div>
             </div>
         </div>
