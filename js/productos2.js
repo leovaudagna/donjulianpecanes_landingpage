@@ -35,6 +35,39 @@ let pedidoFinalizado = [];
 
 //Prueba
 
+//NAVBAR
+let hamburger = document.querySelector(".hamburger");
+let navbar = document.querySelector(".navbar-elementos");
+
+// Seleccionas el overlay del carrito
+let overlayCarrito = document.querySelector('.overlay-carrito');
+
+// --- ESTA ES LA LÍNEA QUE FALTABA ---
+// Selecciona el overlay específico para el navbar
+let overlayNav = document.querySelector('.overlay');
+
+
+// Evento para abrir/cerrar el menú
+hamburger.addEventListener("click", () => {
+  hamburger.classList.toggle("active");
+  navbar.classList.toggle("active");
+  overlayNav.classList.toggle('active'); // <-- USA LA VARIABLE CORRECTA
+});
+
+// Evento para cerrar el menú al hacer clic en un enlace
+document.querySelectorAll(".nav-link").forEach(n => n.addEventListener("click", () => {
+  hamburger.classList.remove("active");
+  navbar.classList.remove("active");
+  overlayNav.classList.remove('active'); // <-- CIERRA EL OVERLAY CORRECTO
+}));
+
+// Evento para cerrar el menú al hacer clic FUERA (en el overlay del nav)
+// (Cambié 'overlayCarrito' por 'overlayNav' en este listener)
+overlayNav.addEventListener('click', () => {
+  hamburger.classList.remove('active');
+  navbar.classList.remove('active');
+  overlayNav.classList.remove('active'); // <-- CIERRA EL OVERLAY CORRECTO
+});
 
 // Card HTML a partir de un producto
 const crearCardProducto = (producto) => {
