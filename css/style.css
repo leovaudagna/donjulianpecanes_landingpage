@@ -998,15 +998,14 @@ form button:hover {
 
     /* SECCION   */
     .container-productos-2 {
-        height: 120vw !important;
+        height: 110vw !important;
     }
 
     .container-productos-2-texto a {
         width: 80vw !important;
     }
 
-    .container-productos-2-nueces {
-        
+    .container-productos-2-nueces {        
         margin-top: -50px;
     }
 
