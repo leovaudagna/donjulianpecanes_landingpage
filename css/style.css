@@ -699,9 +699,8 @@ form button:hover {
 
 
 /* ---------------------------------------------------------------------- */
-/* RESPONSIVE - TABLET Y MÓVIL (hasta 900px) */
+/* RESPONSIVE - Tablet (hasta 900px) */
 /* ---------------------------------------------------------------------- */
-
 @media (max-width: 900px) {
 
     /* --- General --- */
@@ -755,28 +754,21 @@ form button:hover {
     /* --- INICIO (Main) --- */
     .container-main {
         /* Cambiamos a columna para apilar */
-        flex-direction: column; 
+        flex-direction: row; 
         align-items: center;
-        text-align: center;
+        justify-content: center;
+        gap: 3vw;
         padding: 50px 20px; /* Reducimos el padding */
         height: auto;
+        margin-right: 0px;
     }
-
     .logo {
-        order: 2; /* Logo abajo */
-        width: 100%;
-        max-width: 450px;
-        margin-top: 30px; /* Espacio entre slogan y logo */
-    }
-
-    .logo img {
-        /* Redimensionamiento fluido */
-        width: 100%; 
-        height: auto;
+        display: none !important;
     }
 
     .slogan {
-        order: 1; /* Slogan arriba */
+        display: flex;
+        align-items: flex-end;
         width: 100%;
         max-width: 550px;
     }
@@ -909,6 +901,9 @@ form button:hover {
 }
 
 
+/* ---------------------------------------------------------------------- */
+/* RESPONSIVE - Ajustes finos (hasta 550px) */
+/* ---------------------------------------------------------------------- */
 @media (max-width: 550px) {
 
     .container-productos-2-inner img {
@@ -918,6 +913,11 @@ form button:hover {
         min-width: 85vw;
     }
 
+    #slogan-container-main {
+        min-width: auto;
+        width: 70vw;
+    }
+
     .container-info {
         height: 500px;
     }
@@ -925,7 +925,7 @@ form button:hover {
 }
 
 /* ---------------------------------------------------------------------- */
-/* RESPONSIVE - AJUSTES FINOS PARA MÓVILES PEQUEÑOS (hasta 428px) */
+/* RESPONSIVE - Moviles (hasta 428px) */
 /* ---------------------------------------------------------------------- */
 
 @media (max-width: 428px) {
@@ -937,13 +937,23 @@ form button:hover {
         /* Volvemos a la base de la superposición */
         position: relative;
         height: 450px; /* Altura fija para el área de superposición */
+        flex-direction: column;
         
     }
 
+    .container-main {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
 
     .slogan {
+        display: flex;
         position: relative !important;
         justify-content: center;
+        align-items: center !important;
+        margin-left: -4vw;
     }
 
     #logo-container-main {        
@@ -984,6 +994,10 @@ form button:hover {
     /* SECCION   */
     .container-productos-2-texto a {
         width: 80vw !important;
+    }
+
+    .container-productos-2-nueces {
+        margin-top: 5vw;
     }
 
 
