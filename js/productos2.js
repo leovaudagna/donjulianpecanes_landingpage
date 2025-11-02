@@ -27,13 +27,6 @@ let botonTodos = document.getElementById("btn_todos");
 
 let precioFinalGlobal = 0;
 
-//SECCION FINAL
-let limpiarBoton = document.getElementById("limpiar");
-let realizarPedidoBoton = document.getElementById("realizar_pedido");
-let cerrarCarrito = document.getElementById("cerrar_carrito");
-let pedidoFinalizado = [];
-
-//Prueba
 
 //NAVBAR
 let hamburger = document.querySelector(".hamburger");
@@ -68,6 +61,16 @@ overlayNav.addEventListener('click', () => {
   navbar.classList.remove('active');
   overlayNav.classList.remove('active'); // <-- CIERRA EL OVERLAY CORRECTO
 });
+
+//SECCION FINAL
+let limpiarBoton = document.getElementById("limpiar");
+let realizarPedidoBoton = document.getElementById("realizar_pedido");
+let cerrarCarrito = document.getElementById("cerrar_carrito");
+let pedidoFinalizado = [];
+
+//Prueba
+
+
 
 // Card HTML a partir de un producto
 const crearCardProducto = (producto) => {
@@ -261,9 +264,9 @@ const agregarCarritoHTML = () => {
                 ${peso}
             </div>
             <div class="cantidad">
-                <span class="menos"><</span>
+                <span class="menos">-</span>
                 <span id="item-cantidad">${item.cantidad}</span>
-                <span class="mas">></span>
+                <span class="mas">+</span>
             </div>  
             <div class="precio">
                 $ ${precioTotalPorProducto}
@@ -302,12 +305,31 @@ const agregarCarritoHTML = () => {
     iconoCarritoSpan.innerText = cantidadTotal;
     precioFinalTotalCarrito.innerText = `$ ${precioFinalTotal}`;
     precioFinalGlobal = precioFinalTotal;
+
+    animarIconoCarrito();
     
 
 
 }
 
+
+// Esta función se encarga de la animación
+function animarIconoCarrito() {
+  const iconoSpan = document.querySelector('.carrito-cantidad');
+
+  // 1. Agrega la clase para iniciar la animación
+  iconoSpan.classList.add('sacudir');
+
+  // 2. IMPORTANTE: Quita la clase después de que termine la animación (500ms = 0.5s)
+  //    para que pueda volver a ejecutarse la próxima vez.
+  setTimeout(() => {
+    iconoSpan.classList.remove('sacudir');
+  }, 500); 
+}
+
 const overlay = document.querySelector(".overlay-carrito");
+
+
 
 //Abrir pestaña carrito
 iconoCarrito.addEventListener("click", () => {
@@ -404,6 +426,7 @@ botonCategoria.addEventListener("click", () => {
 //LIMPIAR CARRITO
 limpiarBoton.addEventListener("click", () => {
     carrito = [];
+    precioFinalTotalCarrito.innerHTML = "$0";
     agregarCarritoMemoria();
     agregarCarritoHTML();
 } )

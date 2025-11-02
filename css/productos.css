@@ -767,7 +767,7 @@ body.mostrarCarrito .seccion-lista-productos-pestaña {
   display: inline-block;
   width: 25px;
   height: 25px;
-  background-color: #4A5831;
+  background-color: var(--color-gris-claro);
   color: rgb(255, 255, 255);
   border-radius: 50px;
 }
@@ -820,6 +820,20 @@ body.mostrarCarrito .seccion-lista-productos-pestaña {
     opacity: 1;
     transform: translateY(10px) scale(1.2);
   }
+}
+
+@keyframes sacudir {
+  0% { transform: scale(1); }
+  25% { transform: scale(1.1) rotate(5deg); }
+  50% { transform: scale(1.1) rotate(-5deg); }
+  75% { transform: scale(1.1) rotate(5deg); }
+  100% { transform: scale(1); }
+}
+
+/* 2. Crea una clase que podamos "poner y quitar" con JS */
+.sacudir {
+  /* Aplica la animación 'sacudir' durante 0.5 segundos */
+  animation: sacudir 0.5s ease;
 }
 
 /* Ajustes para pantallas <= 1350px */
@@ -989,6 +1003,7 @@ body.mostrarCarrito .overlay-carrito {
   }
 
   .container-tipo-producto {
+    display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
@@ -1006,5 +1021,66 @@ body.mostrarCarrito .overlay-carrito {
 
   #todos {
     grid-template-columns: repeat(1, 1fr);
+  }
+
+  /* LISTA CARRITO */
+  .seccion-lista-productos-pestaña {
+    width: 100vw; /* Ocupa todo el ancho */
+  }
+
+  /* Ajusta el contenedor de la lista interna */
+  .seccion-lista-productos-pestaña .lista-productos {
+    width: auto; /* Ancho automático para ajustarse al padre */
+    padding: 20px 10px; /* Reduce el padding */
+  }
+
+  /* Ajusta la cabecera de la lista */
+  .encabezado-lista {
+    /* Define columnas más pequeñas y flexibles */
+    grid-template-columns: 50px 1.5fr 0.5fr 80px 1fr;
+    gap: 10px; /* Reduce el espacio entre columnas */
+    padding: 0 10px; /* Agrega un poco de padding lateral */
+    font-size: 12px; /* Achica la fuente de la cabecera */
+    height: 50px;
+  }
+
+  /* Ajusta cada item del carrito */
+  .seccion-lista-productos-pestaña .item {
+    /* Usa la misma grilla que la cabecera */
+    grid-template-columns: 50px 1.5fr 0.5fr 80px 1fr;
+    gap: 10px; /* Reduce el espacio */
+    height: auto; /* Altura automática por si el nombre es largo */
+    padding: 10px;
+    align-items: center;
+  }
+
+  /* Ajusta la imagen del producto */
+  .seccion-lista-productos-pestaña .item .imagen img {
+    padding: 0;
+  }
+
+  /* Ajusta el contenedor de botones de checkout */
+  .seccion-lista-productos-pestaña .botones-checkout {
+    flex-direction: column; /* Apila los botones verticalmente */
+    align-items: center; /* Centra los botones */
+    gap: 10px; /* Añade espacio entre botones */
+    padding: 10px 0;
+  }
+
+  /* Hace que los botones ocupen un ancho legible */
+  #limpiar,
+  #realizar_pedido,
+  #cerrar_carrito {
+    width: 90%;
+  }
+
+  /* Ajusta el texto del total */
+  .carritoTotal p {
+    font-size: 1rem;
+  }
+  
+  /* Reduce el padding de la sección (si se usa) */
+  .pestaña-carrito {
+    padding: 20px 10px;
   }
 }
