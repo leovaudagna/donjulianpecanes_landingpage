@@ -935,10 +935,22 @@ form button:hover {
 
     .container-main {
         /* Volvemos a la base de la superposición */
-        position: relative;
         height: 450px; /* Altura fija para el área de superposición */
+        flex-direction: column !important;
+        justify-content: center !important;
+        align-items: center !important;        
+    }
+
+     .slogan {
+        display: flex;
         flex-direction: column;
-        
+        justify-content: center;
+        align-items: center !important;
+    }
+
+
+    .logo {
+        display: none !important;
     }
 
     .container-main {
@@ -948,14 +960,7 @@ form button:hover {
         justify-content: center;
     }
 
-    .slogan {
-        display: flex;
-        position: relative !important;
-        justify-content: center;
-        align-items: center !important;
-        margin-left: -4vw;
-    }
-
+   
     #logo-container-main {        
         display: flex !important;
         flex-direction: column;
@@ -997,9 +1002,12 @@ form button:hover {
     }
 
     .container-productos-2-nueces {
-        margin-top: 5vw;
+        margin-top: -8vw;
     }
 
+    .container-productos-2-texto {
+        margin-top: -45vw;
+    }
 
     
     /* Ajustes para las secciones de info inferior (artesanales, calidad) */
