@@ -846,6 +846,14 @@ body.mostrarCarrito .seccion-lista-productos-pestaña {
     font-size: 20px;
   }
 
+  .container-main .logo {
+    display: block !important;
+  }
+
+  #logo-prueba {
+    display: none !important;
+  }
+
   .card-producto {
     top: -30px;
     max-height: 1600px;
@@ -857,13 +865,7 @@ body.mostrarCarrito .seccion-lista-productos-pestaña {
     padding: 0px;
   }
 
-  .container-main .logo {
-    display: block !important;
-  }
-
-  #logo-prueba {
-    display: none !important;
-  }
+ 
   
 }
 
