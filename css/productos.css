@@ -681,17 +681,18 @@
 }
 
 #cerrar_carrito {
-  color: #6A7D49;
+  color: var(--color-blanco);
 }
 
 #limpiar i,
 #realizar_pedido i,
 #cerrar_carrito i {
+  font-size: 25px;
   padding-right: 30px;
 }
 
 #limpiar {
-  color: rgb(255, 69, 69);
+  color: rgb(219, 107, 107);
 }
 
 #realizar_pedido,
@@ -764,12 +765,15 @@ body.mostrarCarrito .seccion-lista-productos-pestaña {
 }
 
 .seccion-lista-productos-pestaña .item .cantidad span {
-  display: inline-block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 25px;
   height: 25px;
-  background-color: var(--color-gris-claro);
+  background-color: var(--color-gris-oscuro);
   color: rgb(255, 255, 255);
   border-radius: 50px;
+
 }
 
 .seccion-lista-productos-pestaña .item .cantidad span:nth-child(2) {
@@ -1023,6 +1027,11 @@ body.mostrarCarrito .overlay-carrito {
     grid-template-columns: repeat(1, 1fr);
   }
 
+  /* PRODUCTOS ITEM */
+  .card-producto {
+    min-width: 83vw;
+  }
+
   /* LISTA CARRITO */
   .seccion-lista-productos-pestaña {
     width: 100vw; /* Ocupa todo el ancho */
@@ -1031,13 +1040,13 @@ body.mostrarCarrito .overlay-carrito {
   /* Ajusta el contenedor de la lista interna */
   .seccion-lista-productos-pestaña .lista-productos {
     width: auto; /* Ancho automático para ajustarse al padre */
-    padding: 20px 10px; /* Reduce el padding */
+    padding: 20px 10px 20px 30px; /* Reduce el padding */
   }
 
   /* Ajusta la cabecera de la lista */
   .encabezado-lista {
     /* Define columnas más pequeñas y flexibles */
-    grid-template-columns: 50px 1.5fr 0.5fr 80px 1fr;
+    grid-template-columns: 40px 1.5fr 0.3fr 80px 1.5fr;
     gap: 10px; /* Reduce el espacio entre columnas */
     padding: 0 10px; /* Agrega un poco de padding lateral */
     font-size: 12px; /* Achica la fuente de la cabecera */
@@ -1047,7 +1056,7 @@ body.mostrarCarrito .overlay-carrito {
   /* Ajusta cada item del carrito */
   .seccion-lista-productos-pestaña .item {
     /* Usa la misma grilla que la cabecera */
-    grid-template-columns: 50px 1.5fr 0.5fr 80px 1fr;
+    grid-template-columns: 40px 1.5fr 0.3fr 80px 1.5fr;
     gap: 10px; /* Reduce el espacio */
     height: auto; /* Altura automática por si el nombre es largo */
     padding: 10px;
