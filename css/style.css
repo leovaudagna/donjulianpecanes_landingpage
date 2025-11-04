@@ -781,9 +781,15 @@ form button:hover {
 
     /* --- PRODUCTOS (Sección 2) --- */
     .container-productos-2 {
-        height: 50vh;
+        height: 80vw;
         padding: 0px 20px;
-    }    
+    }
+
+    .container-productos-2-nueces {        
+        margin-top: -50px;
+    }
+
+    
 
     .container-productos-2-inner {
         /* Cambiamos el Grid/Flex a columna */
@@ -906,8 +912,22 @@ form button:hover {
 /* ---------------------------------------------------------------------- */
 @media (max-width: 550px) {
 
-    .container-productos-2-inner img {
-        min-width: 85vw;
+    /* --- PRODUCTOS (Sección 2) --- */
+    .container-productos-2 {
+        height: 100vw !important;
+        padding: 0px 20px;
+    }
+
+    .container-productos-2-texto a {
+        width: 80vw !important;
+    }
+
+    .container-productos-2-nueces {        
+        margin-top: -50px;
+    }
+
+    .container-productos-2-texto {
+        margin-top: -180px;
     }
     .container-productos-2-texto {
         min-width: 85vw;
