@@ -860,6 +860,7 @@ body.mostrarCarrito .seccion-lista-productos-pestaña {
 }
 
 @media screen and (max-width: 900px) {
+  
   .titulo h3 {
     font-size: 20px;
   }
@@ -872,6 +873,18 @@ body.mostrarCarrito .seccion-lista-productos-pestaña {
     display: none !important;
   }
 
+  .categorias div {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center;
+    align-self: center;
+  }
+
+  .categorias>div>div:first-child {
+    display: flex;
+    flex-direction: row !important;
+  }
+
   .card-producto {
     top: -30px;
     max-height: 1600px;
@@ -881,6 +894,38 @@ body.mostrarCarrito .seccion-lista-productos-pestaña {
   .card-imagen-producto img {
     max-height: 200px;
     padding: 0px;
+  }
+
+  .categorias>div>div:first-child {
+    display: flex;
+    flex-direction: row !important;
+  }
+
+  .grilla {
+    flex-direction: column;
+  }
+
+  .tipo-producto {
+    max-width: none;
+    width: 95vw !important;
+  }
+
+  .container-tipo-producto {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: row;
+    gap: 10px;
+  }
+
+  .container-tipo-producto {
+    display: flex;
+    flex-wrap: wrap !important;
+    gap: 0px !important;
+  }
+
+  #todos {
+    grid-template-columns: repeat(2, 1fr);
   }
 
  
@@ -986,17 +1031,7 @@ body.mostrarCarrito .overlay-carrito {
 /* RESPONSIVE - Moviles (hasta 428px) */
 /* ---------------------------------------------------------------------- */
 @media (max-width: 428px) {
-  .categorias div {
-    display: flex !important;
-    flex-direction: column !important;
-    justify-content: center;
-    align-self: center;
-  }
-
-  .categorias>div>div:first-child {
-    display: flex;
-    flex-direction: row !important;
-  }
+  
 
   .grilla {
     flex-direction: column;
