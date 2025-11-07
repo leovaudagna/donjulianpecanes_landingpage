@@ -967,7 +967,7 @@ body.mostrarCarrito .seccion-lista-productos-pestaña {
 
   .seccion-lista-productos-pestaña .lista-productos {
     width: auto; /* Ancho automático */
-    padding: 20px 10px 20px 30px !important; /* Reduce el padding */
+    padding: 20px 2px 0px 2px !important; /* Reduce el padding */
   }
 
   .lista-pestaña {
@@ -1084,8 +1084,12 @@ body.mostrarCarrito .seccion-lista-productos-pestaña {
     font-size: 40px;
   }
 
+  .seccion-lista-productos-pestaña, .lista-productos {
+    padding: 0px !important;
+  }
+
   .card-producto {
-    top: -60px;
+    top: 0px !important;
     max-height: 1600px;
     padding: 15px 20px 20px 20px;
   }
