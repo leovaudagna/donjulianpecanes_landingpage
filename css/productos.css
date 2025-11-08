@@ -1129,7 +1129,7 @@ body.mostrarCarrito .seccion-lista-productos-pestaña {
       gap: 0px;
     }
 
-    .tipo-producto:hover .titulo {
+    .tipo-producto:active .titulo {
       display: none !important;
     }
 
@@ -1142,6 +1142,12 @@ body.mostrarCarrito .seccion-lista-productos-pestaña {
 
     #todos {
       grid-template-columns: repeat(1, 1fr);
+    }
+
+    body, html {
+      height: auto !important;
+      overflow-y: scroll !important;
+      overscroll-behavior: auto;
     }
   }
 
