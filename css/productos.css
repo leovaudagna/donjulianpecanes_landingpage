@@ -1104,12 +1104,21 @@ body.mostrarCarrito .seccion-lista-productos-pestaña {
       width: 90vw;
     }
 
-    .tipo-producto:not(:hover) {
+    .fondo {
+      padding-top: 60px;
+    }
+
+    .tipo-producto:not(:active) {
       max-height: 40vh;
     }
 
-    .tipo-producto:not(:hover) .titulo {
+    .tipo-producto:not(:active) .titulo {
       margin-top: -250px;
+    }
+
+
+    .tipo-producto:hover{
+      max-height: none;
     }
 
     .container-tipo-producto {
