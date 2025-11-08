@@ -1014,4 +1014,9 @@ form button:hover {
   .container-productos-2-texto h2 {
     font-size: 2.5rem;
   }
+
+  #splash-logo {
+    width: 100vw;
+    height: 100vh;
+  }
 }
