@@ -1104,6 +1104,14 @@ body.mostrarCarrito .seccion-lista-productos-pestaña {
       width: 90vw;
     }
 
+    .tipo-producto:not(:hover) {
+      max-height: 40vh;
+    }
+
+    .tipo-producto:not(:hover) .titulo {
+      margin-top: -250px;
+    }
+
     .container-tipo-producto {
       display: flex;
       align-items: center;
