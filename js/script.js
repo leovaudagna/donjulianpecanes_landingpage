@@ -31,7 +31,16 @@ overlay.addEventListener('click', () => {
     });
 
 
+//SPLASH FIX
+function ajustarSplash() {
+  const splash = document.getElementById('splash-logo');
+  if (splash) {
+    splash.style.height = `${window.innerHeight}px`;
+  }
+}
 
+window.addEventListener('load', ajustarSplash);
+window.addEventListener('resize', ajustarSplash);
 
 
 
