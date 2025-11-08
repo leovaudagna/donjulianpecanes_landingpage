@@ -1,12 +1,6 @@
-/* ==============================================
-   1. ESTILOS GENERALES Y DE BASE
-   ============================================== */
-
 .container-presentacion {
   min-height: 90vh;
 }
-
-/* --- Overlays --- */
 
 .overlay-carrito {
   position: fixed;
@@ -18,7 +12,6 @@
   z-index: 2500; /* Menos que el panel (3000) */
 }
 
-/* Se activa con JS cuando se muestra el carrito */
 body.mostrarCarrito .overlay-carrito {
   opacity: 1;
   pointer-events: auto;
@@ -42,8 +35,6 @@ body.mostrarCarrito .overlay-carrito {
   pointer-events: all;
 }
 
-/* --- Clases de Utilidad --- */
-
 .collapsed {
   display: none !important;
   opacity: 0;
@@ -52,15 +43,13 @@ body.mostrarCarrito .overlay-carrito {
   overflow: hidden;
 }
 
-/* Esta sección está oculta, el CSS de sus hijos fue removido */
 .seccion-lista-productos {
   display: none;
 }
 
-/* ==============================================
-   2. LAYOUT Y SECCIONES PRINCIPALES
-   ============================================== */
-
+/* ---------------------------------------------------------------------- */
+/* Seccion - Instrucciones */
+/* ---------------------------------------------------------------------- */
 .fondo {
   position: relative;
   z-index: 1;
@@ -69,7 +58,11 @@ body.mostrarCarrito .overlay-carrito {
   justify-content: center;
   align-items: center;
   padding: 200px 0 30px;
-  background: linear-gradient(0deg, rgba(255, 255, 255, 1) 0%, rgba(242, 242, 242, 1) 100%);
+  background: linear-gradient(
+    0deg,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(242, 242, 242, 1) 100%
+  );
 }
 
 .logo div {
@@ -100,159 +93,10 @@ body.mostrarCarrito .overlay-carrito {
   color: var(--color-verde);
 }
 
-/* --- Grilla Principal de Productos (v2) --- */
 
-.grilla {
-  display: flex;
-  justify-self: center;
-  align-self: center;
-  justify-content: center;
-  align-items: center;
-  max-width: 1600px;
-  min-height: 80vh;
-  width: 100%;
-}
-
-.tipo-producto {
-  flex: 1;
-  min-width: 70px;
-  max-width: 1600px;
-  height: 85vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  align-items: center;
-  border-radius: 30px;
-  margin: 20px;
-  transition: all 0.6s ease;
-  background-color: var(--color-blanco);
-  position: relative;
-}
-
-.tipo-producto:hover {
-  flex: 9;
-}
-
-.tipo-producto-encabezado {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding-top: 40px;
-  pointer-events: none;
-}
-
-.tipo-producto-encabezado img {
-  padding: 5%;
-  width: 80%;
-  filter: invert(1);
-}
-
-.titulo {
-  transition: transform 0.4s ease, opacity 0.3s ease, font-size 0.4s ease;
-  transform: translateY(33vh) scale(1);
-  opacity: 1;
-}
-
-.tipo-producto:hover .titulo {
-  animation: fadeInBig 0.6s forwards;
-}
-
-.tipo-producto-encabezado .titulo h3 {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -0%) rotate(0deg);
-  transform-origin: center center;
-  font-size: 45px;
-  opacity: 1;
-  transition: none;
-}
-
-.grilla:hover .tipo-producto:not(:hover) .tipo-producto-encabezado h3 {
-  transform: translate(-50%, -50%) rotate(90deg);
-  opacity: 1;
-  animation: fadeInRotate 0.6s forwards;
-}
-
-.grilla:hover .tipo-producto:hover img {
-  width: 70%;
-}
-
-.tipo-producto:not(:hover) .container-tipo-producto {
-  visibility: hidden;
-}
-
-.container-tipo-producto {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
-  margin-bottom: 50px;
-}
-
-/* --- Fondos de Categorías --- */
-
-#natural {
-  background-image: url(../assets/pruebas/1.jpg);
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
-#natural .tipo-producto-encabezado {
-  color: var(--color-blanco);
-}
-
-#gourmet {
-  background-image: url(../assets/pruebas/2.jpg);
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
-#gourmet h3 {
-  color: var(--color-blanco);
-}
-
-#derivados {
-  background-image: url(../assets/pruebas/3.png);
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
-#derivados img {
-  width: 110%;
-}
-
-#otros {
-  background-image: url(../assets/pruebas/4.png);
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
-#otros h3 {
-  color: white;
-}
-
-/* --- Contenedor 'Todos' (Grid) --- */
-
-#todos {
-  margin-top: 50px;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 40px;
-  transition: all 0.3s ease;
-}
-
-#todos article {
-  margin-top: 10px;
-}
-
-/* ==============================================
-   3. COMPONENTES (Filtros, Cards, Botones)
-   ============================================== */
-
-/* --- Filtros de Categorías --- */
-
+/* ---------------------------------------------------------------------- */
+/* Seccion - FILTRO */
+/* ---------------------------------------------------------------------- */
 .container-filtro {
   width: 100%;
   display: flex;
@@ -279,7 +123,7 @@ body.mostrarCarrito .overlay-carrito {
   gap: 10px;
 }
 
-.categorias h3 {
+.categorias h4 {
   font-size: 16px;
   padding-right: 20px;
   color: var(--color-verde);
@@ -311,6 +155,164 @@ body.mostrarCarrito .overlay-carrito {
   color: var(--color-accion);
 }
 
+/* ---------------------------------------------------------------------- */
+/* Seccion - GRILLA */
+/* ---------------------------------------------------------------------- */
+.grilla {
+  display: flex;
+  justify-self: center;
+  align-self: center;
+  justify-content: center;
+  align-items: center;
+  max-width: 1600px;
+  min-height: 80vh;
+  width: 100%;
+}
+
+/* Categoria */
+.tipo-producto {
+  flex: 1;
+  min-width: 70px;
+  max-width: 1600px;
+  height: 85vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  border-radius: 30px;
+  margin: 20px;
+  transition: all 0.6s ease;
+  background-color: var(--color-blanco);
+  position: relative;
+}
+
+.tipo-producto:hover {
+  flex: 9;
+}
+
+.tipo-producto-encabezado {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* padding-top: 40px; */
+  pointer-events: none;
+}
+
+.tipo-producto-encabezado img {
+  padding: 5%;
+  width: 80%;
+  filter: invert(1);
+}
+
+.titulo {
+  transition: transform 0.4s ease, opacity 0.3s ease, font-size 0.4s ease;
+  transform: translateY(33vh) scale(1);
+  opacity: 1;
+}
+
+.titulo p {
+  font-size: 1rem;
+}
+
+.tipo-producto:hover .titulo {
+  animation: fadeInBig 0.6s forwards;
+}
+
+.tipo-producto-encabezado .titulo h3 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -0%) rotate(0deg);
+  transform-origin: center center;
+  font-size: 45px;
+  opacity: 1;
+  transition: none;
+}
+
+.grilla:hover .tipo-producto:not(:hover) p {
+  display: none;
+}
+
+.grilla:hover .tipo-producto:not(:hover) .tipo-producto-encabezado h3 {
+  transform: translate(-50%, -50%) rotate(90deg);
+  opacity: 1;
+  animation: fadeInRotate 0.6s forwards;
+}
+
+.grilla:hover .tipo-producto:hover img {
+  width: 70%;
+}
+
+.tipo-producto:hover .titulo p {
+  display: none;
+}
+
+.tipo-producto:not(:hover) .container-tipo-producto {
+  visibility: hidden;
+}
+
+.container-tipo-producto {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  margin-bottom: 50px;
+}
+
+
+
+#natural {
+  background-image: url(../assets/pruebas/1.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#natural .tipo-producto-encabezado {
+  color: #3D1B11
+}
+
+#gourmet {
+  background-image: url(../assets/pruebas/2.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: #4e4e4e;
+}
+
+#derivados {
+  background-image: url(../assets/pruebas/3.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: #7e7e7e;
+}
+
+#derivados img {
+  width: 110%;
+}
+
+#otros {
+  background-image: url(../assets/pruebas/4.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: #4A5831;
+}
+
+/* --- Contenedor 'Todos' (Grid) --- */
+#todos {
+  margin-top: 50px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  transition: all 0.3s ease;
+}
+
+#todos article {
+  margin-top: 10px;
+}
+
+
+
+
 /* --- Card de Producto --- */
 
 .card-producto {
@@ -326,6 +328,7 @@ body.mostrarCarrito .overlay-carrito {
   z-index: 3;
   transition: width 0.5s ease-in-out;
   overflow: hidden;
+  max-height: 420px !important;
 }
 
 .card-producto .card-encabezado {
@@ -362,18 +365,18 @@ body.mostrarCarrito .overlay-carrito {
   color: var(--color-accion);
 }
 
-/* Colores de categorías */
+/* Colores de categorías hasthtag */
 .categoria-natural {
-  color: #915E43;
+  color: #915e43;
 }
 .categoria-gourmet {
   color: #080808;
 }
 .categoria-derivados {
-  color: #E4E4E4;
+  color: #e4e4e4;
 }
 .categoria-otros {
-  color: #6A7D49;
+  color: #6a7d49;
 }
 
 .card-imagen-producto {
@@ -532,11 +535,11 @@ body.mostrarCarrito .overlay-carrito {
   font-size: 20px;
 }
 
-/* ==============================================
-   4. PESTAÑA CARRITO
-   ============================================== */
+/* ---------------------------------------------------------------------- */
+/* Seccion - Carrito */
+/* ---------------------------------------------------------------------- */
 
-/* --- Icono Flotante --- */
+
 .icono-carrito {
   position: fixed !important;
   z-index: 2500;
@@ -577,7 +580,7 @@ body.mostrarCarrito .overlay-carrito {
   right: 0;
   bottom: 0;
   inset: 0 -900px 0 auto;
-  transition: .5s;
+  transition: 0.5s;
   display: flex;
   flex-direction: column;
 }
@@ -621,7 +624,9 @@ body.mostrarCarrito .seccion-lista-productos-pestaña {
   border-radius: 30px 30px 0 0;
 }
 
-#encabezado-lista-precio, .precio, .carritoTotal {
+#encabezado-lista-precio,
+.precio,
+.carritoTotal {
   justify-self: end;
 }
 
@@ -770,9 +775,8 @@ body.mostrarCarrito .seccion-lista-productos-pestaña {
 
 #realizar_pedido,
 #realizar_pedido i {
-  color: #25D366;
+  color: #25d366;
 }
-
 
 /* ==============================================
    5. ANIMACIONES
@@ -804,11 +808,21 @@ body.mostrarCarrito .seccion-lista-productos-pestaña {
 }
 
 @keyframes sacudir {
-  0% { transform: scale(1); }
-  25% { transform: scale(1.1) rotate(5deg); }
-  50% { transform: scale(1.1) rotate(-5deg); }
-  75% { transform: scale(1.1) rotate(5deg); }
-  100% { transform: scale(1); }
+  0% {
+    transform: scale(1);
+  }
+  25% {
+    transform: scale(1.1) rotate(5deg);
+  }
+  50% {
+    transform: scale(1.1) rotate(-5deg);
+  }
+  75% {
+    transform: scale(1.1) rotate(5deg);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 
 /* Clase de utilidad para JS */
@@ -874,8 +888,12 @@ body.mostrarCarrito .seccion-lista-productos-pestaña {
     width: 90vw;
   }
 
+  .grilla:hover h3 {
+    top: 30px;
+  }
+
+
   .grilla:hover .tipo-producto:not(:hover) .tipo-producto-encabezado h3 {
-    
     /* 1. Forzamos la transformación a la horizontal (0 grados) 
        y mantenemos el centrado. */
     transform: translate(-50%, -50%) rotate(0deg) !important;
@@ -884,6 +902,35 @@ body.mostrarCarrito .seccion-lista-productos-pestaña {
     animation: none !important;
   }
 }
+
+ /* ----------------------------------------------
+   Media Query de ALTURA (para pantallas cortas)
+   ---------------------------------------------- */
+  @media screen and (max-height: 640px) {
+    .grilla .tipo-producto {
+      height: 100vh;
+    }
+
+    .tipo-producto-encabezado .titulo h3 {
+      margin-top: 20px;
+      font-size: 40px;
+    }
+
+    .seccion-lista-productos-pestaña,
+    .lista-productos {
+      padding: 0px !important;
+    }
+
+    .card-producto {
+      top: 10px !important;
+      padding: 5px 20px 20px 20px;
+    }
+
+    .card-imagen-producto img {
+      max-height: 200px;
+      padding: 0px;
+    }
+  }
 
 /* ----------------------------------------------
    Tablets Verticales (hasta 900px)
@@ -910,6 +957,10 @@ body.mostrarCarrito .seccion-lista-productos-pestaña {
 
   .categorias {
     margin: 0;
+  }
+
+  .tipo-producto:hover h3 {
+    display: none;
   }
 
   .categorias div {
@@ -1015,88 +1066,67 @@ body.mostrarCarrito .seccion-lista-productos-pestaña {
 
   /* Ajusta el Total (alineado con la grilla) */
 
-
-
-/* ----------------------------------------------
+  /* ----------------------------------------------
    Móviles Grandes (hasta 768px)
    ---------------------------------------------- */
-@media (max-width: 768px) {
-  .logo img {
-    display: none;
+  @media (max-width: 768px) {
+    .logo img {
+      display: none;
+    }
+
+    #logo-prueba {
+      display: none;
+    }
+
+    .categorias {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100vw;
+    }
   }
 
-  #logo-prueba {
-    display: none;
+  @media screen and (max-width: 580px) {
+    #todos {
+      grid-template-columns: repeat(1, 1fr);
+    }
   }
 
-  .categorias {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100vw;
-  }
-}
-
-/* ----------------------------------------------
+  /* ----------------------------------------------
    Móviles Pequeños (hasta 428px)
    ---------------------------------------------- */
-@media (max-width: 428px) {
-  .grilla {
-    flex-direction: column;
+  @media (max-width: 428px) {
+    .grilla {
+      flex-direction: column;
+    }
+
+    .tipo-producto {
+      width: 90vw;
+    }
+
+    .container-tipo-producto {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 0px;
+    }
+
+    .tipo-producto:hover .titulo {
+      display: none !important;
+    }
+
+    .card-producto {
+      align-self: auto;
+      margin-top: 10px;
+      min-width: 83vw;
+      top: 20px;
+    }
+
+    #todos {
+      grid-template-columns: repeat(1, 1fr);
+    }
   }
 
-  .tipo-producto {
-    width: 90vw;
-  }
-
-  .container-tipo-producto {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    gap: 0px;
-  }
-
-  .tipo-producto:hover .titulo {
-    display: none !important;
-  }
-
-  .card-producto {
-    align-self: auto;
-    margin-top: 10px;
-    min-width: 83vw;
-  }
-
-  #todos {
-    grid-template-columns: repeat(1, 1fr);
-  }
-}
-
-/* ----------------------------------------------
-   Media Query de ALTURA (para pantallas cortas)
-   ---------------------------------------------- */
-@media screen and (max-height: 700px) {
-  .grilla .tipo-producto {
-    height: 95vh;
-  }
-
-  .tipo-producto-encabezado .titulo h3 {
-    font-size: 40px;
-  }
-
-  .seccion-lista-productos-pestaña, .lista-productos {
-    padding: 0px !important;
-  }
-
-  .card-producto {
-    top: 0px !important;
-    max-height: 1600px;
-    padding: 15px 20px 20px 20px;
-  }
-
-  .card-imagen-producto img {
-    max-height: 200px;
-    padding: 0px;
-  }
-}
+ 
 }

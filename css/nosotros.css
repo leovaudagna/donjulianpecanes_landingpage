@@ -7,7 +7,7 @@ body {
   align-items: center;
   justify-content: space-between;
   flex-direction: column;
-  background-image: url(/pruebas/branches-with-leaves-svgrepo-com\\5\.svg);
+  background-image: url(/pruebas/branches-with-leaves-svgrepo-com\ \(5\).svg);
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -174,7 +174,6 @@ p {
 
   .galeria-wrap {
     flex-direction: column;
-    
   }
 
   #container-marca img {
@@ -188,7 +187,6 @@ p {
     gap: 10px;
     padding: 40px !important;
     height: auto;
-    
   }
 
   .contenedor {
@@ -199,7 +197,6 @@ p {
     max-width: 100vw;
     margin: 0; /* ✅ eliminar márgenes laterales */
     padding: 0;
-    
   }
 
   .galeria {
@@ -211,7 +208,6 @@ p {
   .galeria-inner img {
     width: 80%;
     margin: 0 auto;
-    
   }
 
   .texto {
@@ -221,13 +217,11 @@ p {
   #container-marca {
     display: flex;
     flex-direction: column;
-    height: auto; 
+    height: auto;
   }
 }
 
 @media (max-width: 428px) {
-
-
   h2 {
     font-size: 3rem;
   }

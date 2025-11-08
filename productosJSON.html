@@ -18,7 +18,7 @@
 
 <body>
 
-    <!-- Navbar -->
+    <!-- Seccion - NAVBAR -->
     <div class="container-navbar">
         <div class="navbar">
             <div class="navbar-logo">
@@ -42,81 +42,74 @@
         </div>
     </div>
 
+    <!-- Seccion - OVERLAY y CARRITO -->
     <div class="overlay-carrito"></div>
     <div class="overlay"></div>
-
 
     <div class="icono-carrito">
         <i class="fa fa-shopping-cart" aria-hidden="true"></i>
         <span class="carrito-cantidad">0</span>
     </div>
 
-    
-
-    
-
-    <!-- Inicio - Main -->
+    <!-- Seccion - PRODUCTOS -->
     <div class="container-main">
-            <div class="logo">
-                <!-- <img src="assets/logo-completo.svg" alt=""> -->
-                <img src="pruebas/Recurs4.svg">
-                <div class="container-instrucciones">
-                    <p><i class="fa-solid fa-cart-plus"></i>Carga productos al carrito</p>
-                    <p><i class="fa-solid fa-circle-check"></i>Confirma el pedido</p>
-                    <p><i class="fa-solid fa-truck-fast"></i>Y nos comunicaremos en breve para coordinar la entrega</p>
-                </div>
+        <div class="logo">            
+            <img src="pruebas/Recurs4.svg">
+            <div class="container-instrucciones">
+                <p><i class="fa-solid fa-cart-plus"></i>Carga productos al carrito</p>
+                <p><i class="fa-solid fa-circle-check"></i>Confirma el pedido</p>
+                <p><i class="fa-solid fa-truck-fast"></i>Y nos comunicaremos en breve para coordinar la entrega</p>
             </div>
-            <div>
-                <img src="assets/logos/logo-completo.svg" alt="" id="logo-prueba">
-            </div>
+        </div>
+        <div>
+            <img src="assets/logos/logo-completo.svg" alt="" id="logo-prueba">
+        </div>
     </div>
-
-    
 
     <div class="container-division">
         <img src="assets/fondos/onda-2.svg" alt="">
     </div>
 
     <div class="fondo">
-
         <div class="container-filtro">
             <div class="categorias">
                 <div>
                     <div>
                         <i class="fa-solid fa-sliders"></i>
-                        <h3>Filtro</h3>
+                        <h4>Filtro:</h4>
                     </div>
                     <div>
                         <button id="btn_porCategoria"><span>Por categorias</span></button>
                         <button id="btn_todos"><span>Todos</span></button>
-                    </div>        
+                    </div>
                 </div>
             </div>
         </div>
-       
         <div class="grilla" id="grilla">
+
             <!-- Natural -->
             <div class="tipo-producto" id="natural" data-bg="assets/pruebas/1.jpg">
                 <div class="tipo-producto-encabezado">
-                    <!-- <h3>NATURAL</h3> -->
                     <div class="titulo">
-                        <h3>NATURAL</h3>
+                        <h3>#natural</h3>
+                        <p>para quienes disfrutan lo esencial</p>
                     </div>
                     <!-- <img src="assets/logos/natural-texto.svg" alt=""> -->
                     <!-- <p>para quienes disfrutan lo esencial</p> -->
                 </div>
                 <div class="container-tipo-producto">
                 </div>
-            </div>          
+            </div>
 
             <!-- Gourmet -->
             <div class="tipo-producto" id="gourmet" data-bg="assets/pruebas/1.jpg">
                 <div class="tipo-producto-encabezado">
                     <div class="titulo">
-                        <h3>GOURMET</h3>
+                        <h3>#gourmet</h3>
+                        <p>para cualquier momento</p>
                     </div>
                 </div>
-                <div class="container-tipo-producto">                    
+                <div class="container-tipo-producto">
 
                 </div>
             </div>
@@ -125,7 +118,8 @@
             <div class="tipo-producto" id="derivados" data-bg="assets/pruebas/1.jpg">
                 <div class="tipo-producto-encabezado">
                     <div class="titulo">
-                        <h3>DERIVADOS</h3>
+                        <h3>#derivados</h3>
+                        <p>nuéz pecan en tu cocina cotidiana</p>
                     </div>
                 </div>
                 <div class="container-tipo-producto">
@@ -136,54 +130,19 @@
             <div class="tipo-producto" id="otros">
                 <div class="tipo-producto-encabezado">
                     <div class="titulo">
-                        <h3>OTROS</h3>
+                        <h3>#otros</h3>
+                        <p>en todas las presentaciones</p>
                     </div>
                 </div>
                 <div class="container-tipo-producto">
                 </div>
             </div>
-
-
         </div>
 
         <div id="todos">
         </div>
-
     </div>
 
-    <!-- <div class="seccion-lista-productos">
-        <div class="lista-productos">
-            <div class="encabezado-lista">
-                <div>
-                </div>
-                <div>
-                    PRODUCTO
-                </div>
-                <div>
-                    PESO
-                </div>
-                <div>
-                    PRECIO
-                </div>
-                <div>
-                    CANTIDAD
-                </div>              
-            </div>
-            <div class="lista">                
-            </div>
-            <div class="carritoTotal">
-                <p>TOTAL:  $ <span id="carritoTotalFinal">0</span></p>
-            </div>
-            <div class="botones-checkout">
-                <button id="limpiar"><i class="fa-solid fa-xmark"></i></i>Limpiar carrito</button>
-                <button id="realizar_pedido"><i class="fa-brands fa-whatsapp"></i>Realizar pedido</button>
-            </div>
-        </div>
-    </div> -->
-
-    <div>
-        
-    </div>
     <div class="seccion-lista-productos-pestaña">
         <div class="lista-productos">
             <h3>carrito</h3>
@@ -202,9 +161,9 @@
                 </div>
                 <div id="encabezado-lista-precio">
                     PRECIO
-                </div>              
+                </div>
             </div>
-            <div class="lista-pestaña">                
+            <div class="lista-pestaña">
             </div>
             <div class="carritoTotal">
                 <p>TOTAL:&nbsp;&nbsp;&nbsp;</p>
@@ -213,15 +172,13 @@
             <div class="botones-checkout">
                 <button id="cerrar_carrito"><i class="fa-solid fa-xmark"></i>Cerrar</button>
                 <button id="limpiar"><i class="fa-solid fa-trash-can"></i></i></i>Limpiar carrito</button>
-                <button id="realizar_pedido"><i class="fa-brands fa-whatsapp"></i>Realizar pedido</button>                
+                <button id="realizar_pedido"><i class="fa-brands fa-whatsapp"></i>Realizar pedido</button>
             </div>
         </div>
     </div>
 
-
-
     
-    
+    <!-- Seccion - FOOTER -->
     <div class="footer-fondo">
         <div class="container-footer">
             <div class="footer-logo">
@@ -235,18 +192,22 @@
                 <p>Argentina</p>
                 <br>
                 <p><a href="mailto:">donjulianpecanes@gmail.com</a></p>
-                <p>+54(03404)15409888</p>    
+                <p>+54(03404)15409888</p>
             </div>
             <div class="footer-redes">
                 <!-- <p class="footer-encabezado">NUESTRAS REDES</p> -->
-                <a href="https://www.facebook.com/donjulianpecanes/" target="_blank" rel="noopener"><i class="fa-brands fa-facebook-f"></i></a>
-                <a href="https://www.instagram.com/donjulianpecanes/" target="_blank" rel="noopener"><i class="fa-brands fa-instagram"></i></a>
-                <a href="https://api.whatsapp.com/send?phone=+5493404505444&text=Hola. Quisiera comunicarme con Don Julian Pecanes!" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i></a>
+                <a href="https://www.facebook.com/donjulianpecanes/" target="_blank" rel="noopener"><i
+                        class="fa-brands fa-facebook-f"></i></a>
+                <a href="https://www.instagram.com/donjulianpecanes/" target="_blank" rel="noopener"><i
+                        class="fa-brands fa-instagram"></i></a>
+                <a href="https://api.whatsapp.com/send?phone=+5493404505444&text=Hola. Quisiera comunicarme con Don Julian Pecanes!"
+                    target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i></a>
             </div>
         </div>
     </div>
 
     <script src="js/productos2.js"></script>
-    
+
 </body>
+
 </html>

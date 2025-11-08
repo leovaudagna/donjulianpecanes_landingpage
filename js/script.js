@@ -3,8 +3,8 @@ window.addEventListener("load", () => {
     const splash = document.getElementById("splash-logo");
     splash.style.opacity = 0;
     cargarPostInstagram();
-    setTimeout(() => (splash.style.display = "none"), 0);
-  }, 0);
+    setTimeout(() => (splash.style.display = "none"), 900);
+  }, 900);
 });
 
 //NAVBAR
