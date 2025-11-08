@@ -1107,9 +1107,13 @@ body.mostrarCarrito .seccion-lista-productos-pestaña {
     transition: max-height 0.5s ease, margin-top 0.3s ease;
   }
 
+  .tipo-producto:hover {
+    max-height: none;
+  }
+
   /* Cuando el usuario toca (toggle de clase JS) */
   .tipo-producto.expandido {
-    max-height: none;
+    max-height: auto !important;
   }
 
   .fondo {
