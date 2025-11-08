@@ -626,7 +626,7 @@ form button:hover {
 
 .fa-brands {
   font-size: 27px;
-  transition: 1s;
+  transition: 0.5s;
   color: var(--color-gris-oscuro);
 }
 

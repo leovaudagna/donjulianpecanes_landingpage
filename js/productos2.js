@@ -264,9 +264,9 @@ const agregarCarritoHTML = () => {
                 ${peso}
             </div>
             <div class="cantidad">
-                <span class="menos">-</span>
+                <span class="menos"><</span>
                 <span id="item-cantidad">${item.cantidad}</span>
-                <span class="mas">+</span>
+                <span class="mas">></span>
             </div>  
             <div class="precio">
                 $ ${precioTotalPorProducto}
@@ -487,6 +487,13 @@ const cargarListaProductos = () => {
         }
     })
 }
+
+//PARA MOVIL
+document.querySelectorAll('.tipo-producto').forEach(el => {
+  el.addEventListener('click', () => {
+    el.classList.toggle('expandido');
+  });
+});
 
 cargarListaProductos();
 
