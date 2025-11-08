@@ -23,15 +23,22 @@
             <!-- Probablemente lo cambie por algun navbar de libreria -->
             <nav>
                 <ul class="navbar-elementos">
-                    <li><a href="nosotros.html">Nosotros</a></li>
-                    <li><a href="">Nuestros Productos</a></li>
-                    <li><a href="">Recetas</a></li>
+                    <li class="nav-link"><a href="nosotros.html">Nosotros</a></li>
+                    <li class="nav-link"><a href="productosJSON.html">Nuestros Productos</a></li>
+                    <li class="nav-link"><a href="">Recetas</a></li>
                     <!-- <li><a href="">Contacto</a></li> -->
-                    <li><a href="#formulario"><button>Contacto</button></a></li>
+                    <li class="nav-link"><a href="#formulario"><button>Contacto</button></a></li>
                 </ul>
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
             </nav>
         </div>
     </div>
+
+    <div class="overlay"></div>
 
     <!-- <h1>Nosotros</h1> -->
 
@@ -41,21 +48,17 @@
         <div class="la-empresa-contenido">
             <div>
                 <i class="fa-solid fa-people-group"></i>
-                <P>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis doloremque odio similique impedit quos!
-                    Unde facere molestiae perferendis repellendus maxime dicta voluptate repellat, consequatur eveniet ut
-                    vel quidem illum quos.</P>
+                <P>Pecanes Don Julián es una empresa de origen familiar dedicada a la producción y comercialización de nueces pecán, ubicada en la región centro de la provincia de Santa Fe, Argentina.
+</P>
             </div>
             <div>
                 <i class="fa-solid fa-recycle"></i>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repudiandae, impedit rerum temporibus quod
-                    molestias eum alias odit a, quibusdam dolores enim placeat dolorum ullam esse corrupti repellat quos,
-                    sequi amet?</p>
+                <p>El proyecto nació con el propósito de desarrollar una actividad sustentable, en armonía con la naturaleza y el entorno rural, ofreciendo un producto de alta calidad con valor agregado local.</p>
     
             </div>
             <div>
                 <i class="fa-solid fa-tree"></i>
-                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Amet sunt quod, debitis reiciendis incidunt
-                    sequi enim molestias? Porro quia ad impedit optio omnis. Modi nulla minus vel aperiam placeat nam?</p>    
+                <p>La primera plantación se realizó en el año 2014, incorporando nuevas plantas en 2015 y 2016, consolidando así un monte productivo que hoy refleja años de trabajo, paciencia y compromiso.</p>    
             </div>    
         </div>    
     </div>
@@ -66,46 +69,56 @@
     
 
     <!-- Carrusel -->
-    <div class="galeria-wrap">
-        <!-- Nuestro lugar -->
-        <div class="container" id="nuestro-lugar">
-            <h2>NUESTRO LUGAR</h2>
-            <P>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis doloremque odio similique impedit quos! Unde
-                facere molestiae perferendis repellendus maxime dicta voluptate repellat, consequatur eveniet ut vel quidem
-                illum quos.</P>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repudiandae, impedit rerum temporibus quod
-                molestias eum alias odit a, quibusdam dolores enim placeat dolorum ullam esse corrupti repellat quos, sequi
-                amet?</p>
-        </div>
-        <div>
-            <!-- <img src="assets/nosotros/atras.svg" alt="" id="btn_atras"> -->
+    <div class="galeria-wrap" id="nuestro-lugar">
+        <div class="contenedor">
+            <div class="texto">
+                <h2>NUESTRO LUGAR</h2>
+                <p>Así nació Pecanes Don Julián, un emprendimiento familiar que hoy produce nueces pecán de alta calidad,
+                    vendidas a granel y también transformadas en deliciosas nueces caramelizadas y choco nuez.</p>
+                <p>Pero más allá del producto, lo que realmente nos mueve es la convicción de que sí se puede producir de
+                    otra
+                    manera: respetando los ciclos naturales, cuidando el suelo, y dejando un legado verde para quienes
+                    vengan
+                    después.</p>
+            </div>
+    
             <div class="galeria">
-                <div>
-                    <span><img src="assets/nosotros/2.jpg" alt=""></span>
-                    <span><img src="assets/nosotros/3.jpg" alt=""></span>
-                    <span><img src="assets/nosotros/1.jpg" alt=""></span>
-                </div>
-                <div>
-                    <span><img src="assets/nosotros/2.jpg" alt=""></span>
-                    <span><img src="assets/nosotros/3.jpg" alt=""></span>
-                    <span><img src="assets/nosotros/1.jpg" alt=""></span>
+                <div class="galeria-inner">
+                    <img src="assets/nosotros/2.jpg" alt="">
+                    <img src="assets/nosotros/3.jpg" alt="">
+                    <img src="assets/nosotros/1.jpg" alt="">
                 </div>
             </div>
-            <!-- <img src="assets/nosotros/adelante.svg" alt="" id="btn_adelante"> -->
-    
         </div>
-    
     </div>
     
 
 
     <!-- La marca -->
-     <div class="container" id="container-marca">
+    <div class="container" id="container-marca">
         <img src="assets/logos/logo-completo.svg" alt="">
-        <div>        
-            <h2>LA MARCA</h2>       
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil numquam nemo dolorum voluptates sit reiciendis quis, molestiae maiores qui temporibus recusandae culpa doloremque voluptate laborum porro voluptatem. Illo, quos debitis?</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil numquam nemo dolorum voluptates sit reiciendis quis, molestiae maiores qui temporibus recusandae culpa doloremque voluptate laborum porro voluptatem. Illo, quos debitis?</p>
+        <div>
+            <h2>LA MARCA</h2>
+            <p>Nuestro logo es mucho más que una identidad gráfica; es un mapa de nuestros afectos y un tributo a lo que
+                verdaderamente importa. Nació de la misma tierra que trabajamos, inspirado por la fuerza que impulsa cada
+                una de nuestras jornadas: la familia.
+                <br><br>
+                En el centro, erguida y vital, se alza la planta de pecán. De su tallo firme brotan cinco frutos, ni uno
+                más, ni uno menos. Cada una de estas nueces representa a cada uno de los hijos de Don Julián. Son la cosecha
+                más noble de su vida, diferentes entre sí, pero unidos por un mismo origen y nutridos por los mismos valores
+                de esfuerzo y honestidad. Crecen hacia arriba, buscando el sol, tal como él les enseñó.
+                <br><br>
+                Rodeando esta escena, un círculo trazado en cálidos tonos tierra los envuelve. No es un trazo cerrado ni
+                rígido; es un abrazo. Este círculo simboliza a la familia como un todo: el refugio que protege sin limitar
+                el crecimiento, la contención necesaria en los tiempos difíciles y la unidad que perdura a pesar del tiempo
+                y la distancia.
+                <br><br>
+                Cuando ves el sello de Don Julián Pecanes, no solo estás viendo una marca de calidad en manufactura local;
+                estás viendo la promesa de un padre y el corazón de una familia que pone, en cada nuez que llega a tu mesa,
+                el mismo amor con el que cuida a los suyos.</p>
+            <br>
+            <p>Porque creemos que cada nogal plantado es una promesa:</p>
+            <p>la promesa de un futuro más consciente, más sustentable y más humano.</p>
         </div>
     </div>
 
@@ -139,6 +152,7 @@
     </div>
 
     <script src="js/nosotros_script.js"></script>
+    <script src="js/script.js"></script>
     
 </body>
 </html>
