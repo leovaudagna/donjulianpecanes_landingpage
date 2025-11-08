@@ -1097,58 +1097,62 @@ body.mostrarCarrito .seccion-lista-productos-pestaña {
    ---------------------------------------------- */
   @media (max-width: 428px) {
     .grilla {
-      flex-direction: column;
-    }
+    flex-direction: column;
+  }
 
-    .tipo-producto {
-      width: 90vw;
-    }
+  .tipo-producto {
+    width: 90vw;
+    max-height: 40vh;
+    overflow: hidden;
+    transition: max-height 0.5s ease, margin-top 0.3s ease;
+  }
 
-    .fondo {
-      padding-top: 60px;
-    }
+  /* Cuando el usuario toca (toggle de clase JS) */
+  .tipo-producto.expandido {
+    max-height: none;
+  }
 
-    .tipo-producto:not(:active) {
-      max-height: 40vh;
-    }
+  .fondo {
+    padding-top: 60px;
+  }
 
-    .tipo-producto:not(:active) .titulo {
-      margin-top: -250px;
-    }
+  .tipo-producto .titulo {
+    margin-top: -250px;
+    transition: margin-top 0.3s ease, opacity 0.3s ease;
+  }
 
+  /* Cuando se expande, ajustamos título */
+  .tipo-producto.expandido .titulo {
+    margin-top: 0;
+    opacity: 0; /* se oculta suavemente */
+  }
 
-    .tipo-producto:hover{
-      max-height: none;
-    }
+  .container-tipo-producto {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 0;
+  }
 
-    .container-tipo-producto {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
-      gap: 0px;
-    }
+  .card-producto {
+    align-self: auto;
+    margin-top: 10px;
+    min-width: 83vw;
+    top: 20px;
+  }
 
-    .tipo-producto:active .titulo {
-      display: none !important;
-    }
+  #todos {
+    grid-template-columns: repeat(1, 1fr);
+  }
 
-    .card-producto {
-      align-self: auto;
-      margin-top: 10px;
-      min-width: 83vw;
-      top: 20px;
-    }
-
-    #todos {
-      grid-template-columns: repeat(1, 1fr);
-    }
-
-    body, html {
-      height: auto !important;
-      overflow-y: scroll !important;
-      overscroll-behavior: auto;
-    }
+  /* Mejora de scroll en móviles */
+  html, body {
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
+    height: auto;
+  }
   }
 
  

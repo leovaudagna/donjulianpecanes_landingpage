@@ -435,6 +435,13 @@ realizarPedidoBoton.addEventListener("click", () => {
 
 })
 
+//PARA MOVIL
+document.querySelectorAll('.tipo-producto').forEach(el => {
+  el.addEventListener('click', () => {
+    el.classList.toggle('expandido');
+  });
+});
+
 //AL CARGAR
 const cargarListaProductos = () => {
     fetch("lista_productos.json")
