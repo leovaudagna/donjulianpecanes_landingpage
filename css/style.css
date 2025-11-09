@@ -406,7 +406,7 @@ a {
 
 #nosotros-boton:hover {
   background-color: var(--color-accion);
-  color: #080808;
+  color: #ffffff;
   transform: scale(1.05);
 }
 
