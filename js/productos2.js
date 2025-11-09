@@ -426,6 +426,7 @@ botonCategoria.addEventListener("click", () => {
 //LIMPIAR CARRITO
 limpiarBoton.addEventListener("click", () => {
     carrito = [];
+    iconoCarritoSpan.innerHTML = "0";
     precioFinalTotalCarrito.innerHTML = "$0";
     agregarCarritoMemoria();
     agregarCarritoHTML();
