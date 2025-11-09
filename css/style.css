@@ -26,7 +26,7 @@ html {
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 9999;
+  z-index: 9999; 
   transition: opacity 1.8s ease;
 }
 
@@ -207,7 +207,6 @@ a {
   align-items: center;
 }
 
-
 .container-main .logo button a {
   color: var(--color-blanco);
 }
@@ -215,26 +214,6 @@ a {
 .container-main .logo button:hover {
   background-color: var(--color-accion);
   transform: scale(1.03);
-}
-
-#lugar_btn {
-  border: solid 1px var(--color-verde);
-  color: var(--color-verde);
-  background-color: var(--color-blanco);
-  width: 230px;
-}
-
-#lugar_btn a {
-  color: var(--color-verde);
-}
-
-#lugar_btn:hover {
-  color: var(--color-accion);
-  border: solid 1px var(--color-accion);
-}
-
-#lugar_btn a:hover {
-  color: var(--color-accion);
 }
 
 .logo div {
@@ -251,6 +230,7 @@ a {
 .container-main .slogan img {
   padding-bottom: 30px;
   min-width: 400px;
+  max-width: 600px !important;
   width: 45vw;
 }
 
@@ -368,6 +348,69 @@ a {
 }
 
 /* ---------------------------------------------------------------------- */
+/* Seccion - NOSOTROS */
+/* ---------------------------------------------------------------------- */
+
+.container-nosotros {
+    background-image: url('../assets/nosotros/foto-campo-aerea.jpg');
+    background-size: cover;          
+    background-position: center;     
+    background-repeat: no-repeat;    
+    height: 800px;                  
+    display: flex;                   
+    justify-content: center;
+    align-items: end;
+    text-align: left;
+    color: var(--color-blanco);                     
+    padding: 0 20px;                
+    position: relative;
+}
+
+/* Fondo oscuro semitransparente para mejor lectura del texto */
+.container-nosotros::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: linear-gradient(0deg,rgb(0, 0, 0) 0%, rgba(255, 255, 255, 0) 60%);
+    z-index: 0;
+}
+
+.container-nosotros h4 {
+  font-size: 1.8rem;
+  font-weight: 200;
+}
+
+.container-nosotros > div {
+  max-width: 1366px;
+    padding: 120px 0;
+    z-index: 1; /* Para que quede sobre el overlay */
+}
+
+#nosotros-boton {
+  padding: 18px 32px;
+  margin-top: 30px;
+  font-size: 1.2rem;
+  background-color: var(--color-gris-claro);
+  color: var(--color-marron);
+  border: none;
+  border-radius: 10px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 15vw;
+  min-width: 150px;
+  text-align: center;
+  display: block;
+}
+
+#nosotros-boton:hover {
+  background-color: var(--color-accion);
+  color: #080808;
+  transform: scale(1.05);
+}
+
+/* ---------------------------------------------------------------------- */
 /* Seccion - CLUSTER */
 /* ---------------------------------------------------------------------- */
 
@@ -401,6 +444,8 @@ a {
   width: 250px;
 }
 
+
+
 /* ---------------------------------------------------------------------- */
 /* Seccion - REDES
 /* ---------------------------------------------------------------------- */
@@ -426,7 +471,7 @@ a {
 }
 
 .redes-texto {
-  max-width: 390px;
+  max-width: 490px;
   text-align: right;
   display: flex;
   justify-content: center;
@@ -773,6 +818,14 @@ form button:hover {
     width: 80vw;
   }
 
+  .container-nosotros {
+    padding-left: 50px;
+  }
+  .container-nosotros h4 {
+    font-size: 1.5rem;
+    font-weight: 200;
+  }
+
   .container-info {
     margin-top: 0;
     flex-direction: column;
@@ -977,6 +1030,24 @@ form button:hover {
   .container-productos-2-texto {
     margin-top: -180px;
   }
+
+  
+  .container-nosotros div {
+    justify-self: center;
+    align-items: center;
+  } 
+
+  .container-nosotros h4 {
+    font-size: 1.2rem;
+    text-align: center;
+    font-weight: 200;
+  }
+
+  #nosotros-boton {  
+    justify-self: center;  
+    width: 80vw;
+  }
+
 
   .container-info {
     padding: 0 10px;
