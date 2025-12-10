@@ -66,10 +66,10 @@
         "categoria": "derivados",
         "descripcion": "Un toque gourmet lleno de beneficios",
         "pesoPrecio": {
-            "--": "--"
+            "500cc": 12000
         },
         "imagen": "assets/pruebas/pecan_aceite.png",
-        "disponible": false
+        "disponible": true
     },
     {
         "id": 7,
@@ -88,7 +88,8 @@
         "categoria": "otros",
         "descripcion": "Más frescas por más tiempo.",
         "pesoPrecio": {
-            "2kg": "0"
+            "1kg": 25000,
+            "2kg": 48000
         },
         "imagen": "assets/pruebas/pecan_vacio.png",
         "disponible": true
@@ -96,7 +97,7 @@
     {
         "id": 9,
         "nombreProducto": "Partidas",
-        "categoria": "otros",
+        "categoria": "natural",
         "descripcion": "Listas para usar en tus recetas",
         "pesoPrecio": {
             "500g": 12000,

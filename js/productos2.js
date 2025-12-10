@@ -82,7 +82,7 @@ const crearCardProducto = (producto) => {
     const precioMostrar = primerPrecio === 0 ? "--" : `$${primerPrecio.toLocaleString("es-AR")}`;
 
     let proximamenteHTML = "";
-    if (producto.categoria.toLowerCase() === "derivados") {
+    if (!producto.disponible) {
         proximamenteHTML = `
             <div class="proximamente">
                 <p>próximamente</p>

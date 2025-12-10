@@ -110,6 +110,11 @@ a {
   color: var(--color-marron);
 }
 
+.link-no-disponible a {
+  cursor: default;
+  color: var(--color-gris-claro);
+}
+
 .container-navbar button {
   padding: 10px 20px;
   background-color: var(--color-verde);
