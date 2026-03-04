@@ -1,6 +1,5 @@
 //Inicio
 
-
 //Modificaciones:
 
 //Variables globales
@@ -8,17 +7,15 @@ let listaProductos = [];
 let carrito = [];
 
 //Elementos de la pagina
-let body = document.querySelector('body');
+let body = document.querySelector("body");
 let listaProductosCategoriaHTML = document.getElementById("grilla");
-let listaProductosHTML = document.getElementById("todos")
+let listaProductosHTML = document.getElementById("todos");
 let listaCarritoHTML = document.querySelector(".lista-pestaña");
 let iconoCarritoSpan = document.querySelector(".carrito-cantidad");
 let iconoCarrito = document.querySelector(".icono-carrito");
-
 let precioFinalTotalCarrito = document.getElementById("carritoTotalFinal");
 let encabezadoLista = document.querySelector(".encabezado-lista");
 let carritoTotal = document.querySelector(".carritoTotal");
-
 let listaCarritoPestaña = document.querySelector(".lista-pestaña");
 
 //Elegir filtro
@@ -27,75 +24,64 @@ let botonTodos = document.getElementById("btn_todos");
 
 let precioFinalGlobal = 0;
 
-
 //NAVBAR
 let hamburger = document.querySelector(".hamburger");
 let navbar = document.querySelector(".navbar-elementos");
+let overlayCarrito = document.querySelector(".overlay-carrito");
+let overlayNav = document.querySelector(".overlay");
 
-// Seleccionas el overlay del carrito
-let overlayCarrito = document.querySelector('.overlay-carrito');
-
-// --- ESTA ES LA LÍNEA QUE FALTABA ---
-// Selecciona el overlay específico para el navbar
-let overlayNav = document.querySelector('.overlay');
-
-
-// Evento para abrir/cerrar el menú
 hamburger.addEventListener("click", () => {
   hamburger.classList.toggle("active");
   navbar.classList.toggle("active");
-  overlayNav.classList.toggle('active'); // <-- USA LA VARIABLE CORRECTA
+  overlayNav.classList.toggle("active");
 });
 
-// Evento para cerrar el menú al hacer clic en un enlace
-document.querySelectorAll(".nav-link").forEach(n => n.addEventListener("click", () => {
+document.querySelectorAll(".nav-link").forEach((n) =>
+  n.addEventListener("click", () => {
+    hamburger.classList.remove("active");
+    navbar.classList.remove("active");
+    overlayNav.classList.remove("active");
+  }),
+);
+
+overlayNav.addEventListener("click", () => {
   hamburger.classList.remove("active");
   navbar.classList.remove("active");
-  overlayNav.classList.remove('active'); // <-- CIERRA EL OVERLAY CORRECTO
-}));
-
-// Evento para cerrar el menú al hacer clic FUERA (en el overlay del nav)
-// (Cambié 'overlayCarrito' por 'overlayNav' en este listener)
-overlayNav.addEventListener('click', () => {
-  hamburger.classList.remove('active');
-  navbar.classList.remove('active');
-  overlayNav.classList.remove('active'); // <-- CIERRA EL OVERLAY CORRECTO
+  overlayNav.classList.remove("active");
 });
 
-//SECCION FINAL
+//CARRITO LATERAL
 let limpiarBoton = document.getElementById("limpiar");
 let realizarPedidoBoton = document.getElementById("realizar_pedido");
 let cerrarCarrito = document.getElementById("cerrar_carrito");
 let pedidoFinalizado = [];
 
 //Prueba
-
-
-
-// Card HTML a partir de un producto
 const crearCardProducto = (producto) => {
-    const botonesPeso = Object.keys(producto.pesoPrecio)
-        .map((peso, id) => `<button class="${id === 0 ? 'boton-seleccionado' : ''}">${peso}</button>`)
-        .join("");
+  const botonesPeso = Object.keys(producto.pesoPrecio)
+    .map(
+      (peso, id) =>
+        `<button class="${id === 0 ? "boton-seleccionado" : ""}">${peso}</button>`,
+    )
+    .join("");
 
-    const primerPrecio = Object.values(producto.pesoPrecio)[0];
-    const precioMostrar = primerPrecio === 0 ? "--" : `$${primerPrecio.toLocaleString("es-AR")}`;
+  const primerPrecio = Object.values(producto.pesoPrecio)[0];
+  const precioMostrar =
+    primerPrecio === 0 ? "--" : `$${primerPrecio.toLocaleString("es-AR")}`;
 
-    let proximamenteHTML = "";
-    if (!producto.disponible) {
-        proximamenteHTML = `
+  let proximamenteHTML = "";
+  if (!producto.disponible) {
+    proximamenteHTML = `
             <div class="proximamente">
                 <p>próximamente</p>
             </div>`;
-    }
+  }
 
-    
+  const nuevoProducto = document.createElement("article");
+  nuevoProducto.classList.add("card-producto");
+  nuevoProducto.dataset.id = producto.id;
 
-    const nuevoProducto = document.createElement("article");
-    nuevoProducto.classList.add("card-producto");
-    nuevoProducto.dataset.id = producto.id;
-
-    nuevoProducto.innerHTML = `
+  nuevoProducto.innerHTML = `
         ${proximamenteHTML}
         <div class="card-encabezado">
             <p class="categoria-hashtag">#${producto.categoria}</p>            
@@ -120,140 +106,137 @@ const crearCardProducto = (producto) => {
         </div>
     `;
 
-    const categoriaHashtag = nuevoProducto.querySelector(".categoria-hashtag");
-    if (producto.categoria && categoriaHashtag) {
-        categoriaHashtag.classList.add(`categoria-${producto.categoria.toLowerCase()}`);
-        console.log("HOLA" + categoriaHashtag);
-    }
+  const categoriaHashtag = nuevoProducto.querySelector(".categoria-hashtag");
+  if (producto.categoria && categoriaHashtag) {
+    categoriaHashtag.classList.add(
+      `categoria-${producto.categoria.toLowerCase()}`,
+    );
+  }
 
-    
-    return nuevoProducto;
+  return nuevoProducto;
 };
 
 // Renderizar TODOS
 const renderizarProductosHTML = () => {
-    listaProductosHTML.innerHTML = '';
-    listaProductos.forEach(producto => {
-        const card = crearCardProducto(producto);
-        listaProductosHTML.appendChild(card);
-    });
-
-    
-
+  listaProductosHTML.innerHTML = "";
+  listaProductos.forEach((producto) => {
+    const card = crearCardProducto(producto);
+    listaProductosHTML.appendChild(card);
+  });
 };
 
 // Renderizar en CATEGORIAS
 const renderizarPorCategoria = () => {
-    botonCategoria.classList.add("selected");
-    botonTodos.classList.remove("selected");
+  botonCategoria.classList.add("selected");
+  botonTodos.classList.remove("selected");
 
-    document.getElementById("todos").style.display = "none";
-    document.querySelector(".grilla").classList.remove("collapsed");
+  document.getElementById("todos").style.display = "none";
+  document.querySelector(".grilla").classList.remove("collapsed");
 
-    document.querySelectorAll(".tipo-producto").forEach(div => {
-        div.style.display = "flex";
-        const contenedor = div.querySelector(".container-tipo-producto");
-        contenedor.innerHTML = "";
-    });
+  document.querySelectorAll(".tipo-producto").forEach((div) => {
+    div.style.display = "flex";
+    const contenedor = div.querySelector(".container-tipo-producto");
+    contenedor.innerHTML = "";
+  });
 
-    listaProductos.forEach(producto => {
-        const card = crearCardProducto(producto);
-        const categoriaDiv = document.querySelector(`#${producto.categoria.toLowerCase()} .container-tipo-producto`);
-        if (categoriaDiv) categoriaDiv.appendChild(card);
-    });
-
-
+  listaProductos.forEach((producto) => {
+    const card = crearCardProducto(producto);
+    const categoriaDiv = document.querySelector(
+      `#${producto.categoria.toLowerCase()} .container-tipo-producto`,
+    );
+    if (categoriaDiv) categoriaDiv.appendChild(card);
+  });
 };
 
 //FUNCION ELECCION PESO
 document.body.addEventListener("click", (event) => {
-    const btn = event.target;
+  const btn = event.target;
 
-    // --- CAMBIAR PESO ---
-    if (btn.closest(".peso-opcion button")) {
-        const card = btn.closest(".card-producto");
-        const producto_id = card.dataset.id;
-        const producto = listaProductos.find(p => p.id == producto_id);
-        if (!producto) return;
+  // --- CAMBIAR PESO ---
+  if (btn.closest(".peso-opcion button")) {
+    const card = btn.closest(".card-producto");
+    const producto_id = card.dataset.id;
+    const producto = listaProductos.find((p) => p.id == producto_id);
+    if (!producto) return;
 
-        // Quitar selección previa y marcar nuevo peso
-        const botones = card.querySelectorAll(".peso-opcion button");
-        botones.forEach(b => b.classList.remove("boton-seleccionado"));
-        btn.classList.add("boton-seleccionado");
+    const botones = card.querySelectorAll(".peso-opcion button");
+    botones.forEach((b) => b.classList.remove("boton-seleccionado"));
+    btn.classList.add("boton-seleccionado");
 
-        // Actualizar precio mostrado
-        const pesoSeleccionado = btn.textContent.trim();
-        const precio = producto.pesoPrecio[pesoSeleccionado];
-        const spanPrecio = card.querySelector(".precios span");
-        spanPrecio.textContent = precio === 0 ? "--" : `$${precio.toLocaleString("es-AR")}`;
+    const pesoSeleccionado = btn.textContent.trim();
+    const precio = producto.pesoPrecio[pesoSeleccionado];
+    const spanPrecio = card.querySelector(".precios span");
+    spanPrecio.textContent =
+      precio === 0 ? "--" : `$${precio.toLocaleString("es-AR")}`;
+  }
+
+  // --- AGREGAR AL CARRITO ---
+  if (btn.classList.contains("agregarCarrito")) {
+    const card = btn.closest(".card-producto");
+    const producto_id = card.dataset.id;
+    const producto = listaProductos.find((p) => p.id == producto_id);
+    if (!producto) return;
+
+    const pesoSeleccionado = card
+      .querySelector(".boton-seleccionado")
+      ?.textContent.trim();
+
+    if (!pesoSeleccionado) {
+      pesoSeleccionado = Object.keys(producto.pesoPrecio)[0];
+      const primerBoton = card.querySelector(".peso-opcion button");
+      if (primerBoton) primerBoton.classList.add("boton-seleccionado");
     }
 
-    // --- AGREGAR AL CARRITO ---
-    if (btn.classList.contains("agregarCarrito")) {
-        const card = btn.closest(".card-producto");
-        const producto_id = card.dataset.id;
-        const producto = listaProductos.find(p => p.id == producto_id);
-        if (!producto) return;
+    const precio = producto.pesoPrecio[pesoSeleccionado];
 
-        // Obtener el peso actualmente seleccionado
-        const pesoSeleccionado = card.querySelector(".boton-seleccionado")?.textContent.trim();
-
-        if (!pesoSeleccionado) {
-            pesoSeleccionado = Object.keys(producto.pesoPrecio)[0];
-         // y opcionalmente marcarlo visualmente
-            const primerBoton = card.querySelector(".peso-opcion button");
-            if (primerBoton) primerBoton.classList.add("boton-seleccionado");
-        }
-
-
-
-        const precio = producto.pesoPrecio[pesoSeleccionado];
-
-        agregarProductoCarrito(producto_id, pesoSeleccionado, precio);
-    }
+    agregarProductoCarrito(producto_id, pesoSeleccionado, precio);
+  }
 });
 
 //Agregar productos al carrito
 const agregarProductoCarrito = (producto_id, peso, precio) => {
-    let posicion = carrito.findIndex(item => item.producto_id == producto_id && item.peso == peso);
+  let posicion = carrito.findIndex(
+    (item) => item.producto_id == producto_id && item.peso == peso,
+  );
 
-    if (posicion >= 0) {
-        carrito[posicion].cantidad += 1;
-    } else {
-        carrito.push({
-            producto_id: producto_id,
-            cantidad: 1,
-            peso: peso,
-            precio: precio
-        });
-    }
+  if (posicion >= 0) {
+    carrito[posicion].cantidad += 1;
+  } else {
+    carrito.push({
+      producto_id: producto_id,
+      cantidad: 1,
+      peso: peso,
+      precio: precio,
+    });
+  }
 
-    agregarCarritoHTML();
-    agregarCarritoMemoria();
+  agregarCarritoHTML();
+  agregarCarritoMemoria();
 };
 
 const agregarCarritoHTML = () => {
-    listaCarritoHTML.innerHTML = '';
-    listaCarritoPestaña.innerHTML = '';
-    let cantidadTotal = 0;
-    let precioFinalTotal = 0;
-    if(carrito.length > 0){
-        carrito.forEach(item => {
-            cantidadTotal = cantidadTotal + item.cantidad;
-            let productoEnCarrito = document.createElement("div");
-            productoEnCarrito.classList.add("item");
-            
-            let posicionProducto = listaProductos.findIndex(valor => valor.id == item.producto_id);
-            let info = listaProductos[posicionProducto];
+  listaCarritoHTML.innerHTML = "";
+  listaCarritoPestaña.innerHTML = "";
+  let cantidadTotal = 0;
+  let precioFinalTotal = 0;
+  if (carrito.length > 0) {
+    carrito.forEach((item) => {
+      cantidadTotal = cantidadTotal + item.cantidad;
+      let productoEnCarrito = document.createElement("div");
+      productoEnCarrito.classList.add("item");
 
-            let peso = item.peso;
-            let precio = item.precio;
-            let precioTotalPorProducto = precio * item.cantidad;
-            
+      let posicionProducto = listaProductos.findIndex(
+        (valor) => valor.id == item.producto_id,
+      );
+      let info = listaProductos[posicionProducto];
 
-            productoEnCarrito.dataset.id = item.producto_id;
+      let peso = item.peso;
+      let precio = item.precio;
+      let precioTotalPorProducto = precio * item.cantidad;
 
-            productoEnCarrito.innerHTML = `
+      productoEnCarrito.dataset.id = item.producto_id;
+
+      productoEnCarrito.innerHTML = `
             <div class="imagen">
                 <img src="${info.imagen}" alt="">
             </div>
@@ -274,229 +257,184 @@ const agregarCarritoHTML = () => {
                       
             `;
 
-            
+      precioFinalTotal += precioTotalPorProducto;
 
-            precioFinalTotal += precioTotalPorProducto;
-            
-
-        // listaCarritoHTML.appendChild(productoEnCarrito);
-        listaCarritoPestaña.appendChild(productoEnCarrito);
-        
-        })
-        
-    } else {
-        productoEnCarrito.innerHTML = `
+      listaCarritoPestaña.appendChild(productoEnCarrito);
+    });
+  } else {
+    productoEnCarrito.innerHTML = `
             <div>
                 <p>El carrito esta vacio</p>
             </div>
-        `
-    }
-    
+        `;
+  }
 
-    if(carrito == 0){
-        carritoTotal.style.display = "none";        
-        encabezadoLista.style.display = "none";
-    } else {
-        carritoTotal.style.display = "flex";
-        encabezadoLista.style.display = "grid";
-    }
+  if (carrito == 0) {
+    carritoTotal.style.display = "none";
+    encabezadoLista.style.display = "none";
+  } else {
+    carritoTotal.style.display = "flex";
+    encabezadoLista.style.display = "grid";
+  }
 
-    console.log(precioFinalTotal);
-    iconoCarritoSpan.innerText = cantidadTotal;
-    precioFinalTotalCarrito.innerText = `$ ${precioFinalTotal}`;
-    precioFinalGlobal = precioFinalTotal;
+  console.log(precioFinalTotal);
+  iconoCarritoSpan.innerText = cantidadTotal;
+  precioFinalTotalCarrito.innerText = `$ ${precioFinalTotal}`;
+  precioFinalGlobal = precioFinalTotal;
 
-    animarIconoCarrito();
-    
+  animarIconoCarrito();
+};
 
-
-}
-
-
-// Esta función se encarga de la animación
 function animarIconoCarrito() {
-  const iconoSpan = document.querySelector('.carrito-cantidad');
+  const iconoSpan = document.querySelector(".carrito-cantidad");
 
-  // 1. Agrega la clase para iniciar la animación
-  iconoSpan.classList.add('sacudir');
+  iconoSpan.classList.add("sacudir");
 
-  // 2. IMPORTANTE: Quita la clase después de que termine la animación (500ms = 0.5s)
-  //    para que pueda volver a ejecutarse la próxima vez.
   setTimeout(() => {
-    iconoSpan.classList.remove('sacudir');
-  }, 500); 
+    iconoSpan.classList.remove("sacudir");
+  }, 500);
 }
 
 const overlay = document.querySelector(".overlay-carrito");
 
-
-
 //Abrir pestaña carrito
 iconoCarrito.addEventListener("click", () => {
-    body.classList.toggle("mostrarCarrito");
-} )
-
-cerrarCarrito.addEventListener("click", () => {
-    body.classList.toggle("mostrarCarrito");
-})
-
-overlay.addEventListener("click", () => {
-    document.body.classList.remove("mostrarCarrito");
+  body.classList.toggle("mostrarCarrito");
 });
 
+cerrarCarrito.addEventListener("click", () => {
+  body.classList.toggle("mostrarCarrito");
+});
 
+overlay.addEventListener("click", () => {
+  document.body.classList.remove("mostrarCarrito");
+});
 
-
-// listaCarritoHTML.addEventListener('click', (event) => {
-//     let posicionClick = event.target;
-//     if(posicionClick.classList.contains('menos') || posicionClick.classList.contains('mas')){
-//         let producto_id = posicionClick.closest('[data-id]').dataset.id;
-//         let tipo = 'menos';
-//         if(posicionClick.classList.contains('mas')){
-//             tipo = 'mas';
-//         } cambiarCantidad(producto_id, tipo);
-//     }
-// })
-
-listaCarritoPestaña.addEventListener('click', (event) => {
-    let posicionClick = event.target;
-    if(posicionClick.classList.contains('menos') || posicionClick.classList.contains('mas')){
-        let producto_id = posicionClick.closest('[data-id]').dataset.id;
-        let tipo = 'menos';
-        if(posicionClick.classList.contains('mas')){
-            tipo = 'mas';
-        } cambiarCantidad(producto_id, tipo);
+listaCarritoPestaña.addEventListener("click", (event) => {
+  let posicionClick = event.target;
+  if (
+    posicionClick.classList.contains("menos") ||
+    posicionClick.classList.contains("mas")
+  ) {
+    let producto_id = posicionClick.closest("[data-id]").dataset.id;
+    let tipo = "menos";
+    if (posicionClick.classList.contains("mas")) {
+      tipo = "mas";
     }
-})
+    cambiarCantidad(producto_id, tipo);
+  }
+});
 
-const cambiarCantidad = (producto_id, tipo) => { 
-    let posicionProductoEnCarrito = carrito.findIndex((valor) => valor.producto_id == producto_id);
-    if(posicionProductoEnCarrito >= 0){
-        switch(tipo){
-            case 'mas':
-                carrito[posicionProductoEnCarrito].cantidad = carrito[posicionProductoEnCarrito].cantidad + 1;
-                break;
-            case 'menos':
-                let cambioValor = carrito[posicionProductoEnCarrito].cantidad - 1;
-                if(cambioValor > 0) {
-                    carrito[posicionProductoEnCarrito].cantidad = cambioValor;
-                } else {
-                    carrito.splice(posicionProductoEnCarrito, 1);
-                }
-                break;
-            }            
+const cambiarCantidad = (producto_id, tipo) => {
+  let posicionProductoEnCarrito = carrito.findIndex(
+    (valor) => valor.producto_id == producto_id,
+  );
+  if (posicionProductoEnCarrito >= 0) {
+    switch (tipo) {
+      case "mas":
+        carrito[posicionProductoEnCarrito].cantidad =
+          carrito[posicionProductoEnCarrito].cantidad + 1;
+        break;
+      case "menos":
+        let cambioValor = carrito[posicionProductoEnCarrito].cantidad - 1;
+        if (cambioValor > 0) {
+          carrito[posicionProductoEnCarrito].cantidad = cambioValor;
+        } else {
+          carrito.splice(posicionProductoEnCarrito, 1);
+        }
+        break;
     }
-    agregarCarritoMemoria();
-    agregarCarritoHTML();
-
-}
-
-
+  }
+  agregarCarritoMemoria();
+  agregarCarritoHTML();
+};
 
 const agregarCarritoMemoria = () => {
-    localStorage.setItem('carritoMemoria', JSON.stringify(carrito));
-}
+  localStorage.setItem("carritoMemoria", JSON.stringify(carrito));
+};
 
 // FUNCION FILTROS
 botonTodos.addEventListener("click", () => {
-    botonTodos.classList.add("selected");
-    botonCategoria.classList.remove("selected");
+  botonTodos.classList.add("selected");
+  botonCategoria.classList.remove("selected");
 
-    // Mostrar contenedor de todos
-    listaProductosHTML.style.display = "grid";
-    document.getElementById("todos").classList.remove("collapsed");
+  // Mostrar contenedor de todos
+  listaProductosHTML.style.display = "grid";
+  document.getElementById("todos").classList.remove("collapsed");
 
-    // Ocultar las categorías
+  // Ocultar las categorías
+  document.querySelector(".grilla").classList.add("collapsed");
 
-
-    document.querySelector(".grilla").classList.add("collapsed");
-
-    renderizarProductosHTML(); // vuelve a renderizar todos juntos
+  renderizarProductosHTML();
 });
 
 botonCategoria.addEventListener("click", () => {
-    renderizarPorCategoria();
+  renderizarPorCategoria();
 });
-
-
-
-
-
 
 //LIMPIAR CARRITO
 limpiarBoton.addEventListener("click", () => {
-    carrito = [];
-    iconoCarritoSpan.innerHTML = "0";
-    precioFinalTotalCarrito.innerHTML = "$0";
-    agregarCarritoMemoria();
-    agregarCarritoHTML();
-} )
+  carrito = [];
+  iconoCarritoSpan.innerHTML = "0";
+  precioFinalTotalCarrito.innerHTML = "$0";
+  agregarCarritoMemoria();
+  agregarCarritoHTML();
+});
 
 //CHECKOUT
 realizarPedidoBoton.addEventListener("click", () => {
-    if (carrito.length === 0) {
-        alert("El carrito está vacío.");
-        return;
+  if (carrito.length === 0) {
+    alert("El carrito está vacío.");
+    return;
+  }
+  let textoCarritoFinal = "🛒 *Pedido - Don Julián Pecanes*:%0A%0A";
+  carrito.forEach((item) => {
+    const producto = listaProductos.find((p) => p.id == item.producto_id);
+    if (producto) {
+      const peso = Object.keys(producto.pesoPrecio)[0];
+      const precio = Object.values(producto.pesoPrecio)[0];
+
+      textoCarritoFinal += `• ${item.cantidad} x ${producto.nombreProducto} (${peso}) - $${(precio * item.cantidad).toLocaleString("es-AR")}%0A`;
     }
-    let textoCarritoFinal = "🛒 *Pedido - Don Julián Pecanes*:%0A%0A"; 
-    carrito.forEach(item => {
-        // Buscar el producto en la lista por su id
-        const producto = listaProductos.find(p => p.id == item.producto_id);
-        if (producto) {
-            // Tomar el primer peso y precio del producto
-            const peso = Object.keys(producto.pesoPrecio)[0];
-            const precio = Object.values(producto.pesoPrecio)[0];
-            
-            textoCarritoFinal += `• ${item.cantidad} x ${producto.nombreProducto} (${peso}) - $${(precio * item.cantidad).toLocaleString("es-AR")}%0A`;
-        }
+  });
 
-        
-    });
+  textoCarritoFinal += `*TOTAL: $${precioFinalGlobal}*%0A`;
 
-    textoCarritoFinal += `*TOTAL: $${precioFinalGlobal}*%0A`
+  textoCarritoFinal.replace(/\n/g, "%0A");
+  console.log(textoCarritoFinal);
 
-    textoCarritoFinal.replace(/\n/g,'%0A');
-    console.log(textoCarritoFinal);
-
-    // Abrir WhatsApp con el mensaje
-    const telefono = "+5493404505444"; // número sin el +, con código país
-    const urlWhatsApp = `https://api.whatsapp.com/send?phone=${telefono}&text=${textoCarritoFinal}`;
-    window.open(urlWhatsApp, "_blank");
-
-
-})
+  // Abrir WhatsApp
+  const telefono = "+5493404505444";
+  const urlWhatsApp = `https://api.whatsapp.com/send?phone=${telefono}&text=${textoCarritoFinal}`;
+  window.open(urlWhatsApp, "_blank");
+});
 
 //AL CARGAR
 const cargarListaProductos = () => {
-    fetch("lista_productos.json")
-    .then(response => response.json())
-    .then(data => {
-        listaProductos = data;
-        console.log(listaProductos);
-        renderizarProductosHTML();
+  fetch("lista_productos.json")
+    .then((response) => response.json())
+    .then((data) => {
+      listaProductos = data;
+      console.log(listaProductos);
+      renderizarProductosHTML();
 
-        botonCategoria.classList.add("selected");
-        botonTodos.classList.remove("selected");
-        document.getElementById("todos").style.display = "none";
+      botonCategoria.classList.add("selected");
+      botonTodos.classList.remove("selected");
+      document.getElementById("todos").style.display = "none";
 
-        renderizarPorCategoria();
-        
-        // cargar acarrito de mmemoraua
-        if(localStorage.getItem('carritoMemoria')){
-            carrito = JSON.parse(localStorage.getItem('carritoMemoria'));
-            agregarCarritoHTML();
-        }
-    })
-}
+      renderizarPorCategoria();
+      if (localStorage.getItem("carritoMemoria")) {
+        carrito = JSON.parse(localStorage.getItem("carritoMemoria"));
+        agregarCarritoHTML();
+      }
+    });
+};
 
 //PARA MOVIL
-document.querySelectorAll('.tipo-producto').forEach(el => {
-  el.addEventListener('click', () => {
-    el.classList.toggle('expandido');
+document.querySelectorAll(".tipo-producto").forEach((el) => {
+  el.addEventListener("click", () => {
+    el.classList.toggle("expandido");
   });
 });
 
 cargarListaProductos();
-
-
-

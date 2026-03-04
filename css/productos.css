@@ -47,9 +47,8 @@ body.mostrarCarrito .overlay-carrito {
   display: none;
 }
 
-/* ---------------------------------------------------------------------- */
+
 /* Seccion - Instrucciones */
-/* ---------------------------------------------------------------------- */
 .fondo {
   position: relative;
   z-index: 1;
@@ -94,9 +93,8 @@ body.mostrarCarrito .overlay-carrito {
 }
 
 
-/* ---------------------------------------------------------------------- */
+
 /* Seccion - FILTRO */
-/* ---------------------------------------------------------------------- */
 .container-filtro {
   width: 100%;
   display: flex;
@@ -155,9 +153,7 @@ body.mostrarCarrito .overlay-carrito {
   color: var(--color-accion);
 }
 
-/* ---------------------------------------------------------------------- */
 /* Seccion - GRILLA */
-/* ---------------------------------------------------------------------- */
 .grilla {
   display: flex;
   justify-self: center;
@@ -536,11 +532,8 @@ body.mostrarCarrito .overlay-carrito {
   font-size: 20px;
 }
 
-/* ---------------------------------------------------------------------- */
+
 /* Seccion - Carrito */
-/* ---------------------------------------------------------------------- */
-
-
 .icono-carrito {
   position: fixed !important;
   z-index: 2500;
@@ -791,9 +784,6 @@ body.mostrarCarrito .seccion-lista-productos-pestaña {
   color: #25d366;
 }
 
-/* ==============================================
-   5. ANIMACIONES
-   ============================================== */
 
 @keyframes fadeInRotate {
   0% {
@@ -838,14 +828,13 @@ body.mostrarCarrito .seccion-lista-productos-pestaña {
   }
 }
 
-/* Clase de utilidad para JS */
+
 .sacudir {
   animation: sacudir 0.5s ease;
 }
 
-/* ==============================================
-   6. MEDIA QUERIES (RESPONSIVE)
-   ============================================== */
+
+
 @media (max-width: 1690px) {
   .icono-carrito {
     right: -110px !important;
@@ -857,9 +846,7 @@ body.mostrarCarrito .seccion-lista-productos-pestaña {
 }
   
 }
-/* ----------------------------------------------
-   Laptops Pequeñas (hasta 1366px)
-   ---------------------------------------------- */
+/* hasta 1366px */
 @media (max-width: 1366px) {
   .card-producto {
     width: 270px;
@@ -898,9 +885,7 @@ body.mostrarCarrito .seccion-lista-productos-pestaña {
   }
 }
 
-/* ----------------------------------------------
-   Tablets Horizontales (hasta 1150px)
-   ---------------------------------------------- */
+/* hasta 1150px*/
 @media (max-width: 1150px) {
   .grilla {
     flex-direction: column;
@@ -917,18 +902,15 @@ body.mostrarCarrito .seccion-lista-productos-pestaña {
 
 
   .grilla:hover .tipo-producto:not(:hover) .tipo-producto-encabezado h3 {
-    /* 1. Forzamos la transformación a la horizontal (0 grados) 
-       y mantenemos el centrado. */
+
     transform: translate(-50%, -50%) rotate(0deg) !important;
 
-    /* 2. Eliminamos la animación de rotación. */
+
     animation: none !important;
   }
 }
 
- /* ----------------------------------------------
-   Media Query de ALTURA (para pantallas cortas)
-   ---------------------------------------------- */
+ 
   @media screen and (max-height: 640px) {
     .grilla .tipo-producto {
       height: 100vh;
@@ -955,9 +937,7 @@ body.mostrarCarrito .seccion-lista-productos-pestaña {
     }
   }
 
-/* ----------------------------------------------
-   Tablets Verticales (hasta 900px)
-   ---------------------------------------------- */
+/* hasta 900px*/
 @media screen and (max-width: 900px) {
   .titulo h3 {
     font-size: 20px;
@@ -983,7 +963,6 @@ body.mostrarCarrito .seccion-lista-productos-pestaña {
     display: none !important;
   }
 
-  /* --- Filtros --- */
   .container-filtro {
     display: flex !important;
     justify-content: center;
@@ -1010,7 +989,6 @@ body.mostrarCarrito .seccion-lista-productos-pestaña {
     flex-direction: row !important;
   }
 
-  /* --- Cards --- */
   .card-producto {
     top: -30px;
     max-height: 1600px;
@@ -1022,7 +1000,6 @@ body.mostrarCarrito .seccion-lista-productos-pestaña {
     padding: 0px;
   }
 
-  /* --- Layout Grilla --- */
   .grilla {
     flex-direction: column;
   }
@@ -1045,22 +1022,20 @@ body.mostrarCarrito .seccion-lista-productos-pestaña {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  /* --- PESTAÑA CARRITO (Responsive) --- */
 
   .seccion-lista-productos-pestaña {
-    width: 100vw; /* Ocupa todo el ancho */
+    width: 100vw; 
   }
 
   .seccion-lista-productos-pestaña .lista-productos {
-    width: auto; /* Ancho automático */
-    padding: 20px 2px 0px 2px !important; /* Reduce el padding */
+    width: auto; 
+    padding: 20px 2px 0px 2px !important; 
   }
 
   .lista-pestaña {
     flex-direction: column;
   }
 
-  /* Ajusta la cabecera de la lista */
   .encabezado-lista {
     grid-template-columns: 40px 1.5fr 0.8fr 1fr 1fr; 
     gap: 10px;
@@ -1069,11 +1044,10 @@ body.mostrarCarrito .seccion-lista-productos-pestaña {
     height: 50px;
   }
 
-  /* Ajusta cada item del carrito */
   .seccion-lista-productos-pestaña .item {
     grid-template-columns: 40px 1.5fr 0.8fr 1fr 1fr;
     gap: 10px;
-    height: auto; /* Altura automática */
+    height: auto; 
     padding: 10px;
     align-items: center;
   }
@@ -1086,7 +1060,6 @@ body.mostrarCarrito .seccion-lista-productos-pestaña {
     white-space: nowrap;
   }
 
-  /* Ajusta el contenedor de botones de checkout */
   .seccion-lista-productos-pestaña .botones-checkout {
     flex-direction: row;
     align-items: center;
@@ -1107,11 +1080,8 @@ body.mostrarCarrito .seccion-lista-productos-pestaña {
     margin-top: 20px;
   }
 
-  /* Ajusta el Total (alineado con la grilla) */
 
-  /* ----------------------------------------------
-   Móviles Grandes (hasta 768px)
-   ---------------------------------------------- */
+  /* hasta 768px */
   @media (max-width: 768px) {
     .logo img {
       display: none;
@@ -1135,9 +1105,7 @@ body.mostrarCarrito .seccion-lista-productos-pestaña {
     }
   }
 
-  /* ----------------------------------------------
-   Móviles Pequeños (hasta 428px)
-   ---------------------------------------------- */
+  /*hasta 428px */
   @media (max-width: 428px) {
     .grilla {
     flex-direction: column;
@@ -1154,8 +1122,7 @@ body.mostrarCarrito .seccion-lista-productos-pestaña {
     max-height: none;
   }
 
-  /* Cuando el usuario toca (toggle de clase JS) */
-  .tipo-producto.expandido {
+    .tipo-producto.expandido {
     max-height: auto !important;
   }
 
@@ -1168,10 +1135,10 @@ body.mostrarCarrito .seccion-lista-productos-pestaña {
     transition: margin-top 0.3s ease, opacity 0.3s ease;
   }
 
-  /* Cuando se expande, ajustamos título */
+  
   .tipo-producto.expandido .titulo {
     margin-top: 0;
-    opacity: 0; /* se oculta suavemente */
+    opacity: 0; 
   }
 
   .container-tipo-producto {
@@ -1193,7 +1160,7 @@ body.mostrarCarrito .seccion-lista-productos-pestaña {
     grid-template-columns: repeat(1, 1fr);
   }
 
-  /* Mejora de scroll en móviles */
+ 
   html, body {
     overflow-y: auto !important;
     -webkit-overflow-scrolling: touch;

@@ -24,14 +24,11 @@ document.querySelectorAll(".nav-link").forEach(n => n.addEventListener("click", 
 }))
 
 overlay.addEventListener('click', () => {
-        // Cierra todo al hacer click fuera
         hamburger.classList.remove('active');
         navbar.classList.remove('active');
         overlay.classList.remove('active');
     });
 
-
-//SPLASH FIX
 function ajustarSplash() {
   const splash = document.getElementById('splash-logo');
   if (splash) {
@@ -41,9 +38,6 @@ function ajustarSplash() {
 
 window.addEventListener('load', ajustarSplash);
 window.addEventListener('resize', ajustarSplash);
-
-
-
 
 //POST REDES
 const cargarPostInstagram = () => {
@@ -70,3 +64,61 @@ const cargarPostInstagram = () => {
     window.instgrm.Embeds.process();
   }
 };
+
+
+//FORMULARIO
+const formulario = document.getElementById("form-mensaje");
+const submitButton = formulario.querySelector('button[type="submit"]');
+const modal = document.getElementById("modal-exito");
+const cerrarModal = document.getElementById("cerrar-modal");
+
+formulario.addEventListener('submit', async(e) => {
+  e.preventDefault();
+
+  const formularioData = new FormData(formulario);
+  formularioData.append("access_key", "f51e017a-3afb-44e6-bf66-4ca3b475bc56"); //SACAR - CONSULTAR PROFE
+
+  const nombre = formularioData.get('nombre');
+  const apellido = formularioData.get('apellido');
+  
+
+  const asunto = `Mensaje del sitio WEB: ${nombre} ${apellido} te envió un mensaje`;
+  formularioData.append('subject', asunto);
+
+  const textoOriginal = submitButton.textContent;
+
+  submitButton.textContent = "Enviando...";
+  submitButton.disabled = true;
+
+  try {
+    const response = await fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      body: formularioData
+    });
+
+    const data = await response.json();
+
+    if(response.ok){
+      modal.style.display = "flex";
+      formulario.reset();
+    } else {
+      alert("Error: " + data.message);
+    }
+  } catch (error) {
+      alert("Something went wrong");
+  } finally {
+      submitButton.textContent = textoOriginal;
+      submitButton.disabled = false;
+  }
+})
+
+cerrarModal.addEventListener("click", () => {
+  modal.style.display = "none";
+});
+
+
+modal.addEventListener("click", (e) => {
+  if (e.target === modal) {
+    modal.style.display = "none";
+  }
+});

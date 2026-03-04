@@ -633,10 +633,63 @@ form button:hover {
   background-color: var(--color-accion-oscuro);
 }
 
-/* ---------------------------------------------------------------------- */
-/* Seccion - FOOTER */
-/* ---------------------------------------------------------------------- */
+/* MODAL */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+  display: none;              /* Oculto por defecto */
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
 
+.modal img {
+  width: 90%;
+  max-width: 300px;
+}
+
+.modal-content {
+  background: white;
+  padding: 25px;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 680px;
+  text-align: center;
+  animation: fadeIn 0.2s ease-in-out;
+}
+
+#cerrar-modal {
+  margin-top: 15px;
+  padding: 10px 20px;
+  background-color: var(--color-verde);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: fit-content;
+}
+
+#cerrar-modal:hover {
+  background-color: var(--color-accion);
+  transform: scale(1.05);
+}
+
+/* animación */
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.9); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+
+
+/* Seccion - FOOTER */
 .footer-fondo {
   background-color: var(--color-negro);
   padding: 0 25px;
@@ -695,9 +748,7 @@ form button:hover {
   color: #21c063;
 }
 
-/* ---------------------------------------------------------------------- */
-/* RESPONSIVE - Tablet
-/* ---------------------------------------------------------------------- */
+/* RESPONSIVE - Tablet */
 @media (max-width: 900px) {
  
   html,
@@ -917,9 +968,7 @@ form button:hover {
   }
 }
 
-/* ---------------------------------------------------------------------- */
-/* RESPONSIVE - Ajustes finos
-/* ---------------------------------------------------------------------- */
+/* RESPONSIVE - Ajustes finos */
 @media (max-width: 550px) {
   .container-productos-2 {
     height: 100vw !important;
@@ -951,9 +1000,8 @@ form button:hover {
   }
 }
 
-/* ---------------------------------------------------------------------- */
-/* RESPONSIVE - Celular
-/* ---------------------------------------------------------------------- */
+
+/* RESPONSIVE - Celular */
 @media (max-width: 428px) {
   h2 {
     font-size: 2rem;
