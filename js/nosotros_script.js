@@ -1,19 +1,22 @@
-let scrollContainer = document.querySelector(".galeria");
-let atras = document.getElementById("btn_atras");
-let adelante = document.getElementById("btn_adelante");
+const imagenes = document.querySelectorAll(".galeria-inner img");
+const modal = document.getElementById("modal");
+const modalImg = document.getElementById("modal-img");
+const cerrar = document.getElementById("cerrar");
 
-scrollContainer.addEventListener("wheel", (evt) => {
-    evt.preventDefault();
-    scrollContainer.scrollLeft += evt.deltaY;
+imagenes.forEach(img => {
+  img.addEventListener("click", () => {
+    modal.style.display = "flex";
+    modalImg.src = img.src;
+  });
 });
 
-atras.addEventListener("click", () => {
-    scrollContainer.style.scrollBehavior = "smooth";
-    scrollContainer.scrollLeft -= 1350;
+cerrar.addEventListener("click", () => {
+  modal.style.display = "none";
 });
 
-adelante.addEventListener("click", () => {
-    scrollContainer.style.scrollBehavior = "smooth";
-    scrollContainer.scrollLeft += 1350;
+modal.addEventListener("click", (e) => {
+  if(e.target !== modalImg){
+    modal.style.display = "none";
+  }
 });
 

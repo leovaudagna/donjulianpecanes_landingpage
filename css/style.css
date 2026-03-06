@@ -5,7 +5,7 @@
   --color-gris-claro: #ebebeb;
   --color-gris: #ebebeb;
   --color-blanco: #ffffff;
-  --color-marron: #925e43;
+  --color-marron: #A35E3F;
   --color-marron-oscuro: #3d1b13;
   --color-verde: #4a5831;
   --color-accion: #f58e31;
@@ -75,11 +75,14 @@ h3 {
   display: flex;
   align-items: center;
   justify-content: space-around;
-  padding: 20px;
+  padding: 10px;
 }
 
 .navbar-logo {
   align-self: last baseline;
+  display: flex;
+  align-items: center;
+  gap: 20px;
 }
 
 nav {
@@ -93,6 +96,11 @@ nav {
 
 .navbar-elementos {
   z-index: 15;
+  transition: 0.5s;
+}
+
+.navbar-elementos li:hover {
+  font-size: 1.1rem;
 }
 
 nav ul {
@@ -105,6 +113,7 @@ nav ul li {
   margin-right: 20px;
 }
 
+
 a {
   text-decoration: none;
   color: var(--color-marron);
@@ -114,6 +123,8 @@ a {
   cursor: default;
   color: var(--color-gris-claro);
 }
+
+
 
 .container-navbar button {
   padding: 10px 20px;
@@ -461,7 +472,7 @@ a {
   align-items: center;
   padding: 15px;
   max-width: 1366px;
-  height: 450px;
+  height: 250px;
   margin: auto;
   gap: 40px;
   color: var(--color-marron);
@@ -476,8 +487,8 @@ a {
 }
 
 .redes-texto {
-  max-width: 490px;
-  text-align: right;
+  max-width: 690px;
+  text-align: center;
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -487,7 +498,7 @@ a {
 .redes-links {
   width: 200px;
   display: flex;
-  align-self: flex-end;
+  align-self: center;
   justify-content: space-around;
 }
 

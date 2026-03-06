@@ -1,0 +1,218 @@
+:root {
+  --color-negro: #080808;
+  --color-negro-claro: #1a1a1a;
+  --color-gris-oscuro: #585858;
+  --color-gris-claro: #ebebeb;
+  --color-gris: #ebebeb;
+  --color-blanco: #ffffff;
+  --color-marron: #A35E3F;
+  --color-marron-oscuro: #3d1b13;
+  --color-verde: #4a5831;
+  --color-accion: #f58e31;
+  --color-accion-oscuro: #fa7f13;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-margin: 65px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Nunito sans", sans-serif;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  overflow-x: hidden;
+}
+
+h2 {
+  font-size: 2.5rem;
+  font-weight: 900;
+}
+
+h3 {
+  font-size: 1.8rem;
+}
+
+/* ---------------------------------------------------------------------- */
+/* Seccion - NAVBAR */
+/* ---------------------------------------------------------------------- */
+
+.container-navbar {
+  z-index: 5;
+  max-width: 1300px;
+  margin: 0;
+  padding: 0 25px;
+  width: 100%;
+}
+
+.container-navbar .navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 10px;
+}
+
+.navbar-logo {
+  align-self: last baseline;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+nav {
+  flex: 1;
+  text-align: right;
+}
+
+.navbar {
+  z-index: 20;
+}
+
+.navbar-elementos {
+  z-index: 15;
+  transition: 0.5s;
+}
+
+.navbar-elementos li:hover {
+  font-size: 1.1rem;
+}
+
+nav ul {
+  display: inline-block;
+  list-style-type: none;
+}
+
+nav ul li {
+  display: inline-block;
+  margin-right: 20px;
+}
+
+
+a {
+  text-decoration: none;
+  color: var(--color-marron);
+}
+
+.link-no-disponible a {
+  cursor: default;
+  color: var(--color-gris-claro);
+}
+
+
+
+.container-navbar button {
+  padding: 10px 20px;
+  background-color: var(--color-verde);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: fit-content;
+}
+
+.container-navbar button:hover {
+  background-color: var(--color-accion);
+  transform: scale(1.05);
+}
+
+#recetas {
+  color: var(--color-gris-claro);
+}
+
+.hamburger {
+  display: none;
+  cursor: pointer;
+}
+
+.bar {
+  display: block;
+  width: 25px;
+  height: 3px;
+  margin: 5px auto;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  background-color: var(--color-marron);
+}
+
+
+
+/* ---------------------------------------------------------------------- */
+/* Seccion - MAIN
+/* ---------------------------------------------------------------------- */
+
+
+
+
+/* Seccion - FOOTER */
+.footer-fondo {
+  background-color: var(--color-negro);
+  padding: 0 25px;
+  width: 100%;
+}
+
+.container-footer {
+  max-width: 1300px;
+  background-color: var(--color-negro);
+  color: var(--color-gris-oscuro);
+  margin: auto;
+  display: flex;
+  flex-grow: 1;
+  align-items: center;
+  flex-direction: row;
+  height: 120px;
+  gap: 100px;
+}
+
+.footer-datos {
+  font-size: 0.9rem;
+}
+
+.footer-logo {
+  max-height: fit-content;
+  width: 100px;
+}
+
+.footer-redes {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 25px;
+  margin-left: auto;
+}
+
+.fa-brands {
+  font-size: 27px;
+  transition: 0.5s;
+  color: var(--color-gris-oscuro);
+}
+
+.fa-brands:hover {
+  cursor: pointer;
+}
+
+.fa-facebook-f:hover {
+  color: #0866ff;
+}
+
+.fa-instagram:hover {
+  color: #d300c5;
+}
+
+.fa-whatsapp:hover {
+  color: #21c063;
+}
+
+

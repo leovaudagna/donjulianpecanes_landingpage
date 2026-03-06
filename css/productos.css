@@ -1,3 +1,10 @@
+#nav-productos {
+  text-decoration: underline 2px var(--color-marron);
+  text-underline-offset: 4px;
+  transition: 0.1s;
+}
+
+
 .container-presentacion {
   min-height: 90vh;
 }

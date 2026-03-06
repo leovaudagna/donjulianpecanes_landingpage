@@ -26,16 +26,18 @@
     <div class="container-navbar">
         <div class="navbar">
             <div class="navbar-logo">
+                <a href="index.html"><img src="assets/logos/logo-isotipo.svg" width="80px"></a>
                 <a href="index.html"><img src="assets/logos/logo-texto.svg" width="125px"></a>
             </div>
             <!-- Probablemente lo cambie por algun navbar de libreria -->
             <nav>
                 <ul class="navbar-elementos">
-                    <li class="nav-link"><a href="nosotros.html">Nosotros</a></li>
-                    <li class="nav-link"><a href="productos.html">Nuestros Productos</a></li>
+                    <li class="nav-link" id="nav-inicio"><a href="index.html">Inicio</a></li>
+                    <li class="nav-link" id="nav-nosotros"><a href="nosotros.html">Nosotros</a></li>
+                    <li class="nav-link" id="nav-productos"><a href="productos.html">Nuestros Productos</a></li>
                     <li class="nav-link link-no-disponible"><a href="">Recetas</a></li>
                     <!-- <li><a href="">Contacto</a></li> -->
-                    <li class="nav-link"><a href="#form-mensaje"><button>Contacto</button></a></li>
+                    <li class="nav-link"><a href="index.html#form-mensaje"><button>Contacto</button></a></li>
                 </ul>
                 <div class="hamburger">
                     <span class="bar"></span>
@@ -109,12 +111,12 @@
 
      <!-- Seccion - REDES -->
     <div class="container-redes">
-        <div class="redes-mockup">
+        <!-- <div class="redes-mockup">
             <img src="assets/otros/en-construccion-2.png" alt="">
-        </div>
+        </div> -->
         <div class="redes-texto">
-            <h2>NUESTRO E-COMMERCE ESTA EN PROCESO</h2>
-            <h3>..pero ya podes seguirnos en nuestras redes o hacer pedidos a través de nuestro WhatsApp</h3>
+            <h2>CONTACTANOS EN NUESTRAS REDES</h2>
+            <!-- <h3>..pero ya podes seguirnos en nuestras redes o hacer pedidos a través de nuestro WhatsApp</h3> -->
             <div class="redes-links">
                 <i class="fa-brands fa-facebook-f"></i>
                 <i class="fa-brands fa-instagram"></i>
@@ -139,7 +141,7 @@
 
     <!-- Seccion - CONTACTO -->
     <div class="container-formulario" id="formulario">
-        <h3>o enviarnos un mensaje a nuestro correo</h3>
+        <h3>o envianos un mensaje a nuestro correo</h3>
         <div>
             <div>
                 <img src="assets/otros/mail.png" alt="" id="imagen-correo">
@@ -202,6 +204,14 @@
 
     <script defer src="//www.instagram.com/embed.js"></script>
     <script defer src="js/script.js"></script>
+
+    <style>
+        #nav-inicio {
+            text-decoration: underline 2px var(--color-marron);
+            text-underline-offset: 4px;
+            transition: 0.1s;
+        }
+    </style>
 
 </body>
 

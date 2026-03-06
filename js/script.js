@@ -1,11 +1,13 @@
+// SPLASH
 window.addEventListener("load", () => {
   setTimeout(() => {
     const splash = document.getElementById("splash-logo");
     splash.style.opacity = 0;
     cargarPostInstagram();
-    setTimeout(() => (splash.style.display = "none"), 900);
-  }, 900);
+    setTimeout(() => (splash.style.display = "none"), 700);
+  }, 0);
 });
+
 
 //NAVBAR
 let hamburger = document.querySelector(".hamburger");
