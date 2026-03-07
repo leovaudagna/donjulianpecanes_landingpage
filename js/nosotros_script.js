@@ -20,3 +20,72 @@ modal.addEventListener("click", (e) => {
   }
 });
 
+let comienzoX = 0;
+let finX = 0;
+
+modal.addEventListener("touchstart", (e) => {
+  comienzoX = e.touches[0].clientX;
+});
+
+modal.addEventListener("touchend", (e) => {
+  finX = e.changedTouches[0].clientX;
+  manejarSwipe();
+});
+
+function manejarSwipe() {
+
+  if (comienzoX - finX > 50) {
+    // swipe izquierda → siguiente
+    indiceActual++;
+    if (indiceActual >= imagenes.length) {
+      indiceActual = 0;
+    }
+    mostrarImagen();
+  }
+
+  if (finX - comienzoX > 50) {
+    // swipe derecha → anterior
+    indiceActual--;
+    if (indiceActual < 0) {
+      indiceActual = imagenes.length - 1;
+    }
+    mostrarImagen();
+  }
+
+}
+
+//Slideshow prueba
+
+let slideIndex = 1;
+mostrarSlide(slideIndex);
+
+function plusSlides(n){
+  mostrarSlide(slideIndex += n);
+}
+
+function currentSlide(n){
+  mostrarSlide(slideIndex = n);
+}
+
+
+function mostrarSlide(n){
+
+  let i;
+  let slides = document.getElementsByClassName('slide');
+  let dots = document.getElementsByClassName('dot');
+
+  if ( n > slides.length ) { slideIndex = 1 }
+  if ( n < 1 ) { slideIndex = slides.length }
+  for ( i = 0; i < slides.length; i++ ){
+    slides[i].style.display = 'none';
+  }
+
+  for ( i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace('active', '');
+  }
+
+  slides[slideIndex - 1].style.display = 'flex';
+  dots[slideIndex - 1].className += ' active';
+
+}
+

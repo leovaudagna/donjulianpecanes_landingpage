@@ -1,24 +1,28 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nosotros</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap"
+        rel="stylesheet">
     <script src="https://kit.fontawesome.com/e572b36209.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/nosotros.css">
 
     <!-- Bootstrap -->
 </head>
+
 <body>
 
     <!-- Navbar -->
     <div class="container-navbar">
         <div class="navbar">
-           <div class="navbar-logo">
+            <div class="navbar-logo">
                 <a href="index.html"><img src="assets/logos/logo-isotipo.svg" width="80px"></a>
                 <a href="index.html"><img src="assets/logos/logo-texto.svg" width="125px"></a>
             </div>
@@ -51,40 +55,45 @@
         <div class="la-empresa-contenido">
             <div>
                 <i class="fa-solid fa-people-group"></i>
-                <P>Pecanes Don Julián es una empresa de origen familiar dedicada a la producción y comercialización de nueces pecán, ubicada en la región centro de la provincia de Santa Fe, Argentina.
-</P>
+                <P>Pecanes Don Julián es una empresa de origen familiar dedicada a la producción y comercialización de
+                    nueces pecán, ubicada en la región centro de la provincia de Santa Fe, Argentina.
+                </P>
             </div>
             <div>
                 <i class="fa-solid fa-recycle"></i>
-                <p>El proyecto nació con el propósito de desarrollar una actividad sustentable, en armonía con la naturaleza y el entorno rural, ofreciendo un producto de alta calidad con valor agregado local.</p>
-    
+                <p>El proyecto nació con el propósito de desarrollar una actividad sustentable, en armonía con la
+                    naturaleza y el entorno rural, ofreciendo un producto de alta calidad con valor agregado local.</p>
+
             </div>
             <div>
                 <i class="fa-solid fa-tree"></i>
-                <p>La primera plantación se realizó en el año 2014, incorporando nuevas plantas en 2015 y 2016, consolidando así un monte productivo que hoy refleja años de trabajo, paciencia y compromiso.</p>    
-            </div>    
-        </div>    
+                <p>La primera plantación se realizó en el año 2014, incorporando nuevas plantas en 2015 y 2016,
+                    consolidando así un monte productivo que hoy refleja años de trabajo, paciencia y compromiso.</p>
+            </div>
+        </div>
     </div>
 
 
 
 
-    
+
 
     <!-- Carrusel -->
     <div class="galeria-wrap" id="nuestro-lugar">
         <div class="contenedor">
             <div class="texto">
                 <h2>NUESTRO LUGAR</h2>
-                <p>Así nació Pecanes Don Julián, un emprendimiento familiar que hoy produce nueces pecán de alta calidad,
+                <p>Así nació Pecanes Don Julián, un emprendimiento familiar que hoy produce nueces pecán de alta
+                    calidad,
                     vendidas a granel y también transformadas en deliciosas nueces caramelizadas y choco nuez.</p>
-                <p>Pero más allá del producto, lo que realmente nos mueve es la convicción de que sí se puede producir de
+                <p>Pero más allá del producto, lo que realmente nos mueve es la convicción de que sí se puede producir
+                    de
                     otra
                     manera: respetando los ciclos naturales, cuidando el suelo, y dejando un legado verde para quienes
                     vengan
                     después.</p>
             </div>
-    
+
             <div class="galeria">
                 <div class="galeria-inner">
                     <img src="assets/nosotros/2.jpg" alt="">
@@ -99,15 +108,56 @@
         <span id="cerrar">&times;</span>
         <img id="modal-img">
     </div>
-    
+
 
 
     <!-- La marca -->
     <div class="container" id="container-marca">
         <h2>LA MARCA</h2>
-        <img src="assets/logos/logo-completo.svg" alt="">
-        <div>            
-            <p>Nuestro logo es mucho más que una identidad gráfica; es un mapa de nuestros afectos y un tributo a lo que
+        <div id="slideshow-container">
+            <div class="slide fade">
+                <img class="slide-img" src="./assets/nosotros/logo-completo.svg" alt="">
+                <div class="slide-texto">
+                    Nuestro logo representa la identidad de Don Julián Pecanes y los valores que guían nuestro emprendimiento familiar. Está inspirado en la producción de nuez pecán, en el vínculo con la tierra y en la importancia de la familia como base de nuestro trabajo. Cada elemento del diseño tiene un significado que refleja nuestra historia y nuestra forma de producir.
+                </div>
+            </div>
+
+            <div class="slide fade">
+                <img class="slide-img" src="./assets/nosotros/logo-v2-00.svg" alt="">
+                <div class="slide-texto">
+                    El nombre de la marca es un homenaje a Don Julián, impulsor del proyecto familiar. “Pecanes” hace referencia al cultivo que desarrollamos: la nuez pecán. Juntos, el nombre y el apellido del producto identifican un emprendimiento local, enfocado en la producción y elaboración de alimentos derivados del pecán.
+                </div>
+            </div>
+
+            <div class="slide fade">
+                <img class="slide-img" src="./assets/nosotros/logo-v2-01.svg" alt="">
+                <div class="slide-texto">
+                    En el centro del logo aparece una planta de pecán. De ella nacen cinco frutos, que representan a los cinco hijos de Don Julián. Este elemento simboliza la familia, el crecimiento y el origen común. También refleja la relación directa entre la tierra, el trabajo cotidiano y el fruto que finalmente llega a la mesa.
+                </div>
+            </div>
+
+            <div class="slide fade">
+                <img class="slide-img" src="./assets/nosotros/logo-v2-02.svg" alt="">
+                <div class="slide-texto">
+                    El círculo que rodea la planta representa la unidad familiar. Al mismo tiempo, funciona como un símbolo de protección y continuidad. Visualmente reúne todos los elementos del logo y transmite la idea de un proyecto que crece desde la familia hacia la comunidad.
+                </div>
+            </div>
+
+            <!-- Next and previous buttons -->
+            <a class="previo" onclick="plusSlides(-1)">&#10094;</a>
+            <a class="siguiente" onclick="plusSlides(1)">&#10095;</a>
+        </div>
+        <div style="text-align:center">
+            <span class="dot" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+            <span class="dot" onclick="currentSlide(3)"></span>
+            <span class="dot" onclick="currentSlide(4)"></span>
+        </div>
+    </div>
+
+    <!-- <img src="assets/nosotros/logo-v2.svg" alt="">
+        <div>             -->
+    <!-- <p>Nuestro logo es mucho más que una identidad gráfica; es un mapa de nuestros afectos y un tributo a lo que
                 verdaderamente importa. Nació de la misma tierra que trabajamos, inspirado por la fuerza que impulsa cada
                 una de nuestras jornadas: la familia.
                 <br><br>
@@ -126,9 +176,9 @@
                 el mismo amor con el que cuida a los suyos.</p>
             <br>
             <p>Porque creemos que cada nogal plantado es una promesa:</p>
-            <p>la promesa de un futuro más consciente, más sustentable y más humano.</p>
-        </div>
-    </div>
+            <p>la promesa de un futuro más consciente, más sustentable y más humano.</p> -->
+    <!-- </div> -->
+
 
 
 
@@ -148,19 +198,23 @@
                 <p>Argentina</p>
                 <br>
                 <p><a href="mailto:">donjulianpecanes@gmail.com</a></p>
-                <p>+54(03404)15409888</p>    
+                <p>+54(03404)15409888</p>
             </div>
             <div class="footer-redes">
                 <!-- <p class="footer-encabezado">NUESTRAS REDES</p> -->
-                <a href="https://www.facebook.com/donjulianpecanes/" target="_blank" rel="noopener"><i class="fa-brands fa-facebook-f"></i></a>
-                <a href="https://www.instagram.com/donjulianpecanes/" target="_blank" rel="noopener"><i class="fa-brands fa-instagram"></i></a>
-                <a href="https://api.whatsapp.com/send?phone=+5493404505444&text=Hola. Quisiera comunicarme con Don Julian Pecanes!" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i></a>
+                <a href="https://www.facebook.com/donjulianpecanes/" target="_blank" rel="noopener"><i
+                        class="fa-brands fa-facebook-f"></i></a>
+                <a href="https://www.instagram.com/donjulianpecanes/" target="_blank" rel="noopener"><i
+                        class="fa-brands fa-instagram"></i></a>
+                <a href="https://api.whatsapp.com/send?phone=+5493404505444&text=Hola. Quisiera comunicarme con Don Julian Pecanes!"
+                    target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i></a>
             </div>
         </div>
     </div>
 
     <script src="js/nosotros_script.js"></script>
     <script src="js/script.js"></script>
-    
+
 </body>
+
 </html>
