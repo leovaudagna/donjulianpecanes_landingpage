@@ -109,7 +109,10 @@ p {
   width: 100%;
   overflow-x: auto;
   scroll-behavior: smooth;
+  scroll-padding: 10vw;
 }
+
+
 
 .galeria::-webkit-scrollbar {
   display: none;
@@ -117,7 +120,7 @@ p {
 
 .galeria-inner {
   display: flex;
-  justify-content: center;
+  /* justify-content: center; */
   gap: 20px;
   padding: 10px;
 }
@@ -335,7 +338,7 @@ p {
   .galeria-inner {
     display: flex;
     gap: 20px;
-    padding: 10px 20px;
+    padding: 10px calc((100vw - 85vw) / 2);
   }
 
   .galeria-inner img {
