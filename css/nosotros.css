@@ -320,10 +320,15 @@ p {
     padding: 0;
   }
 
-    .galeria {
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
+  .galeria {
+  width: 100%;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+
+  .galeria::-webkit-scrollbar {
+    display: none;
   }
 
   .galeria-inner {
@@ -336,20 +341,9 @@ p {
     width: 85%;
     flex-shrink: 0;
     scroll-snap-align: center;
-  }
-
-  
-
-  .galeria {
-    margin-right: 0;
-    width: 100%;
-    overflow-x: visible !important;
-  }
-
-  .galeria-inner img {
-    width: 80%;
     margin: 0 auto;
   }
+
 
   .texto {
     text-align: center;
