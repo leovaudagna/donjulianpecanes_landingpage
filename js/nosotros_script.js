@@ -101,3 +101,24 @@ function mostrarSlide(n){
 
 }
 
+//Scrollbar que desaparezca
+let lastScrollTop = 0;
+const navbarContainer = document.querySelector(".container-navbar");
+
+window.addEventListener("scroll", () => {
+  let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+  if (scrollTop > lastScrollTop) {
+    // Scroll hacia abajo - Escondemos la navbar
+    navbarContainer.style.transform = "translateY(-100%)";
+  } else {
+    // Scroll hacia arriba - Mostramos la navbar
+    navbarContainer.style.transform = "translateY(0)";
+  }
+  
+  // Opcional: Si estás muy arriba (en el inicio), asegúrate que se vea
+  if (scrollTop <= 0) {
+    navbarContainer.style.transform = "translateY(0)";
+  }
+  lastScrollTop = scrollTop;
+});

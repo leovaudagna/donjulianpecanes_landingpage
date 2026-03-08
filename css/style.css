@@ -69,6 +69,8 @@ h3 {
   margin: auto;
   padding: 0 25px;
   width: 100%;
+  transition: transform 0.3s ease-in-out;
+  will-change: transform;
 }
 
 .container-navbar .navbar {
