@@ -73,6 +73,11 @@ p {
   color: var(--color-verde);
 }
 
+/* NUESTRO LUGAR */
+#nuestro-lugar {
+  text-align: center;
+
+}
 
 
 .galeria-wrap {
@@ -314,6 +319,10 @@ p {
     height: auto;
   }
 
+  .nuestro-lugar {
+    padding: 0 30px;
+  }  
+
   .contenedor {
     flex-direction: column;
     justify-content: center;
@@ -399,7 +408,7 @@ p {
   }
 
   #container-marca img {
-    width: 80vw !important;
+    width: 70vw !important;
   }
 
   #container-marca .slideshow-container .slide {
