@@ -54,6 +54,18 @@ function manejarSwipe() {
 
 }
 
+//galeria imagen del medio
+window.addEventListener("load", () => {
+
+  const imagenCentro = document.querySelector(".galeria-inner img:nth-child(2)");
+
+  imagenCentro.scrollIntoView({
+    behavior: "instant",
+    inline: "center",
+    block: "nearest"
+  });
+});
+
 //Slideshow prueba
 
 let slideIndex = 1;

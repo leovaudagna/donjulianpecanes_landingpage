@@ -338,7 +338,7 @@ p {
   .galeria-inner {
     display: flex;
     gap: 20px;
-    padding: 10px calc((100vw - 85vw) / 2);
+    padding: 10px 20px;
   }
 
   .galeria-inner img {
