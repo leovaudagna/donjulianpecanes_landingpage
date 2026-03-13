@@ -213,11 +213,16 @@ p {
 
 
 .slide-texto {
+  min-width: 385px;
+  max-width: 500px;
   padding-right: 120px;
+  line-height: 1.6em;
+  font-size: 1.3rem;
 }
 
 #frase-cierre{
   display: flex;
+  flex-direction: column;
   justify-content: center;  
   align-items: center;      
   text-align: center;
@@ -226,7 +231,7 @@ p {
 
 #frase-cierre .slide-texto{
   padding: 0;
-  font-size: 1.2rem;
+  font-size: 1.7rem;
   line-height: 1.6;
   max-width: 50vw;
   margin: 0 60px;
@@ -241,7 +246,7 @@ p {
   cursor: pointer;
   position: absolute;
   top: 50%;
-  transform: translateY(-50%); /* centra perfecto verticalmente */
+  transform: translateY(-50%);
   width: auto;
   margin-top: -22px;
   padding: 16px;
@@ -327,9 +332,9 @@ p {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 100vw; /* ✅ ocupar todo el ancho real de la pantalla */
+    width: 100vw;
     max-width: 100vw;
-    margin: 0; /* ✅ eliminar márgenes laterales */
+    margin: 0; 
     padding: 0;
   }
 
@@ -360,6 +365,11 @@ p {
 
   .texto {
     text-align: center;
+
+  }
+
+  .slide-texto {
+    font-size: 1.2rem ;
   }
 
   #container-marca {
@@ -414,6 +424,16 @@ p {
   #container-marca .slideshow-container .slide {
     display: flex;
     flex-direction: column;
+  }
+
+  .slide .fade {
+    max-height: 200px !important;
+    margin-bottom: 0px;
+  }
+
+  .slide-texto {
+    font-size: 1.1rem;
+    margin-bottom: 0px;
   }
 
   #frase-cierre .slide-texto{

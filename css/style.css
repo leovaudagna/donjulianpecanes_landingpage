@@ -161,7 +161,7 @@ a {
   margin: 5px auto;
   -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
-  background-color: var(--color-marron);
+  background-color: var(--color-marron);  
 }
 
 .overlay {
@@ -175,6 +175,7 @@ a {
   pointer-events: none;
   transition: opacity 0.3s ease;
   z-index: 14;
+  
 }
 
 .overlay.active {
@@ -777,6 +778,8 @@ form button:hover {
     justify-content: flex-end;
   }
 
+  
+
   .hamburger {
     display: block;
   }
@@ -821,6 +824,12 @@ form button:hover {
     z-index: 50;
   }
 
+  /* logo */
+  .navbar-logo {
+  position: relative;
+  z-index: 30;
+}
+
   .container-main {
     flex-direction: row;
     align-items: center;
@@ -830,6 +839,8 @@ form button:hover {
     height: auto;
     margin-right: 0px;
   }
+
+
   .logo {
     display: none !important;
   }
@@ -1029,6 +1040,7 @@ form button:hover {
     justify-content: center !important;
     align-items: center !important;
   }
+  
 
   .slogan {
     display: flex;
